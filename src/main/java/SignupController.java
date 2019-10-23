@@ -21,6 +21,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -39,23 +42,27 @@ public class SignupController implements Initializable {
     @FXML
     private JFXTextField pnField;
     @FXML
-    private ToggleGroup genderToggle;
-    @FXML
-    private JFXDatePicker dobField;
-    @FXML
     private JFXTextField usrnField;
     @FXML
     private JFXPasswordField pwdField;
     @FXML
     private JFXButton uploadImg;
     @FXML
-    private ToggleGroup genderToggle2;
-    @FXML
     private Hyperlink returntologin;
     @FXML
     private JFXButton singupBtn2;
+    @FXML
+    private ImageView usericon;
+    @FXML
+    private ImageView passicon;
+    @FXML
+    private ImageView nameicon;
+    @FXML
+    private ImageView mailicon;
+    @FXML
+    private ImageView telicon;
 
-    /**
+    /*
      * Initializes the controller class.
      */
     @Override
@@ -90,6 +97,38 @@ public class SignupController implements Initializable {
         stage.hide();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void fnField(KeyEvent event) {
+        
+ 
+        
+    }
+
+    @FXML
+    private void emFieldv(KeyEvent event) {
+    }
+
+    @FXML
+    private void pnFieldv(KeyEvent event) {
+    }
+
+    @FXML
+    private void usrnFieldv(KeyEvent event) {
+        
+         if (usrnField.getText().length()>4) 
+                usericon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                usericon.setImage(new Image("/fxml/assets/error.png"));
+        
+    }
+
+    @FXML
+    private void pwdFieldv(KeyEvent event) {
+        
+ 
+        
     }
     
 }
