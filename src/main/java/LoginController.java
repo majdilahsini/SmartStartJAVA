@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +19,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -42,6 +46,10 @@ public class LoginController implements Initializable {
     private Label error;
     @FXML
     private Button loginButton11;
+    @FXML
+    private ImageView verifIcon;
+    
+    
     /*
      * Initializes the controller class.
      */
@@ -73,6 +81,18 @@ public class LoginController implements Initializable {
         stage.setScene(scene);
         //
         
+    }
+
+    @FXML
+    private void verifentry(KeyEvent event) {
+        
+              
+    }
+
+    @FXML
+    private void checkentry(KeyEvent event) {
+
+                  
     }
  
     

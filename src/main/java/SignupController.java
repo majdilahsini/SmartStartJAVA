@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -102,7 +103,13 @@ public class SignupController implements Initializable {
     @FXML
     private void fnField(KeyEvent event) {
         
- 
+        
+         if (Pattern.matches("[a-zA-Z]+", fnField.getText()) && fnField.getText().length() > 2) 
+                nameicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                nameicon.setImage(new Image("/fxml/assets/error.png"));
+        
+        
         
     }
 
@@ -127,8 +134,11 @@ public class SignupController implements Initializable {
     @FXML
     private void pwdFieldv(KeyEvent event) {
         
- 
-        
+         if (pwdField.getText().length()>4) 
+                passicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                passicon.setImage(new Image("/fxml/assets/error.png"));
+         
     }
     
 }
