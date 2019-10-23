@@ -18,27 +18,27 @@
     </stylesheets>
    <children>
       <Label fx:id="error" layoutX="47.0" layoutY="220.0" prefHeight="17.0" prefWidth="239.0" textFill="RED" />
-      <Text fill="#1f1f1f" layoutX="619.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+      <Text fill="#1f1f1f" layoutX="608.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="#1f1f1f" layoutX="620.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text fill="#1f1f1f" layoutX="609.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="#1f1f1f" layoutX="618.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+      <Text fill="#1f1f1f" layoutX="607.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="#1f1f1f" layoutX="619.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text fill="#1f1f1f" layoutX="608.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="#1f1f1f" layoutX="619.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text fill="#1f1f1f" layoutX="608.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
          <font>
             <Font size="20.0" />
          </font>
@@ -48,18 +48,18 @@
             <Font size="20.0" />
          </font>
       </Hyperlink>
-      <JFXTextField fx:id="fnField" layoutX="749.0" layoutY="209.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fnField" prefHeight="40.0" prefWidth="209.0" />
+      <JFXTextField fx:id="fnField" layoutX="738.0" layoutY="206.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fnField" prefHeight="40.0" prefWidth="209.0" />
       <JFXTextField fx:id="emField" layoutX="749.0" layoutY="282.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#emFieldv" prefHeight="40.0" prefWidth="209.0" />
-      <JFXTextField fx:id="pnField" layoutX="759.0" layoutY="350.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
-      <JFXTextField fx:id="usrnField" layoutX="749.0" layoutY="56.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#usrnFieldv" prefHeight="40.0" prefWidth="209.0" />
-      <JFXPasswordField fx:id="pwdField" layoutX="749.0" layoutY="134.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pwdFieldv" prefHeight="40.0" prefWidth="209.0" />
-      <Label layoutX="619.0" layoutY="439.0" prefHeight="30.0" prefWidth="169.0" text="Select an image..">
+      <JFXTextField fx:id="pnField" layoutX="748.0" layoutY="347.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <JFXTextField fx:id="usrnField" layoutX="738.0" layoutY="53.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#usrnFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <JFXPasswordField fx:id="pwdField" layoutX="738.0" layoutY="131.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pwdFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <Label layoutX="607.0" layoutY="411.0" prefHeight="30.0" prefWidth="169.0" text="Select an image..">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="uploadImg" layoutX="619.0" layoutY="469.0" onAction="#uploadImage" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
-      <JFXButton fx:id="singupBtn2" layoutX="618.0" layoutY="547.0" onAction="#signupbtnAction" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
+      <JFXButton fx:id="uploadImg" layoutX="607.0" layoutY="441.0" onAction="#uploadImage" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
+      <JFXButton fx:id="singupBtn2" layoutX="602.0" layoutY="547.0" onAction="#signupbtnAction" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -73,7 +73,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fx:id="usericon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="usericon" fitHeight="32.0" fitWidth="32.0" layoutX="974.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="passicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="nameicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="mailicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
