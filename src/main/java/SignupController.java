@@ -26,6 +26,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import utils.Verification;
 
 /**
  * FXML Controller class
@@ -124,10 +125,13 @@ public class SignupController implements Initializable {
     @FXML
     private void usrnFieldv(KeyEvent event) {
         
-         if (usrnField.getText().length()>4) 
+        Verification v = new Verification();
+         if (v.siUsernameExiste(usrnField.getText()) == 0 && usrnField.getText().length()>2) 
+
                 usericon.setImage(new Image("/fxml/assets/ok.png"));
-         else 
+        else 
                 usericon.setImage(new Image("/fxml/assets/error.png"));
+                //System.out.println("0");
         
     }
 
