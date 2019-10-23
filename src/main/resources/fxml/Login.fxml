@@ -29,7 +29,7 @@
             <Font size="11.0" />
          </font>
       </Hyperlink>
-      <JFXTextField fx:id="loginField" layoutX="43.0" layoutY="252.0" maxWidth="307.0" minWidth="255.0" prefHeight="45.0" prefWidth="307.0" promptText="USERNAME" />
+      <JFXTextField fx:id="loginField" layoutX="43.0" layoutY="252.0" maxWidth="307.0" minWidth="255.0" onKeyPressed="#verifentry" onKeyReleased="#checkentry" prefHeight="45.0" prefWidth="307.0" promptText="USERNAME" />
       <JFXPasswordField fx:id="pwdField" layoutX="43.0" layoutY="309.0" maxWidth="307.0" minWidth="255.0" prefHeight="45.0" prefWidth="307.0" promptText="PASSWORD" />
       <ImageView fitHeight="649.0" fitWidth="895.0" layoutX="426.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,5 +47,6 @@
             <Image url="@assets/logo.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="verifIcon" fitHeight="32.0" fitWidth="32.0" layoutX="368.0" layoutY="262.0" opacity="0.62" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
