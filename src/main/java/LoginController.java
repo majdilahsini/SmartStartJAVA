@@ -71,6 +71,7 @@ public class LoginController implements Initializable {
         Scene scene = new Scene(signUpPage);
         stage = (Stage)signupC.getScene().getWindow();
         stage.setScene(scene);
+        //
         
     }
  
