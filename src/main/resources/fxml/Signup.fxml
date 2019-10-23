@@ -58,7 +58,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="uploadImg" layoutX="607.0" layoutY="441.0" onAction="#uploadImage" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
+      <JFXButton fx:id="uploadImg" layoutX="607.0" layoutY="441.0" onAction="#uploadImageAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
       <JFXButton fx:id="singupBtn2" layoutX="602.0" layoutY="547.0" onAction="#signupbtnAction" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
          <font>
             <Font size="20.0" />
@@ -78,5 +78,6 @@
       <ImageView fx:id="nameicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="mailicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="telicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgphoto" fitHeight="150.0" fitWidth="200.0" layoutX="793.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
