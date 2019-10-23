@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1020.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignupController">
+    <stylesheets>
+        <URL value="@/styles/login.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="error" layoutX="47.0" layoutY="220.0" prefHeight="17.0" prefWidth="239.0" textFill="RED" />
+      <Text fill="#1f1f1f" layoutX="618.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="619.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="618.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="619.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="619.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of birth">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="618.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="620.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Hyperlink fx:id="returntologin" layoutX="893.0" layoutY="600.0" onAction="#returntologinAction" text="Return home" textFill="#b2a2a2">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Hyperlink>
+      <JFXTextField fx:id="fnField" layoutX="758.0" layoutY="140.0" maxWidth="231.0" minWidth="189.0" prefHeight="40.0" prefWidth="231.0" />
+      <JFXTextField fx:id="emField" layoutX="758.0" layoutY="205.0" maxWidth="231.0" minWidth="189.0" prefHeight="40.0" prefWidth="231.0" />
+      <JFXTextField fx:id="pnField" layoutX="758.0" layoutY="261.0" maxWidth="231.0" minWidth="189.0" prefHeight="40.0" prefWidth="231.0" />
+      <JFXRadioButton layoutX="758.0" layoutY="332.0" prefHeight="21.0" prefWidth="112.0" text="Female">
+         <toggleGroup>
+            <ToggleGroup fx:id="genderToggle" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXRadioButton layoutX="920.0" layoutY="335.0" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="genderToggle2" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <JFXDatePicker fx:id="dobField" layoutX="755.0" layoutY="384.0" prefHeight="40.0" prefWidth="231.0" style="-fx-background-color: transparent;" />
+      <JFXTextField fx:id="usrnField" layoutX="755.0" layoutY="21.0" maxWidth="231.0" minWidth="189.0" prefHeight="40.0" prefWidth="231.0" />
+      <JFXPasswordField fx:id="pwdField" layoutX="758.0" layoutY="79.0" maxWidth="231.0" minWidth="189.0" prefHeight="40.0" prefWidth="231.0" />
+      <Label layoutX="619.0" layoutY="449.0" prefHeight="30.0" prefWidth="169.0" text="Select an image..">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="uploadImg" layoutX="619.0" layoutY="479.0" onAction="#uploadImage" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
+      <JFXButton fx:id="singupBtn2" layoutX="618.0" layoutY="547.0" onAction="#signupbtnAction" prefHeight="44.0" prefWidth="370.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="590.0">
+         <children>
+            <ImageView fitHeight="647.0" fitWidth="574.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/Career2.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
