@@ -9,8 +9,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import entities.Utilisateur;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
@@ -25,7 +28,11 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import services.ServiceOffre;
+import services.ServiceUtilisateur;
+import utils.Verification;
 
 /**
  * FXML Controller class
@@ -34,6 +41,8 @@ import javafx.stage.Stage;
  */
 public class SignupController implements Initializable {
 
+    
+    private File file;
     @FXML
     private Label error;
     @FXML
@@ -62,6 +71,10 @@ public class SignupController implements Initializable {
     private ImageView mailicon;
     @FXML
     private ImageView telicon;
+    @FXML
+    private ImageView imgphoto;
+    
+    int intarray[] = new int[20];
 
     /*
      * Initializes the controller class.
@@ -84,11 +97,7 @@ public class SignupController implements Initializable {
         
     }
 
-    @FXML
-    private void uploadImage(ActionEvent event) {
-    }
 
-    @FXML
     private void signupbtnAction(ActionEvent event) throws IOException {
         
         Stage stage;
@@ -108,8 +117,8 @@ public class SignupController implements Initializable {
                 nameicon.setImage(new Image("/fxml/assets/ok.png"));
          else 
                 nameicon.setImage(new Image("/fxml/assets/error.png"));
-        
-        
+         
+                
         
     }
 
@@ -124,10 +133,13 @@ public class SignupController implements Initializable {
     @FXML
     private void usrnFieldv(KeyEvent event) {
         
-         if (usrnField.getText().length()>4) 
+        Verification v = new Verification();
+         if (v.siUsernameExiste(usrnField.getText()) == 0 && usrnField.getText().length()>2) 
+
                 usericon.setImage(new Image("/fxml/assets/ok.png"));
-         else 
+        else 
                 usericon.setImage(new Image("/fxml/assets/error.png"));
+                //System.out.println("0");
         
     }
 
@@ -139,6 +151,34 @@ public class SignupController implements Initializable {
          else 
                 passicon.setImage(new Image("/fxml/assets/error.png"));
          
+    }
+
+    @FXML
+    private void uploadImageAction(ActionEvent event) {
+        
+        FileChooser fileChooser = new FileChooser();
+        //FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        //fileChooser.getExtensionFilters().add(extFilter);
+        file = fileChooser.showOpenDialog(uploadImg.getScene().getWindow());
+        if(file != null){
+            Image img = new Image(file.toURI().toString(),100,150,true,true);
+            imgphoto.setImage(img);
+            imgphoto.setFitWidth(200);
+            imgphoto.setFitHeight(126);
+            imgphoto.setPreserveRatio(true);
+        }
+        System.out.println(file);
+        
+    }
+
+    @FXML
+    private void signupAction(ActionEvent event) {
+        
+        ServiceUtilisateur su = new ServiceUtilisateur();
+        Utilisateur u = new Utilisateur(fnField.getText(), fnField.getText(), emField.getText(), "tounes", pnField.getText());
+        
+        System.out.println(su.ajouterUtilisateur(u));
+        
     }
     
 }

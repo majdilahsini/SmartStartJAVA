@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1020.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignupController">
+    <stylesheets>
+        <URL value="@/styles/login.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="error" layoutX="47.0" layoutY="220.0" prefHeight="17.0" prefWidth="239.0" textFill="RED" />
+      <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="590.0">
+         <children>
+            <Text fill="#1f1f1f" layoutX="72.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#1f1f1f" layoutX="73.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#1f1f1f" layoutX="71.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#1f1f1f" layoutX="72.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#1f1f1f" layoutX="72.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <JFXTextField fx:id="fnField" layoutX="202.0" layoutY="204.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fnField" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="emField" layoutX="213.0" layoutY="280.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#emFieldv" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="pnField" layoutX="212.0" layoutY="345.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="usrnField" layoutX="202.0" layoutY="51.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#usrnFieldv" prefHeight="40.0" prefWidth="209.0" />
+            <JFXPasswordField fx:id="pwdField" layoutX="202.0" layoutY="129.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pwdFieldv" prefHeight="40.0" prefWidth="209.0" />
+            <Label layoutX="71.0" layoutY="409.0" prefHeight="30.0" prefWidth="169.0" text="Select an image..">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="uploadImg" layoutX="71.0" layoutY="439.0" onAction="#uploadImageAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
+            <JFXButton fx:id="singupBtn2" layoutX="66.0" layoutY="545.0" onAction="#signupbtnAction" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <Hyperlink fx:id="returntologin" layoutX="-7.0" layoutY="603.0" onAction="#returntologinAction" text="Return home" textFill="#b2a2a2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="643.0" fitWidth="932.0" layoutX="499.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/career3.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
