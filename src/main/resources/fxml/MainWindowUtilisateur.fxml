@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowUtilisateurController">
    <children>
-      <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="269.0" style="-fx-background-color: #00597C;">
+      <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="327.0" style="-fx-background-color: #00597C;">
          <children>
             <JFXButton alignment="BASELINE_LEFT" layoutY="578.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Quitter" textFill="#fff9f9">
                <font>
@@ -28,13 +28,13 @@
                   <ColorAdjust brightness="0.03" contrast="-0.14" />
                </effect>
             </JFXButton>
-            <Accordion layoutY="131.0" prefHeight="307.0" prefWidth="328.0">
+            <Accordion layoutX="-1.0" layoutY="123.0" prefHeight="395.0" prefWidth="328.0">
               <panes>
-                  <TitledPane fx:id="monespace" animated="false" blendMode="SCREEN" prefHeight="128.0" prefWidth="328.0" text="Mon Espace">
+                  <TitledPane fx:id="monespace" blendMode="SCREEN" prefHeight="128.0" prefWidth="328.0" text="Mon Espace">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="324.0">
                            <children>
-                              <JFXButton fx:id="deconnect1" alignment="BASELINE_LEFT" layoutX="1.0" onAction="#returntologin" prefHeight="0.0" prefWidth="323.0" style="-fx-background-color: #00597C;" text="Mon Profil CV" textFill="#fff9f9">
+                              <JFXButton fx:id="deconnect1" alignment="BASELINE_LEFT" layoutX="1.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mon Profil CV" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -42,7 +42,23 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect11" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#returntologin" prefHeight="0.0" prefWidth="323.0" style="-fx-background-color: #00597C;" text="Mes Candidatures" textFill="#fff9f9">
+                              <JFXButton fx:id="deconnect11" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Candidatures" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect111" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="88.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Formations" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect1111" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="132.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Entretiens" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -57,12 +73,12 @@
                         <Font size="20.0" />
                      </font>
                   </TitledPane>
-                <TitledPane fx:id="offrebtn" animated="false" blendMode="SCREEN" collapsible="false" expanded="false" onMouseClicked="#offrebtnAction" text="     Les Offres">
+                <TitledPane fx:id="offrebtn" blendMode="SCREEN" collapsible="false" expanded="false" onMouseClicked="#offrebtnAction" text="     Les Offres">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TitledPane>
-                <TitledPane animated="false" blendMode="SCREEN" collapsible="false" expanded="false" text="     Les Formations">
+                <TitledPane blendMode="SCREEN" collapsible="false" expanded="false" text="     Les Formations">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -75,7 +91,7 @@
                         <Font size="20.0" />
                      </font>
                   </TitledPane>
-                  <TitledPane animated="false" blendMode="SCREEN" expanded="false" text="Forum">
+                  <TitledPane blendMode="SCREEN" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="164.0" prefWidth="328.0" text="Forum">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -95,6 +111,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="89.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -104,6 +121,7 @@
                   </TitledPane>
               </panes>
             </Accordion>
+            <BorderPane layoutX="-1.0" prefHeight="104.0" prefWidth="328.0" />
          </children>
       </AnchorPane>
       <BorderPane fx:id="borderpane" layoutX="326.0" layoutY="-1.0" prefHeight="640.0" prefWidth="843.0" />
