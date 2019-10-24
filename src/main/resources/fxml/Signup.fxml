@@ -59,7 +59,7 @@
          </font>
       </Label>
       <JFXButton fx:id="uploadImg" layoutX="607.0" layoutY="441.0" onAction="#uploadImageAction" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #009687;" text="Upload image" textFill="WHITE" />
-      <JFXButton fx:id="singupBtn2" layoutX="602.0" layoutY="547.0" onAction="#signupbtnAction" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
+      <JFXButton fx:id="singupBtn2" layoutX="602.0" layoutY="547.0" onAction="#signupAction" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
