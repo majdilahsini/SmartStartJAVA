@@ -98,7 +98,6 @@ public class SignupController implements Initializable {
     }
 
 
-    @FXML
     private void signupbtnAction(ActionEvent event) throws IOException {
         
         Stage stage;
@@ -181,5 +180,9 @@ public class SignupController implements Initializable {
         System.out.println(su.ajouterUtilisateur(u));
         
     }*/
+
+    @FXML
+    private void signupAction(ActionEvent event) {
+    }
     
 }

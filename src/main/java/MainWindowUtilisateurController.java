@@ -6,6 +6,7 @@
 
 
 import com.jfoenix.controls.JFXButton;
+import static com.sun.glass.ui.Cursor.setVisible;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -33,23 +35,22 @@ public class MainWindowUtilisateurController implements Initializable {
     
     private Label label;
     @FXML
-    private JFXButton monespacebtn;
-    @FXML
-    private JFXButton offrebtn;
-    @FXML
-    private JFXButton formationbtn;
-    @FXML
-    private Pane indicateur;
-    @FXML
-    private JFXButton forumbtn;
-    @FXML
-    private JFXButton crowdbtn;
-    @FXML
-    private JFXButton accueilbtn;
-    @FXML
-    private JFXButton deconnect;
+    private TitledPane offrebtn;
     @FXML
     private BorderPane borderpane;
+    @FXML
+    private JFXButton deconnect1;
+    @FXML
+    private JFXButton deconnect11;
+    @FXML
+    private JFXButton deconnect2;
+    private JFXButton offresbtn;
+    @FXML
+    private TitledPane monespace;
+    @FXML
+    private JFXButton deconnect12;
+    @FXML
+    private JFXButton deconnect121;
 
     
     
@@ -70,49 +71,6 @@ public class MainWindowUtilisateurController implements Initializable {
     }
 
     @FXML
-    private void monespaceAction(ActionEvent event) {
-        indicateur.setLayoutY(monespacebtn.getLayoutY()+10);
-    }
-
-    @FXML
-    private void OffreMenuAction(ActionEvent event) {
-        indicateur.setLayoutY(offrebtn.getLayoutY()+10);
-        
-    }
-    
-    @FXML
-    private void FormationMenuAction(ActionEvent event) {
-
-        indicateur.setLayoutY(formationbtn.getLayoutY()+10);
-         /*if (event.getTarget() == formationbtn) {
-             pane_formation.setVisible(true);
-            
-             }*/
-          
-    }
-
-    @FXML
-    private void forumMenuAction(ActionEvent event) {
-        indicateur.setLayoutY(forumbtn.getLayoutY()+10);
-    }
-
-    @FXML
-    private void crowdmenuAction(ActionEvent event) {
-        indicateur.setLayoutY(crowdbtn.getLayoutY()+10);
-    }
-
-    @FXML
-    private void accueilAction(ActionEvent event) throws IOException {
-        indicateur.setLayoutY(accueilbtn.getLayoutY()+10);
-        //Stage stage;
-        //window.clearConstraints();
-        //stage = (Stage)deconnect.getScene().getWindow();
-        //window.clearConstraints(window);
-         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
-         borderpane.setCenter(root);
-    }
-
-    @FXML
     private void returntologin(ActionEvent event) throws IOException {
         
         //AnchorPane anchorpane;
@@ -123,6 +81,15 @@ public class MainWindowUtilisateurController implements Initializable {
         borderpane.setCenter(root);
         
     }
+
+    @FXML
+    private void offrebtnAction(MouseEvent event) {
+        
+        offrebtn.lookup(".arrow").setVisible(true);
+
+        
+    }
+
 
 
     
