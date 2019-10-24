@@ -31,7 +31,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceOffre;
-import services.ServiceUtilisateur;
+//import services.ServiceUtilisateur;
 import utils.Verification;
 
 /**
@@ -98,6 +98,7 @@ public class SignupController implements Initializable {
     }
 
 
+    @FXML
     private void signupbtnAction(ActionEvent event) throws IOException {
         
         Stage stage;
@@ -171,14 +172,14 @@ public class SignupController implements Initializable {
         
     }
 
-    @FXML
+ /*   @FXML
     private void signupAction(ActionEvent event) {
         
-        ServiceUtilisateur su = new ServiceUtilisateur();
+       ServiceUtilisateur su = new ServiceUtilisateur();
         Utilisateur u = new Utilisateur(fnField.getText(), fnField.getText(), emField.getText(), "tounes", pnField.getText());
         
         System.out.println(su.ajouterUtilisateur(u));
         
-    }
+    }*/
     
 }
