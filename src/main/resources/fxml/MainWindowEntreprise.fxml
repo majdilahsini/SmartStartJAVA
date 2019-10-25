@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowEntrepriseController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="327.0" style="-fx-background-color: #00597C;">
+         <children>
+            <JFXButton alignment="BASELINE_LEFT" layoutY="578.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Quitter" textFill="#fff9f9">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <effect>
+                  <ColorAdjust brightness="-0.19" contrast="1.0" />
+               </effect>
+            </JFXButton>
+            <JFXButton fx:id="deconnect2" alignment="BASELINE_LEFT" blendMode="SCREEN" layoutX="-1.0" layoutY="516.0" onAction="#returntologin" prefHeight="62.0" prefWidth="328.0" style="-fx-background-color: #E4E4E4;" text="Déconnexion">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <effect>
+                  <ColorAdjust brightness="0.03" contrast="-0.14" />
+               </effect>
+            </JFXButton>
+            <Accordion layoutX="-1.0" layoutY="78.0" prefHeight="438.0" prefWidth="328.0">
+              <panes>
+                  <TitledPane fx:id="monespace" blendMode="SCREEN" prefHeight="264.0" prefWidth="328.0" text="Mon Espace">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="324.0">
+                           <children>
+                              <JFXButton fx:id="deconnect1" alignment="BASELINE_LEFT" layoutX="1.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mon Profil" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect11" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Candidatures" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect111" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="88.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Formations" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect1111" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="132.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Entretiens" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect11111" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="176.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Projets" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TitledPane>
+                <TitledPane fx:id="offrebtn" blendMode="SCREEN" onMouseClicked="#offrebtnAction" text="     Les Offres">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="deconnect121" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer une Offre" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect1211" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Les Offres" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                <TitledPane blendMode="SCREEN" text="     Les Formations">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="deconnect121" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer une formation" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect1212" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter les formations" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane blendMode="SCREEN" text="     Les crowdfundings">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="deconnect121" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un projet" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect1213" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter les projets" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane blendMode="SCREEN" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="164.0" prefWidth="328.0" text="Forum">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="deconnect12" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un Sujet" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="deconnect121" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="borderpane" layoutX="326.0" layoutY="-1.0" prefHeight="640.0" prefWidth="843.0" />
+   </children>
+</AnchorPane>
