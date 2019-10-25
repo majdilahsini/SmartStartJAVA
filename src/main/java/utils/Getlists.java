@@ -80,5 +80,24 @@ public class Getlists {
         return i;
     }
     
+    public List<String> getLangues () {
+       
+        List<String> l = new ArrayList<String>();
+        
+        String r = "SELECT `nom` FROM `langues`";
+        
+        try {
+            ps = c.prepareStatement(r);
+            res = ps.executeQuery();
+            
+            while (res.next()) 
+                 l.add(res.getString(1));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return l;
+    }
+    
     
 }
