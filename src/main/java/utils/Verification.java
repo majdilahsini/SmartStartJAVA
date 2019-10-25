@@ -31,7 +31,7 @@ public class Verification {
             st = c.createStatement();
         } catch (SQLException ex) {
             Logger.getLogger(Verification.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        }
     }     
     
     public int siUsernameExiste(String s) {
