@@ -20,7 +20,7 @@
    <children>
       <AnchorPane layoutX="-6.0" prefHeight="640.0" prefWidth="132.0" style="-fx-background-color: #00425C;" />
       <AnchorPane layoutX="126.0" prefHeight="640.0" prefWidth="132.0" style="-fx-background-color: #00597C;" />
-      <JFXButton fx:id="loginbtn" alignment="CENTER" contentDisplay="TOP" layoutX="330.0" layoutY="360.0" onAction="#loginbtnAction" prefHeight="62.0" prefWidth="414.0" style="-fx-background-color: #1592B5;" text="Login" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXButton fx:id="loginbtn" alignment="CENTER" contentDisplay="TOP" layoutX="332.0" layoutY="371.0" onAction="#loginbtnAction" prefHeight="62.0" prefWidth="414.0" style="-fx-background-color: #1592B5;" text="Login" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font size="27.0" />
          </font>
@@ -33,17 +33,17 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Hyperlink fx:id="fgtPwdLink" layoutX="384.0" layoutY="254.0" prefHeight="34.0" prefWidth="157.0" text="Forgot password?" textFill="#e5f2ff">
+      <Hyperlink fx:id="fgtPwdLink" layoutX="332.0" layoutY="320.0" prefHeight="34.0" prefWidth="157.0" text="Forgot password?" textFill="#1592b5">
          <font>
-            <Font size="11.0" />
+            <Font size="17.0" />
          </font>
       </Hyperlink>
       <JFXTextField fx:id="loginField" layoutX="324.0" layoutY="218.0" maxWidth="430.0" minWidth="255.0" onKeyPressed="#verifentry" onKeyReleased="#checkentry" prefHeight="45.0" prefWidth="430.0" promptText="USERNAME" unFocusColor="#54afff" />
       <JFXPasswordField fx:id="pwdField" layoutX="325.0" layoutY="275.0" maxWidth="430.0" minWidth="255.0" prefHeight="45.0" prefWidth="430.0" promptText="PASSWORD" unFocusColor="#53b1ff" />
-      <Line endX="29.0" layoutX="485.0" layoutY="448.0" startX="-145.0" stroke="#abaaaa" />
+      <Line endX="29.0" layoutX="487.0" layoutY="459.0" startX="-145.0" stroke="#abaaaa" />
       <Line endX="74.0" layoutX="668.0" layoutY="448.0" startX="-100.0" stroke="#abaaaa" />
       <Text fill="#abaaaa" layoutX="531.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OR" />
-      <JFXButton alignment="BASELINE_LEFT" layoutX="379.0" layoutY="468.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Create normal account" textFill="#fff9f9">
+      <JFXButton alignment="BASELINE_LEFT" layoutX="381.0" layoutY="479.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Create normal account" textFill="#fff9f9">
          <font>
             <Font size="20.0" />
          </font>
@@ -51,7 +51,7 @@
             <ColorAdjust brightness="-0.19" contrast="1.0" />
          </effect>
       </JFXButton>
-      <JFXButton alignment="BASELINE_LEFT" layoutX="379.0" layoutY="539.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Create business acount" textFill="#fff9f9">
+      <JFXButton alignment="BASELINE_LEFT" layoutX="381.0" layoutY="550.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Create business acount" textFill="#fff9f9">
          <font>
             <Font size="20.0" />
          </font>

@@ -6,11 +6,14 @@
 
 
 import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -50,8 +53,10 @@ public class MainWindowEntrepriseController implements Initializable {
     private JFXButton deconnect12;
     @FXML
     private BorderPane borderpane;
+    @FXML
+    private JFXButton creeroffre;
 
-    /**
+    /*
      * Initializes the controller class.
      */
     @Override
@@ -65,6 +70,14 @@ public class MainWindowEntrepriseController implements Initializable {
 
     @FXML
     private void offrebtnAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void createoffreAction(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AjouterOffre.fxml"));
+        borderpane.setCenter(root);
+        
     }
     
 }

@@ -31,10 +31,6 @@ import javafx.stage.Stage;
 public class LoginController1 implements Initializable {
 
     @FXML
-    private Label error;
-    @FXML
-    private ImageView verifIcon;
-    @FXML
     private JFXButton loginbtn;
     @FXML
     private Hyperlink fgtPwdLink;
@@ -55,7 +51,7 @@ public class LoginController1 implements Initializable {
     private void loginbtnAction(ActionEvent event) throws IOException {
         
         Stage stage;
-        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/MainWindowUtilisateur.fxml"));
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/MainWindowEntreprise.fxml"));
         Scene scene = new Scene(signUpPage);
         stage = (Stage)loginbtn.getScene().getWindow();
         stage.hide();
