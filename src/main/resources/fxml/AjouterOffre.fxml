@@ -3,25 +3,24 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AjouterOffreController">
    <children>
-      <JFXTextField fx:id="loginField" layoutX="190.0" layoutY="44.0" maxWidth="446.0" minWidth="255.0" onKeyPressed="#verifentry" onKeyReleased="#checkentry" prefHeight="62.0" prefWidth="446.0" promptText="Titre" unFocusColor="#54afff">
+      <JFXTextField fx:id="titrefield" layoutX="190.0" layoutY="44.0" maxWidth="446.0" minWidth="255.0" onKeyReleased="#titrefieldoffreverify" prefHeight="62.0" prefWidth="446.0" promptText="Titre" unFocusColor="#54afff">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="pwdField" layoutX="198.0" layoutY="233.0" maxWidth="430.0" minWidth="255.0" prefHeight="62.0" prefWidth="446.0" promptText="Niveau d'étude" unFocusColor="#53b1ff" />
       <JFXComboBox layoutX="240.0" layoutY="344.0" prefHeight="31.0" prefWidth="339.0" promptText="Domaine" style="-fx-border-color: #54afff;" />
       <JFXDatePicker defaultColor="#54afff" layoutX="194.0" layoutY="136.0" prefHeight="62.0" prefWidth="430.0" promptText="Date de Publication" stylesheets="@../styles/datapicker.css" />
       <JFXComboBox layoutX="240.0" layoutY="402.0" prefHeight="31.0" prefWidth="339.0" promptText="Langue" style="-fx-border-color: #54afff;" />
-      <JFXComboBox layoutX="240.0" layoutY="464.0" prefHeight="31.0" prefWidth="339.0" promptText="Type de Poste" style="-fx-border-color: #54afff;" />
-      <JFXButton alignment="CENTER" contentDisplay="TOP" layoutX="206.0" layoutY="547.0" prefHeight="62.0" prefWidth="414.0" style="-fx-background-color: #1592B5;" text="Confirmer" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+      <JFXComboBox fx:id="poste" layoutX="240.0" layoutY="464.0" onShown="#typepostshow" prefHeight="31.0" prefWidth="339.0" promptText="Type de Poste" style="-fx-border-color: #54afff;" />
+      <JFXButton fx:id="ajouterbsd" alignment="CENTER" contentDisplay="TOP" layoutX="206.0" layoutY="547.0" onAction="#ajouterbsdAction" prefHeight="62.0" prefWidth="414.0" style="-fx-background-color: #1592B5;" text="Confirmer" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
          <font>
             <Font size="27.0" />
          </font>
@@ -29,5 +28,12 @@
             <ColorAdjust brightness="0.03" contrast="-0.14" />
          </effect>
       </JFXButton>
+      <ImageView fx:id="titreicon" fitHeight="32.0" fitWidth="32.0" layoutX="734.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="niveauetudeicon" fitHeight="32.0" fitWidth="32.0" layoutX="734.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="niveaufield" layoutX="186.0" layoutY="233.0" maxWidth="446.0" minWidth="255.0" onKeyReleased="#niveaufieldoffreverify" prefHeight="62.0" prefWidth="446.0" promptText="Niveau d'étude (Nombre d'ans aprés le bac)" unFocusColor="#54afff">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>
