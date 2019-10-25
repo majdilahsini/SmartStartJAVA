@@ -51,6 +51,10 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton deconnect12;
     @FXML
     private JFXButton deconnect121;
+    @FXML
+    private JFXButton deconnect111;
+    @FXML
+    private JFXButton deconnect1111;
 
     
     
