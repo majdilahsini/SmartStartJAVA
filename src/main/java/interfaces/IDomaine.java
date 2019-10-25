@@ -6,6 +6,7 @@
 package interfaces;
 
 import entities.Formation;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import entities.Formation;
  */
 public interface IDomaine {
    public int getDomaineByID(String nom);
+    public List<String> getFormationType();
 }
