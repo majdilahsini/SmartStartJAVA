@@ -49,18 +49,20 @@ public class ServiceOffre implements iOffre{
        try {
           
            String r1 = "INSERT INTO `offres` "
-                    + "(`titre`,`domaine_id`,`entreprise_id`,`date_publication`,`niveau_etude`,`langue_ref`,`type_post_id`,`description`)"
-                    + " VALUES (?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?,?,?,?)";
+                    + "(`titre`,`domaine_id`,`entreprise_id`,`date_publication`,`niveau_etude`,`langue_ref`,`type_post_id`,`skill1_id`, `skill2_id`, `skill3_id`, `salaire`)"
+                    + " VALUES (?,?,?,SYSDATE(),?,?,?,?,?,?,?)";
            
            ps = c.prepareStatement(r1);
            ps.setString(1, e.getTitre());
            ps.setInt(2, e.getDomaine_id());
            ps.setInt(3, e.getEntreprise_id());
-           ps.setString(4, e.getDate_publication());
-           ps.setInt(5, e.getNiveau_etude());
-           ps.setInt(6, e.getLangue_ref());
-           ps.setInt(7, e.getType_post_id());
-           ps.setString(8, e.getDescription());
+           ps.setInt(4, e.getNiveau_etude());
+           ps.setInt(5, e.getLangue_ref());
+           ps.setInt(6, e.getType_post_id());
+           ps.setInt(7, e.getSkill1_id());
+           ps.setInt(8, e.getSkill2_id());
+           ps.setInt(9, e.getSkill3_id());
+           ps.setInt(10, e.getSalaire());
            executeTest = ps. executeUpdate();
            
     } catch (SQLException ex) {
@@ -92,11 +94,11 @@ public class ServiceOffre implements iOffre{
            ps.setString(1, e.getTitre());
            ps.setInt(2, e.getDomaine_id());
            ps.setInt(3, e.getEntreprise_id());
-           ps.setString(4, e.getDate_publication());
+          // ps.setString(4, e.getDate_publication());
            ps.setInt(5, e.getNiveau_etude());
            ps.setInt(6, e.getLangue_ref());
            ps.setInt(7, e.getType_post_id());
-           ps.setString(8, e.getDescription());
+           //ps.setString(8, e.getDescription());
            ps.setInt(9, e.getId());
            
            executeTest = ps. executeUpdate();
@@ -141,11 +143,11 @@ public class ServiceOffre implements iOffre{
                     o.setTitre(res.getString("titre"));
                     o.setDomaine_id(res.getInt("domaine_id"));
                     o.setEntreprise_id(res.getInt("entreprise_id"));
-                    o.setDate_publication(res.getString("date_publication"));
+                    //o.setDate_publication(res.getString("date_publication"));
                     o.setNiveau_etude(res.getInt("niveau_etude"));
                     o.setLangue_ref(res.getInt("langue_ref"));
                     o.setType_post_id(res.getInt("type_post_id"));
-                    o.setDescription(res.getString("description"));
+                    //o.setDescription(res.getString("description"));
                 offres.add(o);
             }
             
