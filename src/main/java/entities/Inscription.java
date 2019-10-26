@@ -14,9 +14,47 @@ public class Inscription {
     private int user_id ;
     private int formation_ref ;
     private String lettre_motivation ;
-
+    private String nom;
+    private String Nom_formation ;
+    private int tel ;
+    private String prenom ;
+    
     public Inscription() {
     }
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getNom_formation() {
+        return Nom_formation;
+    }
+
+    public void setNom_formation(String Nom_formation) {
+        this.Nom_formation = Nom_formation;
+    }
+
+    public int getTel() {
+        return tel;
+    }
+
+    public void setTel(int tel) {
+        this.tel = tel;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    
+
+    
 
     public Inscription(int user_id, int formation_ref, String lettre_motivation) {
         this.user_id = user_id;
