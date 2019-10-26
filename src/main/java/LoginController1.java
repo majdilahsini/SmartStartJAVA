@@ -77,12 +77,25 @@ public class LoginController1 implements Initializable {
         else if(s.equals("utilisateur correct ")){
                 
         
-          int p=c.typeUsernumero(loginField.getText());
-            Session.id=c.getIdUtilisateur(loginField.getText(),pwdField.getText());
-            System.out.println(p);
+          int p=c.getRoleUtilisateur(loginField.getText(), pwdField.getText());
+            
+          Session.id=c.getIdUtilisateur(loginField.getText(),pwdField.getText());
+          Session.role=c.getRoleUtilisateur(loginField.getText(), pwdField.getText());
+          System.out.println(p);
            // System.out.println(Session.id_utilisateur);
             if (p==1){
-                            FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowUtilisateur.fxml"));
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowUtilisateur.fxml"));
+            Parent root =loader.load();
+            Scene tableViewScene = new Scene(root);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.close();
+            window.setScene(tableViewScene);
+           window.setMaximized(true);
+            window.show();
+
+            }
+            if (p==2){
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowEntreprise.fxml"));
             Parent root =loader.load();
             Scene tableViewScene = new Scene(root);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
