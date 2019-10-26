@@ -78,6 +78,8 @@ public class MainWindowEntrepriseController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/AjouterOffre.fxml"));
         borderpane.setCenter(root);
         
+        
+        
     }
     
 }
