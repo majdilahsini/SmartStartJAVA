@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import entities.Offre;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,8 +26,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import services.ServiceOffre;
 import utils.Getlists;
-import static utils.Getlists.contient;
+
 
 /**
  * FXML Controller class
@@ -59,6 +61,13 @@ public class AjouterOffreController implements Initializable {
     private JFXComboBox<String> skillscombo2;
     
     private static int[] skillsarray = new int[]{0,0,0};
+    @FXML
+    private JFXComboBox<String> domaine;
+    @FXML
+    private JFXComboBox<String> langue;
+    @FXML
+    private ImageView salaireicon;
+    private int[] verif = new int[]{0,0,0,0,0,0,0,0,0};
     
 
 
@@ -73,10 +82,16 @@ public class AjouterOffreController implements Initializable {
     @FXML
     private void titrefieldoffreverify(KeyEvent event) {
         
-        if (titrefield.getText().length()>3) 
-                titreicon.setImage(new Image("/fxml/assets/ok.png"));
-         else 
-                titreicon.setImage(new Image("/fxml/assets/error.png"));
+        if (titrefield.getText().length()>3) {
+            titreicon.setImage(new Image("/fxml/assets/ok.png"));
+            verif[0]=1;
+        }
+                
+         else {
+            titreicon.setImage(new Image("/fxml/assets/error.png"));    
+            verif[0]=0; 
+        }
+                
         
     }
 
@@ -88,10 +103,17 @@ public class AjouterOffreController implements Initializable {
     private void niveaufieldoffreverify(KeyEvent event) {
         
                 
-         if (Pattern.matches("[0-9]+", niveaufield.getText()) && niveaufield.getText().length() == 1) 
-                niveauetudeicon.setImage(new Image("/fxml/assets/ok.png"));
-         else 
-                niveauetudeicon.setImage(new Image("/fxml/assets/error.png"));
+         if (Pattern.matches("[0-9]+", niveaufield.getText()) && niveaufield.getText().length() == 1) {
+             niveauetudeicon.setImage(new Image("/fxml/assets/ok.png"));
+             verif[1]=1;
+         }
+                
+         else  {
+             niveauetudeicon.setImage(new Image("/fxml/assets/error.png"));
+             verif[1]=0;
+         }
+                
+                
         
     }
 
@@ -110,10 +132,43 @@ public class AjouterOffreController implements Initializable {
 
     @FXML
     private void ajouterbsdAction(ActionEvent event) {
-        Getlists l = new Getlists();
+
         
-        /*skillsarray[0] = l.getSkillbynom(skillscombo.getValue());
-        System.out.println(skillsarray[0]);*/
+        if (domaine.getValue() != null) 
+            verif[3] = 1;
+        if (poste.getValue() != null) 
+            verif[4] = 1;
+        if (langue.getValue() != null) 
+            verif[5] = 1;
+        if (skillscombo.getValue() != null) 
+            verif[6] = 1;
+        
+        int s=0;
+        for (int i: verif)
+            s = s + i;
+        
+        Getlists gl = new Getlists();
+        
+        if (s ==7) {
+            Offre e = new Offre (titrefield.getText(), 
+                                 gl.getDomainebynom(domaine.getValue()),
+                                 5,
+                                 Integer.parseInt(niveaufield.getText()),
+                                 gl.getLanguebyRef(langue.getValue()),
+                                 gl.getTypeDePosteByID(poste.getValue()),
+                                 gl.getSkillbynom(skillscombo.getValue()),
+                                 gl.getSkillbynom(skillscombo1.getValue()),
+                                 gl.getSkillbynom(skillscombo2.getValue()),
+                                 Integer.parseInt(niveaufield1.getText()));
+            
+          ServiceOffre o = new ServiceOffre();
+          System.out.println(o.ajouterOffre(e));
+        
+        }
+
+            
+       
+        
     }
 
     @FXML
@@ -162,5 +217,44 @@ public class AjouterOffreController implements Initializable {
         
     }
  
+    }
+
+    @FXML
+    private void domaineshow(Event event) {
+        
+        Getlists l = new Getlists();
+        domaine.getItems().clear();
+            for (String s: l.getDomaines()) {
+                    domaine.getItems().addAll(s);
+                }
+        
+    }
+        
+    
+
+    @FXML
+    private void langueshow(Event event) {
+        
+        Getlists l = new Getlists();
+        langue.getItems().clear();
+            for (String s: l.getLangues()) {
+                    langue.getItems().addAll(s);
+                }
+        
+    }
+
+    @FXML
+    private void Salaireverif(KeyEvent event) {
+        
+        if (Pattern.matches("[0-9]+", niveaufield1.getText())) {
+            salaireicon.setImage(new Image("/fxml/assets/ok.png"));
+            verif[2] =1;
+        }
+                
+         else  {
+            salaireicon.setImage(new Image("/fxml/assets/error.png"));     
+            verif[2] =0;   
+        }
+                
     }
 }
