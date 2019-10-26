@@ -7,9 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AjouterOffreController">
    <children>
@@ -54,21 +52,8 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="skillscombo" layoutX="68.0" layoutY="327.0" onShown="#skillscomboshown" prefHeight="52.0" prefWidth="170.0" promptText="Compétences" />
-      <Text fx:id="competencestext" fill="#5cc1ff" layoutX="59.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétences" visible="false">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <AnchorPane layoutX="73.0" layoutY="439.0" prefHeight="157.0" prefWidth="85.0">
-         <children>
-            <VBox fx:id="vbox" prefHeight="171.0" prefWidth="85.0" />
-         </children>
-      </AnchorPane>
-      <JFXButton fx:id="addskill" alignment="BASELINE_LEFT" layoutX="259.0" layoutY="331.0" onAction="#addskillaction" prefHeight="44.0" prefWidth="58.0" style="-fx-background-color: #007005;" text="Add" textFill="WHITE">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXButton>
+      <JFXComboBox fx:id="skillscombo" layoutX="68.0" layoutY="332.0" onShown="#skillscomboshown" prefHeight="52.0" prefWidth="245.0" />
+      <JFXComboBox fx:id="skillscombo1" layoutX="68.0" layoutY="405.0" onShown="#skillscombo1shown" prefHeight="52.0" prefWidth="245.0" />
+      <JFXComboBox fx:id="skillscombo2" layoutX="68.0" layoutY="480.0" onShown="#skillscombo2shown" prefHeight="52.0" prefWidth="245.0" />
    </children>
 </AnchorPane>
