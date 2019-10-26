@@ -74,7 +74,7 @@ public class Getlists {
                 i = rs.getInt(1);
             
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return i;
@@ -98,6 +98,89 @@ public class Getlists {
         }
          return l;
     }
+    
+           public int getLanguebyRef(String nom) {
+       
+        int i = -1;
+        
+        try {
+            
+            String r = "SELECT `id` FROM `langues` WHERE nom = ?";
+            
+            ps = c.prepareStatement(r);
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) 
+                i = rs.getInt(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return i;
+        
+    }
+           
+           
+        public List<String> getSkills () {
+       
+        List<String> l = new ArrayList<String>();
+        
+        String r = "SELECT `name` FROM `skills`";
+        
+        try {
+            ps = c.prepareStatement(r);
+            res = ps.executeQuery();
+            
+            while (res.next()) 
+                 l.add(res.getString(1));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return l;
+        
+        }
+         
+         public int getSkillbynom(String nom) {
+       
+        int i = -1;
+        
+        try {
+            
+            String r = "SELECT `id` FROM `skills` WHERE name = UPPER(?)";
+            
+            ps = c.prepareStatement(r);
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) 
+                i = rs.getInt(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return i;
+         
+         
+         
+    }
+         
+       public static boolean contient (int [] array, int i) {
+           for (int id: array) {
+               if (id == i) {
+                   System.out.println(i+" existe");
+                   return true;
+                   
+               }
+           }
+           
+           
+           return false;
+       }
+    
     
     
 }
