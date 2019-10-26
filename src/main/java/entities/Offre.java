@@ -22,6 +22,10 @@ public class Offre {
     private int langue_ref;
     private int type_post_id;
     private String description;
+    private int skill1_id;
+    private int skill2_id;
+    private int skill3_id;
+    private int salaire;
     
     public int getId() {
         return id;
@@ -97,18 +101,39 @@ public class Offre {
         this.titre = titre;
     }
 
-    public Offre(String titre, int domaine_id, int entreprise_id, String date_publication, int niveau_etude, int langue_ref, int type_post_id, String description) {
-        this.titre = titre;
-        this.domaine_id = domaine_id;
-        this.entreprise_id = entreprise_id;
-        this.date_publication = date_publication;
-        this.niveau_etude = niveau_etude;
-        this.langue_ref = langue_ref;
-        this.type_post_id = type_post_id;
-        this.description = description;
+    public int getSkill1_id() {
+        return skill1_id;
     }
 
-    public Offre(int id, String titre, int domaine_id, int entreprise_id, String date_publication, int niveau_etude, int langue_ref, int type_post_id, String description) {
+    public void setSkill1_id(int skill1_id) {
+        this.skill1_id = skill1_id;
+    }
+
+    public int getSkill2_id() {
+        return skill2_id;
+    }
+
+    public void setSkill2_id(int skill2_id) {
+        this.skill2_id = skill2_id;
+    }
+
+    public int getSkill3_id() {
+        return skill3_id;
+    }
+
+    public void setSkill3_id(int skill3_id) {
+        this.skill3_id = skill3_id;
+    }
+
+    public int getSalaire() {
+        return salaire;
+    }
+
+    public void setSalaire(int salaire) {
+        this.salaire = salaire;
+    }
+
+    public Offre(int id, String titre, int domaine_id, int entreprise_id, String date_publication, int niveau_etude, int langue_ref, int type_post_id, String description, int skill1_id, int skill2_id, int skill3_id, int salaire) {
         this.id = id;
         this.titre = titre;
         this.domaine_id = domaine_id;
@@ -118,11 +143,32 @@ public class Offre {
         this.langue_ref = langue_ref;
         this.type_post_id = type_post_id;
         this.description = description;
+        this.skill1_id = skill1_id;
+        this.skill2_id = skill2_id;
+        this.skill3_id = skill3_id;
+        this.salaire = salaire;
+    }
+
+    public Offre(String titre, int domaine_id, int entreprise_id, String date_publication, int niveau_etude, int langue_ref, int type_post_id, String description, int skill1_id, int skill2_id, int skill3_id, int salaire) {
+        this.titre = titre;
+        this.domaine_id = domaine_id;
+        this.entreprise_id = entreprise_id;
+        this.date_publication = date_publication;
+        this.niveau_etude = niveau_etude;
+        this.langue_ref = langue_ref;
+        this.type_post_id = type_post_id;
+        this.description = description;
+        this.skill1_id = skill1_id;
+        this.skill2_id = skill2_id;
+        this.skill3_id = skill3_id;
+        this.salaire = salaire;
     }
 
     public Offre() {
     }
-
+    
+       
+    
     @Override
     public String toString() {
         return "Offre{" + "id=" + id + ", titre=" + titre + ", domaine_id=" + domaine_id + ", entreprise_id=" + entreprise_id + ", date_publication=" + date_publication + ", niveau_etude=" + niveau_etude + ", langue_ref=" + langue_ref + ", type_post_id=" + type_post_id + ", description=" + description + '}';
