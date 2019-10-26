@@ -37,10 +37,6 @@ import services.loginservice;
 public class LoginController1 implements Initializable {
 
     @FXML
-    private Label error;
-    @FXML
-    private ImageView verifIcon;
-    @FXML
     private JFXButton loginbtn;
     @FXML
     private Hyperlink fgtPwdLink;
@@ -48,6 +44,10 @@ public class LoginController1 implements Initializable {
     private JFXTextField loginField;
     @FXML
     private JFXPasswordField pwdField;
+    @FXML
+    private JFXButton normaluser;
+    @FXML
+    private JFXButton entrepriseinscrit;
 
     /*
      * Initializes the controller class.
@@ -173,7 +173,6 @@ public class LoginController1 implements Initializable {
  */
     
 }
-    @FXML
      private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
     Alert alert = new Alert(alertType);
     alert.setTitle(title);
@@ -191,6 +190,22 @@ public class LoginController1 implements Initializable {
 
     @FXML
     private void checkentry(KeyEvent event) {
+    }
+
+    @FXML
+    private void signuputilisateur(ActionEvent event) throws IOException {
+      FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Signup.fxml"));
+            Parent root =loader.load();
+            Scene tableViewScene = new Scene(root);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.close();
+            window.setScene(tableViewScene);
+           window.setMaximized(true);
+            window.show();
+    }
+
+    @FXML
+    private void entreprisebtn(ActionEvent event) {
     }
     
 }
