@@ -105,7 +105,7 @@ public class Getlists {
         
         try {
             
-            String r = "SELECT `id` FROM `langues` WHERE nom = ?";
+            String r = "SELECT `ref` FROM `langues` WHERE nom = ?";
             
             ps = c.prepareStatement(r);
             ps.setString(1, nom);
@@ -166,21 +166,53 @@ public class Getlists {
          
          
          
-    }
+    }   
          
-       public static boolean contient (int [] array, int i) {
-           for (int id: array) {
-               if (id == i) {
-                   System.out.println(i+" existe");
-                   return true;
-                   
-               }
-           }
-           
-           
-           return false;
-       }
+         public List<String> getDomaines () {
+       
+        List<String> l = new ArrayList<String>();
+        
+        String r = "SELECT `nom` FROM `domaines`";
+        
+        try {
+            ps = c.prepareStatement(r);
+            res = ps.executeQuery();
+            
+            while (res.next()) 
+                 l.add(res.getString(1));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return l;
+        
+        }
     
+         
+        public int getDomainebynom(String nom) {
+       
+        int i = -1;
+        
+        try {
+            
+            String r = "SELECT `id` FROM `domaines` WHERE nom = ?";
+            
+            ps = c.prepareStatement(r);
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) 
+                i = rs.getInt(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return i;
+         
+         
+         
+    }   
     
     
 }
