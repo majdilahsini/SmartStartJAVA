@@ -104,4 +104,15 @@ public class loginservice {
               
               return m;
      }
+     public int getRoleUtilisateur (String username, String password) throws SQLException{
+        int m=0;
+          PreparedStatement pt = c.prepareStatement("select role  from users where username=? and password=?");
+             pt.setString(1,username );
+              pt.setString(2,password );
+               ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+                m=   rs.getInt("role");}
+              
+              return m;
+     }
 }
