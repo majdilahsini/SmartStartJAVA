@@ -13,5 +13,5 @@ package entities;
 public class Session {
     public static int  id;
     public static String username;
-    
+    public static int role;
 }
