@@ -17,7 +17,6 @@ public class Offre {
     private String titre;
     private int domaine_id;
     private int entreprise_id;
-    private String date_publication;
     private int niveau_etude;
     private int langue_ref;
     private int type_post_id;
@@ -48,14 +47,6 @@ public class Offre {
 
     public void setEntreprise_id(int entreprise_id) {
         this.entreprise_id = entreprise_id;
-    }
-
-    public String getDate_publication() {
-        return date_publication;
-    }
-
-    public void setDate_publication(String date_publication) {
-        this.date_publication = date_publication;
     }
 
     public int getNiveau_etude() {
@@ -122,12 +113,11 @@ public class Offre {
         this.salaire = salaire;
     }
 
-    public Offre(int id, String titre, int domaine_id, int entreprise_id, String date_publication, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire) {
+    public Offre(int id, String titre, int domaine_id, int entreprise_id, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire) {
         this.id = id;
         this.titre = titre;
         this.domaine_id = domaine_id;
         this.entreprise_id = entreprise_id;
-        this.date_publication = date_publication;
         this.niveau_etude = niveau_etude;
         this.langue_ref = langue_ref;
         this.type_post_id = type_post_id;
@@ -137,11 +127,10 @@ public class Offre {
         this.salaire = salaire;
     }
 
-    public Offre(String titre, int domaine_id, int entreprise_id, String date_publication, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire) {
+    public Offre(String titre, int domaine_id, int entreprise_id, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire) {
         this.titre = titre;
         this.domaine_id = domaine_id;
         this.entreprise_id = entreprise_id;
-        this.date_publication = date_publication;
         this.niveau_etude = niveau_etude;
         this.langue_ref = langue_ref;
         this.type_post_id = type_post_id;
