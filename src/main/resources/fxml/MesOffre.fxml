@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MesOffreController">
    <children>
-      <ScrollPane fx:id="a" fitToHeight="true" hbarPolicy="NEVER" layoutX="-3.0" layoutY="-5.0" prefHeight="640.0" prefWidth="843.0" vbarPolicy="ALWAYS" vvalue="1.0">
+      <ScrollPane fx:id="a" fitToHeight="true" hbarPolicy="NEVER" layoutX="9.0" layoutY="68.0" prefHeight="567.0" prefWidth="825.0" vbarPolicy="ALWAYS" vvalue="1.0">
          <content>
             <AnchorPane>
                <children>
@@ -15,5 +18,15 @@
             </AnchorPane>
          </content>
       </ScrollPane>
+      <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="54.0" prefWidth="761.0" style="-fx-background-color: #E0EBEF;">
+         <effect>
+            <MotionBlur radius="63.0" />
+         </effect>
+      </AnchorPane>
+      <Text fill="#32a4d5" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes Offres">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
