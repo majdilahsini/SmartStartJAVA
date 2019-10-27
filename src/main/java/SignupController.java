@@ -45,6 +45,9 @@ import services.ServiceOffre;
 import services.usersService;
 //import services.ServiceUtilisateur;
 import utils.Verification;
+import services.SmsSender;
+import static services.SmsSender.SendSMS;
+
 
 
 
@@ -60,7 +63,6 @@ public class SignupController implements Initializable {
     private File file;
     @FXML
     private Label error;
-    @FXML
     private JFXTextField fnField;
     @FXML
     private JFXTextField pnField;
@@ -73,19 +75,26 @@ public class SignupController implements Initializable {
     private Hyperlink returntologin;
     @FXML
     private JFXButton singupBtn2;
+    @FXML
     private ImageView usericon;
+    @FXML
     private ImageView passicon;
+    @FXML
     private ImageView nameicon;
    
     
     int intarray[] = new int[20];
+    
+    @FXML
     private JFXTextField emailfield;
+    @FXML
     private JFXTextField fullname;
+    @FXML
     private JFXTextField adressefield;
     @FXML
-    private JFXTextField emField;
+    private ImageView mailicon;
     @FXML
-    private JFXTextField pnField1;
+    private ImageView telicon;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -136,21 +145,24 @@ public class SignupController implements Initializable {
     }
 
    
+    @FXML
     private void signupAction(ActionEvent event) {
            Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
+        String user=pnField.getText();
         users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),pnField.getText(),adressefield.getText(),"utilisateur");
         String s=u.ajouterUtilisateur(p);
-       if (s.equals("vous ete inscrit"))
+       if (s.equals("vous ete inscrit")){
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 
-    "succes!!", "utilisateur ajoutée");   
+    "succes!!", "utilisateur ajoutée");
+      SendSMS(user,"inscription ressusite pour");
+       }   
     
        else if(s.equals("non valide"))
        showAlert(Alert.AlertType.ERROR, pwdField.getScene().getWindow(), 
     "erreur", "utilisateur déja inscrit");
     
     }
-    @FXML
     private void fnField(KeyEvent event) {
         
         
@@ -171,6 +183,18 @@ public class SignupController implements Initializable {
     alert.show();
     
 }
+
+    @FXML
+    private void emailfield(KeyEvent event) {
+    }
+
+    @FXML
+    private void fullnamefield(KeyEvent event) {
+    }
+
+    @FXML
+    private void Adressefield(KeyEvent event) {
+    }
 
 
 }

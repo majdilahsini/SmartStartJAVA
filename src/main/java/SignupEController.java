@@ -58,25 +58,7 @@ public class SignupEController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void fnField(KeyEvent event) {
-    }
-
-    @FXML
-    private void emFieldv(KeyEvent event) {
-    }
-
-    @FXML
-    private void pnFieldv(KeyEvent event) {
-    }
-
-    @FXML
-    private void usrnFieldv(KeyEvent event) {
-    }
-
-    @FXML
-    private void pwdFieldv(KeyEvent event) {
-    }
+   
 
     @FXML
     private void signupentreprise(ActionEvent event) {

@@ -14,10 +14,10 @@ public class SmsSender {
     public static final String AUTH_TOKEN = "ac147608d2fc4db2bfebf619d9db1c06";
 
     public static void SendSMS(String to, String body){
-        
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         Message message = Message
-                .creator(new PhoneNumber(to),  // to
-                         new PhoneNumber("+12244354506"),  // from
+                .creator(new com.twilio.type.PhoneNumber(to),  // to
+                         new com.twilio.type.PhoneNumber("+12244354506"),  // from
                          body)
                 .create();
     }

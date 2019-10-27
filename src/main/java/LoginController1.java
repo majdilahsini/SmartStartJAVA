@@ -80,6 +80,7 @@ public class LoginController1 implements Initializable {
             String a=c.getRole(loginField.getText());
             
           Session.id=c.getIdUtilisateur(loginField.getText(),pwdField.getText());
+          
           Session.role=c.getRole(loginField.getText());
           System.out.println(a);
           String b="utilisateur";
