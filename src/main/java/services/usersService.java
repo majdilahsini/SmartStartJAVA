@@ -120,11 +120,11 @@ public class usersService {
        
          return t;
     }
-     public String getRole(String email) {
+     public String getRole(String username) {
           String t = null;
          try {
-             PreparedStatement pt = c.prepareStatement("select role from users  where users.email=?");
-             pt.setString(1, email );
+             PreparedStatement pt = c.prepareStatement("select role from users  where users.username=?");
+             pt.setString(1, username );
              ResultSet rs=pt.executeQuery();
               while(rs.next()){
             
