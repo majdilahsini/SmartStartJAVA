@@ -18,7 +18,7 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="54.0" prefWidth="761.0" style="-fx-background-color: #E0EBEF;">
+      <AnchorPane layoutX="38.0" layoutY="5.0" prefHeight="54.0" prefWidth="737.0" style="-fx-background-color: #E0EBEF;">
          <effect>
             <MotionBlur radius="63.0" />
          </effect>

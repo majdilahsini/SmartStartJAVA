@@ -12,6 +12,7 @@
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="327.0" style="-fx-background-color: #00597C;">
          <children>
+             
             <JFXButton alignment="BASELINE_LEFT" layoutY="578.0" prefHeight="62.0" prefWidth="326.0" style="-fx-background-color: #00597C;" text="Quitter" textFill="#fff9f9">
                <font>
                   <Font size="20.0" />
@@ -144,7 +145,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXButton fx:id="deconnect121" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un projet" textFill="#fff9f9">
+                              <JFXButton fx:id="deconnect1213" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un projet" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -152,7 +153,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect1213" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter les projets" textFill="#fff9f9">
+                              <JFXButton fx:id="deconnect12135" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter les projets" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -177,7 +178,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect121" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
+                              <JFXButton fx:id="deconnect1261" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

@@ -12,7 +12,7 @@
 
 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OffreController">
    <children>
-      <AnchorPane layoutX="31.0" layoutY="18.0" prefHeight="165.0" prefWidth="758.0" style="-fx-background-color: #E0EBEF;">
+      <AnchorPane layoutX="51.0" layoutY="17.0" prefHeight="165.0" prefWidth="712.0" style="-fx-background-color: #E0EBEF;">
          <effect>
             <MotionBlur radius="63.0">
                <input>
@@ -28,13 +28,13 @@
       </Text>
       <Text fx:id="date" layoutX="194.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
       <Text fx:id="nbr" layoutX="193.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr postulations" />
-      <JFXButton fx:id="consulteroffre" alignment="BASELINE_LEFT" layoutX="694.0" layoutY="130.0" onAction="#consulteroffreAction" prefHeight="44.0" prefWidth="101.0" style="-fx-background-color: #00597C;" text="Consulter" textFill="#fff9f9">
-         <font>
-            <Font size="18.0" />
-         </font>
+      <JFXButton fx:id="consulteroffre" alignment="CENTER" layoutX="662.0" layoutY="123.0" onAction="#consulteroffreAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #00597C;" text="Consulter" textFill="#fff9f9">
          <effect>
             <ColorAdjust brightness="0.03" contrast="-0.14" />
          </effect>
+         <font>
+            <Font size="17.0" />
+         </font>
       </JFXButton>
       <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
          <children>
@@ -46,5 +46,21 @@
          </children>
       </AnchorPane>
       <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />
+      <JFXButton fx:id="consulteroffre1" alignment="CENTER" contentDisplay="CENTER" layoutX="662.0" layoutY="36.0" onAction="#consulteroffreAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Modifier" textFill="#fff9f9">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="0.03" contrast="-0.14" />
+         </effect>
+      </JFXButton>
+      <JFXButton fx:id="supprimeroffre" alignment="CENTER" layoutX="662.0" layoutY="80.0" onAction="#supprimeroffreAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #FF0000;" text="Supprimer" textFill="#fff9f9">
+         <effect>
+            <ColorAdjust brightness="0.03" contrast="-0.14" />
+         </effect>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
