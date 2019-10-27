@@ -24,6 +24,16 @@ public class Offre {
     private int skill2_id;
     private int skill3_id;
     private int salaire;
+    private String date_publication;
+
+    public String getDate_publication() {
+        return date_publication;
+    }
+
+    public void setDate_publication(String date_publication) {
+        this.date_publication = date_publication;
+    }
+ 
     
     public int getId() {
         return id;
