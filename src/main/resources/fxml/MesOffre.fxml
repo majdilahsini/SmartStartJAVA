@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MesOffreController">
    <children>
-      <ScrollPane fx:id="a" fitToHeight="true" hbarPolicy="NEVER" layoutX="43.0" layoutY="21.0" prefHeight="593.0" prefWidth="562.0" vbarPolicy="ALWAYS" vvalue="1.0">
+      <ScrollPane fx:id="a" fitToHeight="true" hbarPolicy="NEVER" layoutX="-3.0" layoutY="-5.0" prefHeight="640.0" prefWidth="843.0" vbarPolicy="ALWAYS" vvalue="1.0">
          <content>
             <AnchorPane>
                <children>

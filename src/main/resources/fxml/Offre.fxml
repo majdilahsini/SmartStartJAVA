@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OffreController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OffreController">
    <children>
       <Text fx:id="nom" layoutX="182.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STAGE ANGULAR">
          <font>
@@ -18,7 +18,7 @@
       </Text>
       <Text fx:id="date" layoutX="182.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
       <Text fx:id="nbr" layoutX="181.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr postulations" />
-      <JFXButton fx:id="consulteroffre" alignment="BASELINE_LEFT" layoutX="427.0" layoutY="56.0" onAction="#consulteroffreAction" prefHeight="44.0" prefWidth="101.0" style="-fx-background-color: #247F17;" text="Consulter" textFill="#fff9f9">
+      <JFXButton fx:id="consulteroffre" alignment="BASELINE_LEFT" layoutX="700.0" layoutY="56.0" onAction="#consulteroffreAction" prefHeight="44.0" prefWidth="101.0" style="-fx-background-color: #247F17;" text="Consulter" textFill="#fff9f9">
          <font>
             <Font size="18.0" />
          </font>
@@ -26,7 +26,7 @@
             <ColorAdjust brightness="0.03" contrast="-0.14" />
          </effect>
       </JFXButton>
-      <Line endX="342.00006103515625" endY="3.0" layoutX="200.0" layoutY="148.0" opacity="0.66" startX="-200.0" startY="3.0" strokeWidth="0.25">
+      <Line endX="623.0" endY="7.0" layoutX="200.0" layoutY="148.0" opacity="0.66" startX="-200.0" startY="3.0" strokeWidth="0.25">
          <effect>
             <DropShadow />
          </effect>
