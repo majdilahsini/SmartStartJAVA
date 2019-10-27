@@ -20,6 +20,7 @@ public class Formation {
     private int ref ;
     private int domaine_id ;
     private String Nom ;
+    private int entreprise_id;
     private String prérequis ;
     private String description ;
     private int duree ; 
@@ -37,6 +38,49 @@ private String image ;
 
     public Formation(String image) {
         this.image = image;
+    }
+
+    public int getEntreprise_id() {
+        return entreprise_id;
+    }
+
+    public void setEntreprise_id(int entreprise_id) {
+        this.entreprise_id = entreprise_id;
+    }
+
+    public Formation(int ref, int domaine_id, String Nom, int entreprise_id, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email) {
+        this.ref = ref;
+        this.domaine_id = domaine_id;
+        this.Nom = Nom;
+        this.entreprise_id = entreprise_id;
+        this.prérequis = prérequis;
+        this.description = description;
+        this.duree = duree;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.Contact = Contact;
+        this.email = email;
+    }
+
+    public Formation(int ref, int domaine_id, String Nom, int entreprise_id, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, Timestamp time_event, ImageView imgview) {
+        this.ref = ref;
+        this.domaine_id = domaine_id;
+        this.Nom = Nom;
+        this.entreprise_id = entreprise_id;
+        this.prérequis = prérequis;
+        this.description = description;
+        this.duree = duree;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.Contact = Contact;
+        this.email = email;
+        this.image = image;
+        this.time_event = time_event;
+        this.imgview = imgview;
     }
 
     public Formation(int domaine_id, String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin,double prix, String adresse, int Contact, String email) {
