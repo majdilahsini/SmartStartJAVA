@@ -34,8 +34,6 @@ public class MesOffreController implements Initializable {
     @FXML
     private VBox vbx;
     @FXML
-    private Button test;
-    @FXML
     private ScrollPane a;
 
     /**
@@ -70,9 +68,5 @@ public class MesOffreController implements Initializable {
         
     }    
 
-    @FXML
-    private void test(ActionEvent event) throws IOException {
-
-    }
     
 }

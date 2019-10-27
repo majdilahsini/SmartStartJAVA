@@ -55,6 +55,8 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton deconnect111;
     @FXML
     private JFXButton deconnect1111;
+    @FXML
+    private JFXButton consulterlesoffres;
 
     
     
@@ -91,6 +93,14 @@ public class MainWindowUtilisateurController implements Initializable {
         
         offrebtn.lookup(".arrow").setVisible(true);
 
+        
+    }
+
+    @FXML
+    private void consulterlesoffresActions(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/LesOffres.fxml"));
+        borderpane.setCenter(root);
         
     }
 

@@ -55,6 +55,10 @@ public class MainWindowEntrepriseController implements Initializable {
     private JFXButton creeroffre;
     @FXML
     private JFXButton mesoffres;
+    @FXML
+    private JFXButton deconnect12135;
+    @FXML
+    private JFXButton deconnect1261;
 
     /*
      * Initializes the controller class.
