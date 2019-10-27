@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entities.Offre;
+import entities.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -152,7 +153,7 @@ public class AjouterOffreController implements Initializable {
         if (s ==7) {
             Offre e = new Offre (titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
-                                 5,
+                                 Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
                                  gl.getLanguebyRef(langue.getValue()),
                                  gl.getTypeDePosteByID(poste.getValue()),

@@ -32,8 +32,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton deconnect1;
     @FXML
-    private JFXButton deconnect11;
-    @FXML
     private JFXButton deconnect111;
     @FXML
     private JFXButton deconnect1111;
@@ -55,6 +53,8 @@ public class MainWindowEntrepriseController implements Initializable {
     private BorderPane borderpane;
     @FXML
     private JFXButton creeroffre;
+    @FXML
+    private JFXButton mesoffres;
 
     /*
      * Initializes the controller class.
@@ -77,6 +77,17 @@ public class MainWindowEntrepriseController implements Initializable {
         
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/AjouterOffre.fxml"));
         borderpane.setCenter(root);
+        
+        
+        
+    }
+
+    @FXML
+    private void mesoffresAction(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MesOffre.fxml"));
+        borderpane.setCenter(root);
+        
         
         
         
