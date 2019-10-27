@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import services.ServiceApplication;
 import services.ServiceOffre;
 
 /**
@@ -47,12 +48,18 @@ public class MesOffreController implements Initializable {
             
            
             ServiceOffre o = new ServiceOffre();
+            ServiceApplication a = new ServiceApplication ();
             for (Offre e: o.AfficherOffresByEntreprise(Session.getId())) {
                 root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre.fxml"));
                 Text t = (Text) root2.lookup("#nom");
                 t.setText(e.getTitre());
                 Text t2 = (Text) root2.lookup("#id");
                 t2.setText(Integer.toString(e.getId()));
+                Text nbr = (Text) root2.lookup("#nbr");
+                nbr.setText(Integer.toString(a.NbrApplicationOffre(e.getId()))+ " Candidatures");
+                Text date = (Text) root2.lookup("#date");
+                date.setText("Publié le "+e.getDate_publication());
+                
                 vbx.getChildren().add(root2);
             }
 
