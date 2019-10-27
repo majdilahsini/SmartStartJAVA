@@ -14,4 +14,11 @@ public class Session {
     public static int  id;
     public static String username;
     public static int role;
+
+    public static int getId() {
+        return id;
+    }
+
+ 
+    
 }
