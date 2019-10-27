@@ -205,7 +205,15 @@ public class LoginController1 implements Initializable {
     }
 
     @FXML
-    private void entreprisebtn(ActionEvent event) {
+    private void entreprisebtn(ActionEvent event) throws IOException  {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/SignupE.fxml"));
+            Parent root =loader.load();
+            Scene tableViewScene = new Scene(root);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.close();
+            window.setScene(tableViewScene);
+           window.setMaximized(true);
+            window.show();
     }
     
 }

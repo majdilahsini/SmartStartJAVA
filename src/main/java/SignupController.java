@@ -60,6 +60,7 @@ public class SignupController implements Initializable {
     private File file;
     @FXML
     private Label error;
+    @FXML
     private JFXTextField fnField;
     @FXML
     private JFXTextField pnField;
@@ -72,25 +73,19 @@ public class SignupController implements Initializable {
     private Hyperlink returntologin;
     @FXML
     private JFXButton singupBtn2;
-    @FXML
     private ImageView usericon;
-    @FXML
     private ImageView passicon;
-    @FXML
     private ImageView nameicon;
-    @FXML
-    private ImageView mailicon;
-    @FXML
-    private ImageView telicon;
    
     
     int intarray[] = new int[20];
-    @FXML
     private JFXTextField emailfield;
-    @FXML
     private JFXTextField fullname;
-    @FXML
     private JFXTextField adressefield;
+    @FXML
+    private JFXTextField emField;
+    @FXML
+    private JFXTextField pnField1;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -111,12 +106,6 @@ public class SignupController implements Initializable {
     }
 
 
-    private void signupbtnAction(ActionEvent event) throws SQLException {
-        
-     
-                
-        
-    }
 
 
     @FXML
@@ -147,7 +136,6 @@ public class SignupController implements Initializable {
     }
 
    
-    @FXML
     private void signupAction(ActionEvent event) {
            Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
@@ -162,6 +150,7 @@ public class SignupController implements Initializable {
     "erreur", "utilisateur déja inscrit");
     
     }
+    @FXML
     private void fnField(KeyEvent event) {
         
         
@@ -172,17 +161,6 @@ public class SignupController implements Initializable {
          
     }
 
-    @FXML
-    private void emailfield(KeyEvent event) {
-    }
-
-    @FXML
-    private void fullnamefield(KeyEvent event) {
-    }
-
-    @FXML
-    private void Adressefield(KeyEvent event) {
-    }
 
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
     Alert alert = new Alert(alertType);
@@ -193,4 +171,6 @@ public class SignupController implements Initializable {
     alert.show();
     
 }
+
+
 }
