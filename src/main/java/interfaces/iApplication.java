@@ -19,6 +19,7 @@ public interface iApplication {
     public List<Application> AfficherApplication();
     public List<Application> AfficherApplicationById_O(int id);
     public List<Application> AfficherApplicationById_u(int id);
+    public int NbrApplicationOffre(int id);
     public String getOffreByID(Application a);
     public String getUtilisateurByID(Application a);
 

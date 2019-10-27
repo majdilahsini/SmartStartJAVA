@@ -162,6 +162,29 @@ public class ServiceApplication implements iApplication{
         
         return applications;
     }
+    
+    
+    @Override
+    public int NbrApplicationOffre(int id) {
+        int count = 0;      
+        String r = "SELECT COUNT(*) FROM `applications` WHERE `offre_id` = ?";
+        
+        try {
+            
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            res = ps.executeQuery();
+            while(res.next()) {
+                count = res.getInt(1);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return count;
+    }
 
     @Override
     public String getOffreByID(Application a) {

@@ -18,6 +18,7 @@ public interface iOffre {
     public int modifierOffre(Offre e);
     public void supprimerOffre(int id);
     public List<Offre> AfficherOffres();
+    public List<Offre> AfficherOffresByEntreprise(int id);
     public String getDomaineByID(Offre e);
     public String getEntrepriseByID(Offre e);
     public String getLangueByRef(Offre e);

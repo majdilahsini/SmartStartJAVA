@@ -42,7 +42,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect11" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Offres" textFill="#fff9f9">
+                              <JFXButton fx:id="mesoffres" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#mesoffresAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Offres" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
