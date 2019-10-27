@@ -164,7 +164,7 @@ public class ServiceOffre implements iOffre{
         List<Offre> offres = new ArrayList<>();
         Offre o = null;
         
-        String r = "SELECT * FROM `offres` where entreprise_id = ?";
+        String r = "SELECT `titre`,`id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y') FROM offres WHERE `entreprise_id` = ?";
 
         
         try {
@@ -174,8 +174,9 @@ public class ServiceOffre implements iOffre{
             res = ps.executeQuery();
             while(res.next()) {
                 o = new Offre();
-                    o.setId(res.getInt("id"));
-                    o.setTitre(res.getString("titre"));
+                    o.setId(res.getInt(2));
+                    o.setTitre(res.getString(1));
+                    o.setDate_publication(res.getString(3));
                     //o.setDate_publication(res.getString("date_publication"));
                 offres.add(o);
             }
