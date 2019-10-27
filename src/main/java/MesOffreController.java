@@ -5,6 +5,8 @@
  */
 
 
+import entities.Offre;
+import entities.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,6 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import services.ServiceOffre;
 
 /**
  * FXML Controller class
@@ -40,8 +44,19 @@ public class MesOffreController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Parent root2;
         try {
-            root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre.fxml"));
-            vbx.getChildren().add(root2);
+            
+           
+            ServiceOffre o = new ServiceOffre();
+            for (Offre e: o.AfficherOffresByEntreprise(Session.getId())) {
+                root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre.fxml"));
+                Text t = (Text) root2.lookup("#nom");
+                t.setText(e.getTitre());
+                Text t2 = (Text) root2.lookup("#id");
+                t2.setText(Integer.toString(e.getId()));
+                vbx.getChildren().add(root2);
+            }
+
+
         } catch (IOException ex) {
             Logger.getLogger(MesOffreController.class.getName()).log(Level.SEVERE, null, ex);
         }
