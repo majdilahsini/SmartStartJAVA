@@ -158,6 +158,35 @@ public class ServiceOffre implements iOffre{
         
         return offres;
     }
+    
+        @Override
+        public List<Offre> AfficherOffresByEntreprise(int id) {
+        List<Offre> offres = new ArrayList<>();
+        Offre o = null;
+        
+        String r = "SELECT * FROM `offres` where entreprise_id = ?";
+
+        
+        try {
+            
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            res = ps.executeQuery();
+            while(res.next()) {
+                o = new Offre();
+                    o.setId(res.getInt("id"));
+                    o.setTitre(res.getString("titre"));
+                    //o.setDate_publication(res.getString("date_publication"));
+                offres.add(o);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return offres;
+    }
 
     @Override
     public String getDomaineByID(Offre e) {
