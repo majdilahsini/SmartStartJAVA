@@ -13,7 +13,7 @@ package entities;
 public class Session {
     public static int  id;
     public static String username;
-    public static int role;
+    public static String role;
 
     public static int getId() {
         return id;

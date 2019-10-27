@@ -45,6 +45,9 @@ import services.ServiceOffre;
 import services.usersService;
 //import services.ServiceUtilisateur;
 import utils.Verification;
+import services.SmsSender;
+import static services.SmsSender.SendSMS;
+
 
 
 
@@ -78,19 +81,20 @@ public class SignupController implements Initializable {
     private ImageView passicon;
     @FXML
     private ImageView nameicon;
-    @FXML
-    private ImageView mailicon;
-    @FXML
-    private ImageView telicon;
    
     
     int intarray[] = new int[20];
+    
     @FXML
     private JFXTextField emailfield;
     @FXML
     private JFXTextField fullname;
     @FXML
     private JFXTextField adressefield;
+    @FXML
+    private ImageView mailicon;
+    @FXML
+    private ImageView telicon;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -111,12 +115,6 @@ public class SignupController implements Initializable {
     }
 
 
-    private void signupbtnAction(ActionEvent event) throws SQLException {
-        
-     
-                
-        
-    }
 
 
     @FXML
@@ -151,11 +149,14 @@ public class SignupController implements Initializable {
     private void signupAction(ActionEvent event) {
            Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
+        String user=pnField.getText();
         users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),pnField.getText(),adressefield.getText(),"utilisateur");
         String s=u.ajouterUtilisateur(p);
-       if (s.equals("vous ete inscrit"))
+       if (s.equals("vous ete inscrit")){
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 
-    "succes!!", "utilisateur ajoutée");   
+    "succes!!", "utilisateur ajoutée");
+      SendSMS(user,"inscription ressusite pour");
+       }   
     
        else if(s.equals("non valide"))
        showAlert(Alert.AlertType.ERROR, pwdField.getScene().getWindow(), 
@@ -172,6 +173,17 @@ public class SignupController implements Initializable {
          
     }
 
+
+    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+    Alert alert = new Alert(alertType);
+    alert.setTitle(title);
+    alert.setHeaderText(null);
+    alert.setContentText(message);
+    alert.initOwner(owner);
+    alert.show();
+    
+}
+
     @FXML
     private void emailfield(KeyEvent event) {
     }
@@ -184,13 +196,5 @@ public class SignupController implements Initializable {
     private void Adressefield(KeyEvent event) {
     }
 
-    private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
-    Alert alert = new Alert(alertType);
-    alert.setTitle(title);
-    alert.setHeaderText(null);
-    alert.setContentText(message);
-    alert.initOwner(owner);
-    alert.show();
-    
-}
+
 }

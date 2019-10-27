@@ -24,9 +24,9 @@ public class usersService {
     public String ajouterUtilisateur(users p){
         String m="non valide";
        try {
-             PreparedStatement pt = c.prepareStatement("select * from users where username =? and password=?");
+             PreparedStatement pt = c.prepareStatement("select * from users where username =? ");
             pt.setString(1, p.getUsername());
-             pt.setString(2, p.getPassword());
+            
             ResultSet rs=pt.executeQuery();
   if(rs.next())
   { 
@@ -120,11 +120,11 @@ public class usersService {
        
          return t;
     }
-     public String getRole(String email) {
+     public String getRole(String username) {
           String t = null;
          try {
-             PreparedStatement pt = c.prepareStatement("select role from users  where users.email=?");
-             pt.setString(1, email );
+             PreparedStatement pt = c.prepareStatement("select role from users  where users.username=?");
+             pt.setString(1, username );
              ResultSet rs=pt.executeQuery();
               while(rs.next()){
             
@@ -159,4 +159,31 @@ public class usersService {
          return m;
        
   }
+      public int getIdUtilisateur (String username, String password) throws SQLException{
+        int m=0;
+          PreparedStatement pt = c.prepareStatement("select id  from users where username=? and password=?");
+             pt.setString(1,username );
+              pt.setString(2,password );
+               ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+                m=rs.getInt("id");}
+              
+              return m;
+     }
+       public String getUsername(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select username from users  where users.id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("username");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
 }

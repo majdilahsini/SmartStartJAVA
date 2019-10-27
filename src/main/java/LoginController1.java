@@ -28,6 +28,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import services.loginservice;
+import services.usersService;
 
 /**
  * FXML Controller class
@@ -65,9 +66,8 @@ public class LoginController1 implements Initializable {
     "Form Error!", "Veuillez remplir tous les champs!");
          
          }
-         loginservice c=new loginservice();
+         usersService c=new usersService();
             String s=c.validerLogin(loginField.getText(),pwdField.getText());
-         
  
          // validation.setText( s);
         if(s.equals("utilisateur n'existe pas ")){
@@ -77,13 +77,16 @@ public class LoginController1 implements Initializable {
         else if(s.equals("utilisateur correct ")){
                 
         
-          int p=c.getRoleUtilisateur(loginField.getText(), pwdField.getText());
+            String a=c.getRole(loginField.getText());
             
           Session.id=c.getIdUtilisateur(loginField.getText(),pwdField.getText());
-          Session.role=c.getRoleUtilisateur(loginField.getText(), pwdField.getText());
-          System.out.println(p);
+          
+          Session.role=c.getRole(loginField.getText());
+          System.out.println(a);
+          String b="utilisateur";
+          String h="entreprise";
            // System.out.println(Session.id_utilisateur);
-            if (p==1){
+            if (a.compareTo(b)==0){
             FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowUtilisateur.fxml"));
             Parent root =loader.load();
             Scene tableViewScene = new Scene(root);
@@ -94,7 +97,7 @@ public class LoginController1 implements Initializable {
             window.show();
 
             }
-            if (p==2){
+            if (a.compareTo(h)==0){
             FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowEntreprise.fxml"));
             Parent root =loader.load();
             Scene tableViewScene = new Scene(root);
@@ -205,7 +208,15 @@ public class LoginController1 implements Initializable {
     }
 
     @FXML
-    private void entreprisebtn(ActionEvent event) {
+    private void entreprisebtn(ActionEvent event) throws IOException  {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/SignupE.fxml"));
+            Parent root =loader.load();
+            Scene tableViewScene = new Scene(root);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.close();
+            window.setScene(tableViewScene);
+           window.setMaximized(true);
+            window.show();
     }
     
 }
