@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OffreController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="196.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OffreUtilisateurController">
    <children>
-      <AnchorPane layoutX="42.0" layoutY="16.0" prefHeight="165.0" prefWidth="712.0" style="-fx-background-color: #E0EBEF;">
+      <AnchorPane layoutX="20.0" layoutY="16.0" prefHeight="165.0" prefWidth="760.0" style="-fx-background-color: #E0EBEF;">
          <effect>
             <MotionBlur radius="63.0">
                <input>
@@ -27,7 +27,10 @@
          </font>
       </Text>
       <Text fx:id="date" layoutX="194.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
-      <Text fx:id="nbr" layoutX="193.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr postulations" />
+      <Text fx:id="nbr" layoutX="193.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr postulations">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font></Text>
       <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
          <children>
             <ImageView fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -38,7 +41,7 @@
          </children>
       </AnchorPane>
       <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />
-      <JFXButton fx:id="consulteroffre1" alignment="CENTER" contentDisplay="CENTER" layoutX="651.0" layoutY="133.0" onAction="#consulteroffreAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Voir plus" textFill="#fff9f9">
+      <JFXButton fx:id="voirplus" alignment="CENTER" contentDisplay="CENTER" layoutX="651.0" layoutY="133.0" onAction="#voirplusAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Voir plus" textFill="#fff9f9">
          <font>
             <Font size="17.0" />
          </font>
@@ -46,7 +49,9 @@
             <ColorAdjust brightness="0.03" contrast="-0.14" />
          </effect>
       </JFXButton>
-      <Text fx:id="date1" layoutX="193.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entreprise" />
-      <Text fx:id="date11" layoutX="193.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Domaine" />
+      <Text fx:id="entreprise" layoutX="193.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entreprise" />
+      <Text fx:id="domaine" layoutX="193.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Domaine" />
+      <Text fx:id="skills" layoutX="193.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="skills" />
+      <Text fx:id="contrat" layoutX="193.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entreprise" />
    </children>
 </AnchorPane>
