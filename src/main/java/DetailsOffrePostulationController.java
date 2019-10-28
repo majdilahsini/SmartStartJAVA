@@ -8,6 +8,7 @@
 import com.jfoenix.controls.JFXButton;
 import entities.Application;
 import entities.Offre;
+import entities.Session;
 import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
@@ -143,7 +144,7 @@ public class DetailsOffrePostulationController implements Initializable {
     @FXML
     private void postulerAction(ActionEvent event) {
         
-        Application a = new Application(1, OfrreSession.getId(), ringprogress.getProgress());
+        Application a = new Application(Session.getId(), OfrreSession.getId(), ringprogress.getProgress());
         ServiceApplication sa = new ServiceApplication();
         sa.ajouterApplication(a);
         

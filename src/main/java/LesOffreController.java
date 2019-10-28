@@ -40,12 +40,13 @@ public class LesOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Parent root2;
+        System.out.println(Session.getId());
         try {
             
            
             ServiceOffre o = new ServiceOffre();
             ServiceApplication a = new ServiceApplication ();
-            for (Offre e: o.AfficherOffres2(1)) {
+            for (Offre e: o.AfficherOffres2(Session.getId())) {
                 root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre_Utilisateur.fxml"));
                 Text t = (Text) root2.lookup("#nom");
                 t.setText(e.getTitre());

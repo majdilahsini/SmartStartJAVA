@@ -295,7 +295,7 @@ public class ServiceOffre implements iOffre{
         
         try {
             
-            String r = "SELECT `nom` FROM `entreprises` WHERE id = ?";
+            String r = "SELECT `fullname` FROM `users` WHERE id = ?";
             
             ps = c.prepareStatement(r);
             ps.setInt(1, e.getEntreprise_id());
