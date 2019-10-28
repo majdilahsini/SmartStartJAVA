@@ -32,13 +32,15 @@ public class OffreController implements Initializable {
     @FXML
     private Text nbr;
     @FXML
-    private JFXButton consulteroffre;
-    @FXML
     private Text id;
     @FXML
-    private JFXButton consulteroffre1;
+    private JFXButton voirplus;
     @FXML
-    private JFXButton supprimeroffre;
+    private Text entreprise;
+    @FXML
+    private Text domaine;
+    @FXML
+    private Text skills;
 
     /**
      * Initializes the controller class.
@@ -48,15 +50,18 @@ public class OffreController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void consulteroffreAction(ActionEvent event) {
-    }
 
-    @FXML
     private void supprimeroffreAction(ActionEvent event) throws IOException {
         
         ServiceOffre so = new ServiceOffre();
         so.supprimerOffre(Integer.parseInt(id.getText()));
      }
+
+    @FXML
+    private void voirplusAction(ActionEvent event) {
+        
+        
+        
+    }
     
 }

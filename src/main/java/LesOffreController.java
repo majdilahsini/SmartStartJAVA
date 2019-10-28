@@ -45,7 +45,7 @@ public class LesOffreController implements Initializable {
            
             ServiceOffre o = new ServiceOffre();
             ServiceApplication a = new ServiceApplication ();
-            for (Offre e: o.AfficherOffresByEntreprise(Session.getId())) {
+            for (Offre e: o.AfficherOffres2(1)) {
                 root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre_Utilisateur.fxml"));
                 Text t = (Text) root2.lookup("#nom");
                 t.setText(e.getTitre());
@@ -55,6 +55,19 @@ public class LesOffreController implements Initializable {
                 nbr.setText(Integer.toString(a.NbrApplicationOffre(e.getId()))+ " Candidatures");
                 Text date = (Text) root2.lookup("#date");
                 date.setText("Publié le "+e.getDate_publication());
+                
+                Text entreprise = (Text) root2.lookup("#entreprise");
+                entreprise.setText(o.getEntrepriseByID(e));
+                
+                Text contrat = (Text) root2.lookup("#contrat");
+                contrat.setText(o.getTypeDePosteByID(e));
+                
+                Text domaine = (Text) root2.lookup("#domaine");
+                domaine.setText(o.getDomaineByID(e));
+                
+                
+                Text skills = (Text) root2.lookup("#skills");
+                skills.setText("Les compétences :"+ o.getSkillByID(e.getSkill1_id())+ o.getSkillByID(e.getSkill2_id())+ o.getSkillByID(e.getSkill3_id()));
                 
                 vbx.getChildren().add(root2);
             }
