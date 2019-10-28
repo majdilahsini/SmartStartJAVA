@@ -72,6 +72,7 @@ public class MainWindowUtilisateurController implements Initializable {
 
     private void redirect(ActionEvent event) throws IOException {
        
+        
     }
 
     private void fermer(ActionEvent event) {
@@ -81,12 +82,13 @@ public class MainWindowUtilisateurController implements Initializable {
     @FXML
     private void returntologin(ActionEvent event) throws IOException {
         
-        //AnchorPane anchorpane;
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Signup.fxml"));
-        //Scene scene = new Scene(root);
-        //anchorpane = (Stage)deconnect.getScene().getWindow();
-        //anchorpane.hide();
-        borderpane.setCenter(root);
+        Stage stage;
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
+        Scene scene = new Scene(signUpPage);
+        stage = (Stage)Quit.getScene().getWindow();
+        stage.hide();
+        stage.setScene(scene);
+        stage.show();
         
     }
 

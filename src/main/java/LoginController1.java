@@ -87,25 +87,23 @@ public class LoginController1 implements Initializable {
           String h="entreprise";
            // System.out.println(Session.id_utilisateur);
             if (a.compareTo(b)==0){
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowUtilisateur.fxml"));
-            Parent root =loader.load();
-            Scene tableViewScene = new Scene(root);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.close();
-            window.setScene(tableViewScene);
-           window.setMaximized(true);
-            window.show();
-
+            Stage stage;
+            Parent mainutil = FXMLLoader.load(getClass().getResource("/fxml/MainWindowUtilisateur.fxml"));
+            Scene scene = new Scene(mainutil);
+            stage = (Stage)loginField.getScene().getWindow();
+            stage.hide();
+            stage.setScene(scene);
+            stage.show();
+  
             }
             if (a.compareTo(h)==0){
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/MainWindowEntreprise.fxml"));
-            Parent root =loader.load();
-            Scene tableViewScene = new Scene(root);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.close();
-            window.setScene(tableViewScene);
-           window.setMaximized(true);
-            window.show();
+            Stage stage;
+            Parent mainE= FXMLLoader.load(getClass().getResource("/fxml/MainWindowEntreprise.fxml"));
+            Scene scene = new Scene(mainE);
+            stage = (Stage)loginField.getScene().getWindow();
+            stage.hide();
+            stage.setScene(scene);
+            stage.show();
 
             }
           }
@@ -217,6 +215,7 @@ public class LoginController1 implements Initializable {
             window.setScene(tableViewScene);
            window.setMaximized(true);
             window.show();
+            
     }
     
 }
