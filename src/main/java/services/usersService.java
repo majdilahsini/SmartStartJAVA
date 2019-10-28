@@ -186,4 +186,52 @@ public class usersService {
        
          return t;
     }
+        public String getnameentreprise(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select fullname from users  where users.id=? and users.role='entreprise' ");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("fullname");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+         public int getiduser(String email) {
+          int t = 0;
+         try {
+             PreparedStatement pt = c.prepareStatement("select id from users  where users.email=?");
+             pt.setString(1, email);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getInt("id");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+         public String Userpassword(String email ) {
+       String m=null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select password from users where email=?");
+             pt.setString(1, email );
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                       m=   rs.getString("password");
+              ;}
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return m;
+  }
+        
 }
