@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -42,10 +43,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton deconnect121;
     @FXML
-    private JFXButton deconnect1211;
-    @FXML
-    private JFXButton deconnect1212;
-    @FXML
     private JFXButton deconnect1213;
     @FXML
     private JFXButton deconnect12;
@@ -56,9 +53,9 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton mesoffres;
     @FXML
-    private JFXButton deconnect12135;
-    @FXML
     private JFXButton deconnect1261;
+    @FXML
+    private JFXButton Quit;
 
     /*
      * Initializes the controller class.
@@ -94,6 +91,13 @@ public class MainWindowEntrepriseController implements Initializable {
         
         
         
+        
+    }
+
+    @FXML
+    private void quitAction(ActionEvent event) {
+        Stage stage = (Stage) Quit.getScene().getWindow();
+        stage.close();
         
     }
     
