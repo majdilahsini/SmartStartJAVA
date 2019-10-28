@@ -225,6 +225,8 @@ public class LoginController1 implements Initializable {
             Scene tableViewScene = new Scene(root);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.close();
+            window.setScene(tableViewScene);
+           window.setMaximized(true);
             window.show();
     }
     
