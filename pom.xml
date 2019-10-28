@@ -133,5 +133,10 @@
             <version>1.6.0</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.0</version>
+</dependency>
     </dependencies>
 </project>
