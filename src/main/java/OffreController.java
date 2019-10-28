@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceOffre;
@@ -34,13 +35,11 @@ public class OffreController implements Initializable {
     @FXML
     private Text id;
     @FXML
-    private JFXButton voirplus;
+    private JFXButton consulteroffre;
     @FXML
-    private Text entreprise;
+    private JFXButton consulteroffre1;
     @FXML
-    private Text domaine;
-    @FXML
-    private Text skills;
+    private JFXButton supprimeroffre;
 
     /**
      * Initializes the controller class.
@@ -51,14 +50,21 @@ public class OffreController implements Initializable {
     }    
 
 
+    @FXML
     private void supprimeroffreAction(ActionEvent event) throws IOException {
         
         ServiceOffre so = new ServiceOffre();
         so.supprimerOffre(Integer.parseInt(id.getText()));
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MesOffre.fxml"));
+        BorderPane bp;
+        
+        bp = (BorderPane) id.getParent().getParent().getParent().getParent().getParent().getParent().getParent().getParent();
+        bp.setCenter(root);
      }
 
     @FXML
-    private void voirplusAction(ActionEvent event) {
+    private void consulteroffreAction(ActionEvent event) {
         
         
         
