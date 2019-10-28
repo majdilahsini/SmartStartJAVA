@@ -217,5 +217,14 @@ public class LoginController1 implements Initializable {
             window.show();
             
     }
+
+    @FXML
+    private void recovery(ActionEvent event) throws IOException {
+         FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/passrecovery.fxml"));
+            Parent root =loader.load();
+            Scene tableViewScene = new Scene(root);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+    }
     
 }
