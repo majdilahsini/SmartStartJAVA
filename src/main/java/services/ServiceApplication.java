@@ -45,13 +45,13 @@ public class ServiceApplication implements iApplication{
        
        try {
           
-           String r = "INSERT INTO `applications`(`offre_id`, `user_id`, `lettre_motivation`) "
+           String r = "INSERT INTO `applications`(`offre_id`, `user_id`, `matchs`) "
                     + "VALUES (?, ?, ?)";
            
            ps = c.prepareStatement(r);
            ps.setInt(1, a.getOffre_id());
            ps.setInt(2, a.getUser_id());
-           ps.setString(3, a.getLettre_motivation());
+           ps.setDouble(3, a.getMatch());
            executeTest = ps. executeUpdate();
            
     } catch (SQLException ex) {
@@ -93,7 +93,7 @@ public class ServiceApplication implements iApplication{
                     a.setId(res.getInt("id"));
                     a.setOffre_id(res.getInt("offre_id"));
                     a.setUser_id(res.getInt("user_id"));
-                    a.setLettre_motivation(res.getString("lettre_motivation"));
+                    a.setMatch(res.getDouble("matchs"));
                 applications.add(a);
             }
             
@@ -122,7 +122,7 @@ public class ServiceApplication implements iApplication{
                     a.setId(res.getInt("id"));
                     a.setOffre_id(res.getInt("offre_id"));
                     a.setUser_id(res.getInt("user_id"));
-                    a.setLettre_motivation(res.getString("lettre_motivation"));
+                    a.setMatch(res.getDouble("matchs"));
                 applications.add(a);
             }
             
@@ -151,7 +151,7 @@ public class ServiceApplication implements iApplication{
                     a.setId(res.getInt("id"));
                     a.setOffre_id(res.getInt("offre_id"));
                     a.setUser_id(res.getInt("user_id"));
-                    a.setLettre_motivation(res.getString("lettre_motivation"));
+                     a.setMatch(res.getDouble("matchs"));
                 applications.add(a);
             }
             

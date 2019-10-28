@@ -143,10 +143,86 @@ public class ServiceOffre implements iOffre{
                     o.setTitre(res.getString("titre"));
                     o.setDomaine_id(res.getInt("domaine_id"));
                     o.setEntreprise_id(res.getInt("entreprise_id"));
-                    //o.setDate_publication(res.getString("date_publication"));
+                    o.setDate_publication(res.getString("date_publication"));
                     o.setNiveau_etude(res.getInt("niveau_etude"));
                     o.setLangue_ref(res.getInt("langue_ref"));
                     o.setType_post_id(res.getInt("type_post_id"));
+                    //o.setDescription(res.getString("description"));
+                offres.add(o);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return offres;
+    }
+    
+       public List<Offre> AfficherOffres2(int id) {
+        List<Offre> offres = new ArrayList<>();
+        Offre o = null;
+        
+        String r = "SELECT o.`id` 'id',`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`,'%d/%m/%Y'),`langue_ref`,`type_post_id`,o.`skill1_id`,o.`skill2_id`,o.`skill3_id`,`salaire` FROM offres o " +
+                    "where o.`id` NOT IN (SELECT offre_id FROM applications WHERE user_id = ?);";
+        
+        try {
+            
+            
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            res = ps.executeQuery();
+            while(res.next()) {
+                o = new Offre();
+                    o.setId(res.getInt("id"));
+                    o.setTitre(res.getString("titre"));
+                    o.setDomaine_id(res.getInt("domaine_id"));
+                    o.setEntreprise_id(res.getInt("entreprise_id"));
+                    o.setDate_publication(res.getString("DATE_FORMAT(`date_publication`,'%d/%m/%Y')"));
+                    o.setLangue_ref(res.getInt("langue_ref"));
+                    o.setType_post_id(res.getInt("type_post_id"));
+                    o.setSkill1_id(res.getInt("skill1_id"));
+                    o.setSkill2_id(res.getInt("skill2_id"));
+                    o.setSkill3_id(res.getInt("skill3_id"));
+                    o.setSalaire(res.getInt("salaire"));
+                    //o.setDescription(res.getString("description"));
+                offres.add(o);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return offres;
+    }
+       
+              public List<Offre> AfficherOffresByID(int id) {
+        List<Offre> offres = new ArrayList<>();
+        Offre o = null;
+        
+        String r = "SELECT `id`,`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y'),`langue_ref`,`type_post_id`,`skill1_id`,`skill2_id`,`skill3_id`,`salaire` FROM offres"
+                + " WHERE id = ?";
+        
+        try {
+            
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {                                  
+                o = new Offre();
+                    o.setId(rs.getInt("id"));
+                    o.setTitre(rs.getString("titre"));
+                    o.setDomaine_id(rs.getInt("domaine_id"));
+                    o.setEntreprise_id(rs.getInt("entreprise_id"));
+                    o.setDate_publication(rs.getString("DATE_FORMAT(`date_publication`, '%d/%m/%Y')"));
+                    o.setLangue_ref(rs.getInt("langue_ref"));
+                    o.setType_post_id(rs.getInt("type_post_id"));
+                    o.setSkill1_id(rs.getInt("skill1_id"));
+                    o.setSkill2_id(rs.getInt("skill2_id"));
+                    o.setSkill3_id(rs.getInt("skill3_id"));
+                    o.setSalaire(rs.getInt("salaire"));
                     //o.setDescription(res.getString("description"));
                 offres.add(o);
             }
@@ -192,7 +268,7 @@ public class ServiceOffre implements iOffre{
     @Override
     public String getDomaineByID(Offre e) {
         
-        String Domaine = null;
+        String Domaine = "";
         
         try {
             
@@ -239,7 +315,7 @@ public class ServiceOffre implements iOffre{
     @Override
     public String getLangueByRef(Offre e) {
        
-        String Langue = null;
+        String Langue = "";
         
         try {
             
@@ -263,11 +339,11 @@ public class ServiceOffre implements iOffre{
     @Override
     public String getTypeDePosteByID(Offre e) {
        
-        String TypeDePoste = null;
+        String TypeDePoste = "";
         
         try {
             
-            String r = "SELECT `nom` FROM `type_post` WHERE id = ?";
+            String r = "SELECT `name` FROM `type_post` WHERE id = ?";
             
             ps = c.prepareStatement(r);
             ps.setInt(1, e.getType_post_id());
@@ -281,6 +357,33 @@ public class ServiceOffre implements iOffre{
         }
         
         return TypeDePoste;
+    }
+    
+    
+    public String getSkillByID(int id) {
+       
+        String TypeDePoste = "";
+       
+        
+        try {
+            
+            String r = "SELECT `name` FROM `skills` WHERE id = ?";
+            
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) 
+                TypeDePoste = rs.getString(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (TypeDePoste.length()>0)
+            return TypeDePoste+", ";
+        else
+            return TypeDePoste;
     }
 
 

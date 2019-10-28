@@ -210,9 +210,116 @@ public class Getlists {
         
         return i;
          
+ }   
+        
+        public int getNoteSkills (int id1, int id2) {
+       
+        int note = 0;
+        int[] a = {0,0,0};
+        int[] a2 = {0,0,0};
+        
+        
+        String r = "SELECT `skill1_id`, `skill2_id`, `skill3_id` FROM user_skills WHERE `user_id` = ?";
+        String r2 = "SELECT `skill1_id`, `skill2_id`, `skill3_id` FROM offres WHERE id = ?";
+        
+        try {
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id1);
+            res = ps.executeQuery();
+            
+            while (res.next()) {
+                for (int i=0; i<3; i++)
+                    a[i] = res.getInt(i+1);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            ps = c.prepareStatement(r2);
+            ps.setInt(1, id2);
+            res = ps.executeQuery();
+            
+            while (res.next()) {
+                for (int i=0; i<3; i++)
+                    a2[i] = res.getInt(i+1);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
+        for (int k: a) {
+            //System.out.println(k);
+            for (int j: a2) {
+                //System.out.println(j);
+                if (j == k)
+                    note++;
+            }
+        }
+        
+        return (int) Math.ceil(note * 3.33);
+        
+        
+        }
+        
+        
+        public int getNoteLangues (int id1, int id2) {
+       
+        int note = 0;
+        int[] a = {0,0};
+        int a2 = 0;
+        
+        
+        String r = "SELECT `langue1_ref`, `langue2_ref` FROM user_langues WHERE `user_id` = ?";
+        String r2 = "SELECT `langue_ref` FROM offres WHERE id = ?";
+        
+        try {
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id1);
+            res = ps.executeQuery();
+            
+            while (res.next()) {
+                for (int i=0; i<2; i++)
+                    a[i] = res.getInt(i+1);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            ps = c.prepareStatement(r2);
+            ps.setInt(1, id2);
+            res = ps.executeQuery();
+            
+            while (res.next()) {
+                
+                    a2 = res.getInt(1);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
-    }   
+        for (int k: a) {
+            //System.out.println(k);
+                   //System.out.println(j);
+                if (k == a2)
+                    note++;
+            }
+        
+        
+        return (int) Math.ceil(note * 10);
+        
+        
+        }
+        
+        
+        
     
     
 }
