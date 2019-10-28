@@ -57,6 +57,8 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton deconnect1111;
     @FXML
     private JFXButton consulterlesoffres;
+    @FXML
+    private JFXButton Quit;
 
     
     
@@ -101,6 +103,14 @@ public class MainWindowUtilisateurController implements Initializable {
         
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/LesOffres.fxml"));
         borderpane.setCenter(root);
+        
+    }
+
+    @FXML
+    private void quitAction(ActionEvent event) {
+        
+        Stage stage = (Stage) Quit.getScene().getWindow();
+        stage.close();
         
     }
 
