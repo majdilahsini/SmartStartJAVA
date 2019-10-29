@@ -49,6 +49,8 @@ public class LoginController1 implements Initializable {
     private JFXButton normaluser;
     @FXML
     private JFXButton entrepriseinscrit;
+    @FXML
+    private Hyperlink adminlogin;
 
     /*
      * Initializes the controller class.
@@ -107,71 +109,7 @@ public class LoginController1 implements Initializable {
 
             }
           }
-           /*  if (p==0){
-                           // FXMLLoader loader2=new FXMLLoader(getClass().getResource("/View/AllUserNewController.fxml"));
-         FXMLLoader loader2=new FXMLLoader(getClass().getResource("/View/Admin.fxml"));
-                           
-                           Parent root =loader2.load();
-
-          
-            passwordId.getScene().setRoot(root);
-      
-            }
-              //pharmacien
-             if (p==2){
-                            FXMLLoader loader2=new FXMLLoader(getClass().getResource("/View/.fxml"));
-            Parent root =loader2.load();
-
-          
-            passwordId.getScene().setRoot(root);
-      
-            }
-               //infermier
-             if (p==3){
-                            FXMLLoader loader2=new FXMLLoader(getClass().getResource("/View/.fxml"));
-            Parent root =loader2.load();
-
-          
-            passwordId.getScene().setRoot(root);
-      
-            }
-               //Responsable organisation
-             if (p==4){
-                            FXMLLoader loader2=new FXMLLoader(getClass().getResource("/View/.fxml"));
-            Parent root =loader2.load();
-
-          
-            passwordId.getScene().setRoot(root);
-      
-            }
-                //Simple user
-             if (p==5){
-                            FXMLLoader loader2=new FXMLLoader(getClass().getResource("/View/.fxml"));
-            Parent root =loader2.load();
-
-          
-            passwordId.getScene().setRoot(root);
-      
-            }
-
-            
-          }
-          else 
-          {
-            showAlert(Alert.AlertType.ERROR, passwordId.getScene().getWindow(), 
-    "Form Error!", "utilisateur incorrect!");
-              
-            
-            }
-
-        
-        
-    }
-
-    private void showAlert(Alert.AlertType alertType, Window window, String form_Error, String veuillez_remplir_tous_les_champs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
- */
+           
     
 }
      private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
@@ -221,6 +159,17 @@ public class LoginController1 implements Initializable {
     @FXML
     private void recovery(ActionEvent event) throws IOException {
          FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/passrecovery.fxml"));
+            Parent root =loader.load();
+            Scene tableViewScene = new Scene(root);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.close();
+            window.setScene(tableViewScene);
+            window.show();
+    }
+
+    @FXML
+    private void paneladmin(ActionEvent event) throws IOException {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/panelloginadmin.fxml"));
             Parent root =loader.load();
             Scene tableViewScene = new Scene(root);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
