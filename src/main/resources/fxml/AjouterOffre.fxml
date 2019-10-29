@@ -6,7 +6,6 @@
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -35,12 +34,7 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <BorderPane layoutX="73.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="245.0" style="-fx-border-color: #54afff;">
-         <center>
-            <ImageView fitHeight="202.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
-      <JFXButton alignment="BASELINE_LEFT" layoutX="73.0" layoutY="243.0" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #00597C;" text="Upload image" textFill="#fff9f9">
+      <JFXButton fx:id="uploadimg" alignment="BASELINE_LEFT" layoutX="73.0" layoutY="236.0" onAction="#uploadimgAction" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #00597C;" text="Upload image" textFill="#fff9f9">
          <font>
             <Font size="20.0" />
          </font>
@@ -63,5 +57,10 @@
       <Text layoutX="68.0" layoutY="348.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 1" />
       <Text layoutX="68.0" layoutY="421.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 2" />
       <Text layoutX="69.0" layoutY="496.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 3" />
+      <AnchorPane layoutX="116.0" layoutY="75.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fx:id="img" fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

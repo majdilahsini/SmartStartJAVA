@@ -19,6 +19,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import services.ServiceApplication;
@@ -57,6 +59,11 @@ public class MesOffreController implements Initializable {
                 nbr.setText(Integer.toString(a.NbrApplicationOffre(e.getId()))+ " Candidatures");
                 Text date = (Text) root2.lookup("#date");
                 date.setText("Publié le "+e.getDate_publication());
+                
+                ImageView img = (ImageView) root2.lookup("#img");
+                Image im = new Image(e.getPhoto());
+                img.setImage(im);
+                
                 
                 vbx.getChildren().add(root2);
             }

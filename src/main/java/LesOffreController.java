@@ -17,6 +17,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import services.ServiceApplication;
@@ -69,6 +71,10 @@ public class LesOffreController implements Initializable {
                 
                 Text skills = (Text) root2.lookup("#skills");
                 skills.setText("Les compétences :"+ o.getSkillByID(e.getSkill1_id())+ o.getSkillByID(e.getSkill2_id())+ o.getSkillByID(e.getSkill3_id()));
+                
+                ImageView img = (ImageView) root2.lookup("#img");
+                Image im = new Image(e.getPhoto());
+                img.setImage(im);
                 
                 vbx.getChildren().add(root2);
             }
