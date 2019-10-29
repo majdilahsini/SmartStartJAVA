@@ -19,6 +19,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import services.ServiceApplication;
@@ -45,6 +47,8 @@ public class DetailsOffreCandidatureController implements Initializable {
     private ScrollPane a;
     @FXML
     private VBox vbx;
+    @FXML
+    private ImageView img;
 
     /**
      * Initializes the controller class.
@@ -69,6 +73,9 @@ public class DetailsOffreCandidatureController implements Initializable {
                 nbr.setText(Integer.toString(a.NbrApplicationOffre(e.getId()))+ " Candidatures");
 
                 date.setText("Publié le "+e.getDate_publication());
+                
+                Image i = new Image(e.getPhotdeloffre());
+                img.setImage(i);
                 
                  
             }

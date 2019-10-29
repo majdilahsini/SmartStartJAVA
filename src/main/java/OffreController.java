@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -41,6 +42,8 @@ public class OffreController implements Initializable {
     private JFXButton supprimeroffre;
     @FXML
     private JFXButton modifier;
+    @FXML
+    private ImageView img;
 
     /**
      * Initializes the controller class.

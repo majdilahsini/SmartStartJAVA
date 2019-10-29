@@ -49,8 +49,8 @@ public class ServiceOffre implements iOffre{
        try {
           
            String r1 = "INSERT INTO `offres` "
-                    + "(`titre`,`domaine_id`,`entreprise_id`,`date_publication`,`niveau_etude`,`langue_ref`,`type_post_id`,`skill1_id`, `skill2_id`, `skill3_id`, `salaire`)"
-                    + " VALUES (?,?,?,SYSDATE(),?,?,?,?,?,?,?)";
+                    + "(`titre`,`domaine_id`,`entreprise_id`,`date_publication`,`niveau_etude`,`langue_ref`,`type_post_id`,`skill1_id`, `skill2_id`, `skill3_id`, `salaire`, `photo`)"
+                    + " VALUES (?,?,?,SYSDATE(),?,?,?,?,?,?,?,?)";
            
            ps = c.prepareStatement(r1);
            ps.setString(1, e.getTitre());
@@ -63,7 +63,9 @@ public class ServiceOffre implements iOffre{
            ps.setInt(8, e.getSkill2_id());
            ps.setInt(9, e.getSkill3_id());
            ps.setInt(10, e.getSalaire());
+           ps.setString(11, e.getPhotdeloffre());
            executeTest = ps. executeUpdate();
+           
            
     } catch (SQLException ex) {
             Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
@@ -163,7 +165,7 @@ public class ServiceOffre implements iOffre{
         List<Offre> offres = new ArrayList<>();
         Offre o = null;
         
-        String r = "SELECT o.`id` 'id',`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`,'%d/%m/%Y'),`langue_ref`,`type_post_id`,o.`skill1_id`,o.`skill2_id`,o.`skill3_id`,`salaire` FROM offres o " +
+        String r = "SELECT o.`id` 'id',`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`,'%d/%m/%Y'),`langue_ref`,`type_post_id`,o.`skill1_id`,o.`skill2_id`,o.`skill3_id`,`salaire`, `photo` FROM offres o " +
                     "where o.`id` NOT IN (SELECT offre_id FROM applications WHERE user_id = ?);";
         
         try {
@@ -185,6 +187,7 @@ public class ServiceOffre implements iOffre{
                     o.setSkill2_id(res.getInt("skill2_id"));
                     o.setSkill3_id(res.getInt("skill3_id"));
                     o.setSalaire(res.getInt("salaire"));
+                    o.setPhotdeloffre(res.getString("photo"));
                     //o.setDescription(res.getString("description"));
                 offres.add(o);
             }
@@ -201,7 +204,7 @@ public class ServiceOffre implements iOffre{
         List<Offre> offres = new ArrayList<>();
         Offre o = null;
         
-        String r = "SELECT `id`,`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y'),`langue_ref`,`type_post_id`,`skill1_id`,`skill2_id`,`skill3_id`,`salaire` FROM offres"
+        String r = "SELECT `id`,`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y'),`langue_ref`,`type_post_id`,`skill1_id`,`skill2_id`,`skill3_id`,`salaire`, `photo` FROM offres"
                 + " WHERE id = ?";
         
         try {
@@ -223,6 +226,7 @@ public class ServiceOffre implements iOffre{
                     o.setSkill2_id(rs.getInt("skill2_id"));
                     o.setSkill3_id(rs.getInt("skill3_id"));
                     o.setSalaire(rs.getInt("salaire"));
+                    o.setPhotdeloffre(rs.getString(12));
                     //o.setDescription(res.getString("description"));
                 offres.add(o);
             }
@@ -240,7 +244,7 @@ public class ServiceOffre implements iOffre{
         List<Offre> offres = new ArrayList<>();
         Offre o = null;
         
-        String r = "SELECT `titre`,`id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y') FROM offres WHERE `entreprise_id` = ?";
+        String r = "SELECT `titre`,`id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y'), `photo` FROM offres WHERE `entreprise_id` = ?";
 
         
         try {
@@ -253,7 +257,7 @@ public class ServiceOffre implements iOffre{
                     o.setId(res.getInt(2));
                     o.setTitre(res.getString(1));
                     o.setDate_publication(res.getString(3));
-                    //o.setDate_publication(res.getString("date_publication"));
+                    o.setPhotdeloffre(res.getString(4));
                 offres.add(o);
             }
             

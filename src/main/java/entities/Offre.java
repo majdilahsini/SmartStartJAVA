@@ -25,6 +25,19 @@ public class Offre {
     private int skill3_id;
     private int salaire;
     private String date_publication;
+    private String photdeloffre;
+
+    public String getPhotdeloffre() {
+        return photdeloffre;
+    }
+
+    public void setPhotdeloffre(String photdeloffre) {
+        this.photdeloffre = photdeloffre;
+    }
+
+    
+    
+    
 
     public String getDate_publication() {
         return date_publication;
@@ -123,7 +136,7 @@ public class Offre {
         this.salaire = salaire;
     }
 
-    public Offre(int id, String titre, int domaine_id, int entreprise_id, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire) {
+    public Offre(int id, String titre, int domaine_id, int entreprise_id, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire, String photdeloffre) {
         this.id = id;
         this.titre = titre;
         this.domaine_id = domaine_id;
@@ -135,9 +148,10 @@ public class Offre {
         this.skill2_id = skill2_id;
         this.skill3_id = skill3_id;
         this.salaire = salaire;
+        this.photdeloffre = photdeloffre;
     }
 
-    public Offre(String titre, int domaine_id, int entreprise_id, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire) {
+    public Offre(String titre, int domaine_id, int entreprise_id, int niveau_etude, int langue_ref, int type_post_id, int skill1_id, int skill2_id, int skill3_id, int salaire, String photdeloffre) {
         this.titre = titre;
         this.domaine_id = domaine_id;
         this.entreprise_id = entreprise_id;
@@ -148,8 +162,10 @@ public class Offre {
         this.skill2_id = skill2_id;
         this.skill3_id = skill3_id;
         this.salaire = salaire;
+        this.photdeloffre = photdeloffre;
     }
 
+    
     public Offre() {
     }
     

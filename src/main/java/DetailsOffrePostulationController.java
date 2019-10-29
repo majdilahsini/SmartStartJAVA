@@ -76,6 +76,8 @@ public class DetailsOffrePostulationController implements Initializable {
     private JFXButton postuler;
     @FXML
     private Text message;
+    @FXML
+    private ImageView img;
 
     /**
      * Initializes the controller class.
@@ -110,6 +112,9 @@ public class DetailsOffrePostulationController implements Initializable {
                 salaire.setText(Integer.toString(e.getSalaire()));
 
                 skills.setText(o.getSkillByID(e.getSkill1_id())+ o.getSkillByID(e.getSkill2_id())+ o.getSkillByID(e.getSkill3_id()));
+                
+                Image im = new Image(e.getPhotdeloffre());
+                img.setImage(im);
                 
             }
 
