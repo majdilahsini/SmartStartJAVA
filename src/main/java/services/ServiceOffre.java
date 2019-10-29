@@ -313,16 +313,16 @@ public class ServiceOffre implements iOffre{
     }
 
     @Override
-    public String getLangueByRef(Offre e) {
+    public String getLangueByRef(int id) {
        
         String Langue = "";
         
         try {
             
-            String r = "SELECT `nom` FROM `langues` WHERE id = ?";
+            String r = "SELECT `nom` FROM `langues` WHERE ref = ?";
             
             ps = c.prepareStatement(r);
-            ps.setInt(1, e.getLangue_ref());
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) 

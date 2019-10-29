@@ -122,14 +122,14 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         Getlists g = new Getlists();
-        notec.setText(Integer.toString(g.getNoteSkills(1,OfrreSession.getId()))+"/10");
-        if (g.getNoteSkills(1,OfrreSession.getId()) == 0)
+        notec.setText(Integer.toString(g.getNoteSkills(Session.getId(),OfrreSession.getId()))+"/10");
+        if (g.getNoteSkills(Session.getId(),OfrreSession.getId()) == 0)
             notecomp.setImage(new Image("/fxml/assets/error.png"));
         else
             notecomp.setImage(new Image("/fxml/assets/ok.png"));
         
-        notel.setText(Integer.toString(g.getNoteLangues(1,OfrreSession.getId()))+"/10");
-        if (g.getNoteLangues(1,OfrreSession.getId()) == 0)
+        notel.setText(Integer.toString(g.getNoteLangues(Session.getId(),OfrreSession.getId()))+"/10");
+        if (g.getNoteLangues(Session.getId(),OfrreSession.getId()) == 0)
             notelange.setImage(new Image("/fxml/assets/error.png"));
         else
             notelange.setImage(new Image("/fxml/assets/ok.png"));
@@ -137,7 +137,7 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         
-        ringprogress.setProgress((g.getNoteSkills(1,OfrreSession.getId())*2 + g.getNoteLangues(1,OfrreSession.getId()))/30.0);
+        ringprogress.setProgress((g.getNoteSkills(Session.getId(),OfrreSession.getId())*5 + g.getNoteLangues(Session.getId(),OfrreSession.getId()))/61.0);
         
     }    
 

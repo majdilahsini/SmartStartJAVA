@@ -21,6 +21,6 @@ public interface iOffre {
     public List<Offre> AfficherOffresByEntreprise(int id);
     public String getDomaineByID(Offre e);
     public String getEntrepriseByID(Offre e);
-    public String getLangueByRef(Offre e);
+    public String getLangueByRef(int id);
     public String getTypeDePosteByID(Offre e);
 }

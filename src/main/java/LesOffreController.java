@@ -40,7 +40,7 @@ public class LesOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Parent root2;
-        System.out.println(Session.getId());
+        //System.out.println(Session.getId());
         try {
             
            
