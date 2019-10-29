@@ -16,4 +16,5 @@ public interface IForumService {
     public void SupprimerCommentaire(Forum f);
     public void ModifierCommentaire(Forum f);
     public int FindIdCommentaire( String comm);
+    public String FindEmailId(int id);
 }

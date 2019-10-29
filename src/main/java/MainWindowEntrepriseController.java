@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -75,10 +76,10 @@ public class MainWindowEntrepriseController implements Initializable {
 
     @FXML
     private void returntologin(ActionEvent event) throws IOException {
-           Stage stage;
-        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
-        borderpane.setCenter(signUpPage);
-       /* Scene scene = new Scene(signUpPage);
+          /* Stage stage;
+      //  Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
+       // borderpane.setCenter(signUpPage);
+        Scene scene = new Scene(signUpPage);
         stage = (Stage)Quit.getScene().getWindow();
         stage.hide();
         stage.setScene(scene);
@@ -122,7 +123,10 @@ public class MainWindowEntrepriseController implements Initializable {
     }
 
     @FXML
-    private void forumAction(ActionEvent event) {
+    private void forumAction(ActionEvent event) throws IOException {
+        
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
+        borderpane.setCenter(signUpPage);
     }
     
 }
