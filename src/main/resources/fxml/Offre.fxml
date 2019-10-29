@@ -46,7 +46,7 @@
          </children>
       </AnchorPane>
       <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />
-      <JFXButton fx:id="consulteroffre1" alignment="CENTER" contentDisplay="CENTER" layoutX="662.0" layoutY="36.0" onAction="#consulteroffreAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Modifier" textFill="#fff9f9">
+      <JFXButton fx:id="modifier" alignment="CENTER" contentDisplay="CENTER" layoutX="662.0" layoutY="36.0" onAction="#modifierAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Modifier" textFill="#fff9f9">
          <font>
             <Font size="17.0" />
          </font>
