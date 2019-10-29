@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ModifierOffreController">
+   <children>
+      <JFXTextField fx:id="titrefield" layoutX="419.0" layoutY="26.0" maxWidth="690.0" minWidth="255.0" onKeyReleased="#titrefieldoffreverify" prefHeight="62.0" prefWidth="327.0" promptText="Titre" unFocusColor="#54afff">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="domaine" layoutX="427.0" layoutY="327.0" onShowing="#domaineshow" prefHeight="52.0" prefWidth="319.0" promptText="Domaine" />
+      <JFXComboBox fx:id="langue" layoutX="427.0" layoutY="407.0" onShowing="#langueshow" prefHeight="52.0" prefWidth="319.0" promptText="Langue" />
+      <JFXComboBox fx:id="poste" layoutX="430.0" layoutY="242.0" onShown="#typepostshow" prefHeight="52.0" prefWidth="319.0" promptText="Type d'offre" />
+      <JFXButton fx:id="ajouterbsd" alignment="CENTER" contentDisplay="TOP" layoutX="422.0" layoutY="544.0" onAction="#ajouterbsdAction" prefHeight="57.0" prefWidth="327.0" style="-fx-background-color: #1592B5;" text="Confirmer" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="27.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="0.03" contrast="-0.14" />
+         </effect>
+      </JFXButton>
+      <ImageView fx:id="titreicon" fitHeight="32.0" fitWidth="32.0" layoutX="784.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="niveauetudeicon" fitHeight="32.0" fitWidth="32.0" layoutX="784.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXTextField fx:id="niveaufield" layoutX="422.0" layoutY="102.0" maxWidth="690.0" minWidth="255.0" onKeyReleased="#niveaufieldoffreverify" prefHeight="62.0" prefWidth="327.0" promptText="Niveau d'étude (Nombre d'ans aprés le bac)" unFocusColor="#54afff">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <BorderPane layoutX="73.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="245.0" style="-fx-border-color: #54afff;">
+         <center>
+            <ImageView fitHeight="202.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <JFXButton alignment="BASELINE_LEFT" layoutX="73.0" layoutY="243.0" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #00597C;" text="Upload image" textFill="#fff9f9">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="-0.19" contrast="1.0" />
+         </effect>
+      </JFXButton>
+      <JFXTextField fx:id="niveaufield1" layoutX="422.0" layoutY="166.0" maxWidth="690.0" minWidth="255.0" onKeyReleased="#Salaireverif" prefHeight="62.0" prefWidth="327.0" promptText="Salaire" unFocusColor="#54afff">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="skillscombo" layoutX="68.0" layoutY="332.0" onShown="#skillscomboshown" prefHeight="52.0" prefWidth="245.0" />
+      <JFXComboBox fx:id="skillscombo1" layoutX="68.0" layoutY="405.0" onShown="#skillscombo1shown" prefHeight="52.0" prefWidth="245.0" />
+      <JFXComboBox fx:id="skillscombo2" layoutX="68.0" layoutY="480.0" onShown="#skillscombo2shown" prefHeight="52.0" prefWidth="245.0" />
+      <ImageView fx:id="salaireicon" fitHeight="32.0" fitWidth="32.0" layoutX="784.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="573.0" layoutY="180.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr d'année aprés le bac" />
+      <Text layoutX="640.0" layoutY="244.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Salaire en TND" />
+      <Text layoutX="642.0" layoutY="106.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre de l'offre" />
+      <Text layoutX="68.0" layoutY="348.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 1" />
+      <Text layoutX="68.0" layoutY="421.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 2" />
+      <Text layoutX="69.0" layoutY="496.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 3" />
+   </children>
+</AnchorPane>
