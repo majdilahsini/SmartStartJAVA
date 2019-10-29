@@ -5,9 +5,13 @@
  */
 package entities;
 
+import java.io.File;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
@@ -20,8 +24,6 @@ public class Formation {
     private int ref ;
     private int domaine_id ;
     private String Nom ;
-    private int entreprise_id;
-    private String prérequis ;
     private String description ;
     private int duree ; 
     private Date date_debut ;
@@ -30,30 +32,42 @@ public class Formation {
     private double prix ;
     private int Contact ;
     private String email ;
-private String image ;
-       Timestamp time_event;
-
-
-     private ImageView imgview;
-
-    public Formation(String image) {
-        this.image = image;
-    }
+    private String image ;
+    private int entreprise_id;
 
     public int getEntreprise_id() {
         return entreprise_id;
+    }
+
+    public Formation(String Nom, int duree, Date date_debut, Date date_fin) {
+        this.Nom = Nom;
+        this.duree = duree;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
     }
 
     public void setEntreprise_id(int entreprise_id) {
         this.entreprise_id = entreprise_id;
     }
 
-    public Formation(int ref, int domaine_id, String Nom, int entreprise_id, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email) {
+    public Formation(int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin,double prix,String adresse,String email, int Contact,  String image) {
+        this.domaine_id = domaine_id;
+        this.Nom = Nom;
+        this.description = description;
+        this.duree = duree;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.Contact = Contact;
+        this.email = email;
+        this.image = image;
+    }
+
+    public Formation(int ref, int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, int entreprise_id, ImageView imgview) {
         this.ref = ref;
         this.domaine_id = domaine_id;
         this.Nom = Nom;
-        this.entreprise_id = entreprise_id;
-        this.prérequis = prérequis;
         this.description = description;
         this.duree = duree;
         this.date_debut = date_debut;
@@ -62,14 +76,26 @@ private String image ;
         this.prix = prix;
         this.Contact = Contact;
         this.email = email;
+        this.image = image;
+        this.entreprise_id = entreprise_id;
+        this.imgview = imgview;
     }
 
-    public Formation(int ref, int domaine_id, String Nom, int entreprise_id, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, Timestamp time_event, ImageView imgview) {
+
+     private ImageView imgview;
+     
+     private Button button1=new Button("Consulter");
+    private Button button2=new Button("Supprimer");
+    private Button button3=new Button("Modifier");
+
+    public Formation(String image) {
+        this.image = image;
+    }
+
+    public Formation(int ref, int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, ImageView imgview) {
         this.ref = ref;
         this.domaine_id = domaine_id;
         this.Nom = Nom;
-        this.entreprise_id = entreprise_id;
-        this.prérequis = prérequis;
         this.description = description;
         this.duree = duree;
         this.date_debut = date_debut;
@@ -79,27 +105,26 @@ private String image ;
         this.Contact = Contact;
         this.email = email;
         this.image = image;
-        this.time_event = time_event;
         this.imgview = imgview;
     }
 
-    public Formation(int domaine_id, String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin,double prix, String adresse, int Contact, String email) {
+    public Formation(int ref, int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin,double prix,String adresse,String email, int Contact ) {
+        this.ref = ref;
         this.domaine_id = domaine_id;
         this.Nom = Nom;
-        this.prérequis = prérequis;
         this.description = description;
         this.duree = duree;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
-        this.prix = prix;
         this.adresse = adresse;
+        this.prix = prix;
         this.Contact = Contact;
         this.email = email;
     }
 
-    public Formation(String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, Timestamp time_event, ImageView imgview) {
+    public Formation(int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin, double prix,String adresse, String email,  int Contact) {
+        this.domaine_id = domaine_id;
         this.Nom = Nom;
-        this.prérequis = prérequis;
         this.description = description;
         this.duree = duree;
         this.date_debut = date_debut;
@@ -108,37 +133,21 @@ private String image ;
         this.prix = prix;
         this.Contact = Contact;
         this.email = email;
-        this.image = image;
-        this.time_event = time_event;
-        this.imgview = imgview;
     }
+    
+    
+  
+   
 
-    public Formation(String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image) {
-        this.Nom = Nom;
-        this.prérequis = prérequis;
-        this.description = description;
-        this.duree = duree;
-        this.date_debut = date_debut;
-        this.date_fin = date_fin;
-        this.adresse = adresse;
-        this.prix = prix;
-        this.Contact = Contact;
-        this.email = email;
-        this.image = image;
-    }
+    
 
-    public Formation(String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email) {
-        this.Nom = Nom;
-        this.prérequis = prérequis;
-        this.description = description;
-        this.duree = duree;
-        this.date_debut = date_debut;
-        this.date_fin = date_fin;
-        this.adresse = adresse;
-        this.prix = prix;
-        this.Contact = Contact;
-        this.email = email;
-    }
+    
+
+    
+
+    
+
+   
 
      
      
@@ -149,9 +158,7 @@ private String image ;
     public void setImgview(ImageView imgview) {
         this.imgview = imgview;
     }
-private Button button1=new Button("Consulter");
-    private Button button2=new Button("Supprimer");
-    private Button button3=new Button("Modifier");
+
     public Formation() {
         
     }
@@ -180,63 +187,7 @@ private Button button1=new Button("Consulter");
         this.button3 = button3;
     }
 
-    public Timestamp getTime_event() {
-        return time_event;
-    }
-
-    public void setTime_event(Timestamp time_event) {
-        this.time_event = time_event;
-    }
-
-    public Formation(int ref, int domaine_id, String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, Timestamp time_event, ImageView imgview) {
-        this.ref = ref;
-        this.domaine_id = domaine_id;
-        this.Nom = Nom;
-        this.prérequis = prérequis;
-        this.description = description;
-        this.duree = duree;
-        this.date_debut = date_debut;
-        this.date_fin = date_fin;
-        this.adresse = adresse;
-        this.prix = prix;
-        this.Contact = Contact;
-        this.email = email;
-        this.image = image;
-        this.time_event = time_event;
-        this.imgview = imgview;
-    }
-
-    public Formation(int ref, int domaine_id, String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image) {
-        this.ref = ref;
-        this.domaine_id = domaine_id;
-        this.Nom = Nom;
-        this.prérequis = prérequis;
-        this.description = description;
-        this.duree = duree;
-        this.date_debut = date_debut;
-        this.date_fin = date_fin;
-        this.adresse = adresse;
-        this.prix = prix;
-        this.Contact = Contact;
-        this.email = email;
-        this.image = image;
-    }
-
-    public Formation(int domaine_id, String Nom, String prérequis, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image) {
-        this.domaine_id = domaine_id;
-        this.Nom = Nom;
-        this.prérequis = prérequis;
-        this.description = description;
-        this.duree = duree;
-        this.date_debut = date_debut;
-        this.date_fin = date_fin;
-        this.adresse = adresse;
-        this.prix = prix;
-        this.Contact = Contact;
-        this.email = email;
-        this.image = image;
-    }
-
+   
     public int getRef() {
         return ref;
     }
@@ -261,13 +212,7 @@ private Button button1=new Button("Consulter");
         this.Nom = Nom;
     }
 
-    public String getPrérequis() {
-        return prérequis;
-    }
-
-    public void setPrérequis(String prérequis) {
-        this.prérequis = prérequis;
-    }
+    
 
     public String getDescription() {
         return description;
@@ -341,9 +286,16 @@ private Button button1=new Button("Consulter");
         this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "Formation{" + "ref=" + ref + ", domaine_id=" + domaine_id + ", Nom=" + Nom + ", pr\u00e9requis=" + prérequis + ", description=" + description + ", duree=" + duree + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", adresse=" + adresse + ", prix=" + prix + ", Contact=" + Contact + ", email=" + email + ", image=" + image + '}';
-    }
+ /*    public static List<Formation> generateImageViews(List<Formation> animals) {
+        List<Formation> liste = new ArrayList<Formation>();
+
+        for (Formation animal : animals) {
+            File f = new File("C:\\wamp64\\www\\image\\"+animal.getImage());
+            //System.out.println(animal.getImage());
+            animal.setImgview(new ImageView(new Image(f.toURI().toString())));
+            liste.add(animal);
+        }
+        return liste;
+    }*/
 
 }
