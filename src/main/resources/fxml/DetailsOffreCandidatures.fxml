@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,13 +14,22 @@
    <children>
       <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="181.0" prefWidth="823.0">
          <children>
-            <Text fx:id="nom" layoutX="190.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STAGE ANGULAR">
+            <AnchorPane layoutX="29.0" layoutY="7.0" prefHeight="161.0" prefWidth="766.0" style="-fx-background-color: #E0EBEF;">
+               <effect>
+                  <MotionBlur radius="63.0">
+                     <input>
+                        <DropShadow />
+                     </input>
+                  </MotionBlur>
+               </effect>
+            </AnchorPane>
+            <Text fx:id="nom" layoutX="176.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STAGE ANGULAR">
                <font>
                   <Font name="System Bold" size="43.0" />
                </font>
             </Text>
-            <Text fx:id="date" layoutX="193.0" layoutY="98.0" opacity="0.49" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
-            <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
+            <Text fx:id="date" layoutX="179.0" layoutY="85.0" opacity="0.49" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
+            <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
                <children>
                   <ImageView fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -28,7 +39,7 @@
                </children>
             </AnchorPane>
             <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />
-            <Text fx:id="nbr" layoutX="193.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr postulations">
+            <Text fx:id="nbr" layoutX="179.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nbr postulations">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
