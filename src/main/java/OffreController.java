@@ -18,6 +18,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.ServiceOffre;
+import utils.OfrreSession;
 
 /**
  * FXML Controller class
@@ -64,9 +65,16 @@ public class OffreController implements Initializable {
      }
 
     @FXML
-    private void consulteroffreAction(ActionEvent event) {
+    private void consulteroffreAction(ActionEvent event) throws IOException {
         
         
+        OfrreSession.setId(Integer.parseInt(id.getText()));
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/DetailsOffreCandidatures.fxml"));
+        BorderPane bp;
+        
+        bp = (BorderPane) id.getParent().getParent().getParent().getParent().getParent().getParent().getParent().getParent();
+        bp.setCenter(root);
         
     }
     
