@@ -38,9 +38,9 @@ public class OffreController implements Initializable {
     @FXML
     private JFXButton consulteroffre;
     @FXML
-    private JFXButton consulteroffre1;
-    @FXML
     private JFXButton supprimeroffre;
+    @FXML
+    private JFXButton modifier;
 
     /**
      * Initializes the controller class.
@@ -71,6 +71,19 @@ public class OffreController implements Initializable {
         OfrreSession.setId(Integer.parseInt(id.getText()));
         
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/DetailsOffreCandidatures.fxml"));
+        BorderPane bp;
+        
+        bp = (BorderPane) id.getParent().getParent().getParent().getParent().getParent().getParent().getParent().getParent();
+        bp.setCenter(root);
+        
+    }
+
+    @FXML
+    private void modifierAction(ActionEvent event) throws IOException {
+        
+        OfrreSession.setId(Integer.parseInt(id.getText()));
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ModifierOffre.fxml"));
         BorderPane bp;
         
         bp = (BorderPane) id.getParent().getParent().getParent().getParent().getParent().getParent().getParent().getParent();
