@@ -19,6 +19,10 @@ public class Domaine {
         this.nom_domaine = nom_domaine;
     }
 
+    public Domaine() {
+    }
+    
+
     public int getId() {
         return id;
     }
@@ -34,5 +38,10 @@ public class Domaine {
     public void setNom_domaine(String nom_domaine) {
         this.nom_domaine = nom_domaine;
     }
+
+    public Domaine(String nom_domaine) {
+        this.nom_domaine = nom_domaine;
+    }
+    
 
 }
