@@ -56,7 +56,7 @@ public class PassrecoveryController implements Initializable {
           sendto(email,h);
           
        showAlert(Alert.AlertType.INFORMATION, textfield1.getScene().getWindow(), 
-    "Form Error!", "mot de pass envoyer vers l'email"+email);
+    "Form Error!", "mot de pass envoyer vers l'email "+email);
        
        }
         
