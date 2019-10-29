@@ -116,7 +116,11 @@
             <ImageView fx:id="formationImage4" fitHeight="47.0" fitWidth="54.0" layoutX="661.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="formationImage5" fitHeight="47.0" fitWidth="54.0" layoutX="750.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="formationImage6" fitHeight="47.0" fitWidth="54.0" layoutX="765.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="pdf_button" layoutX="400.0" layoutY="593.0" mnemonicParsing="false" onAction="#pdf_action" text="Button" />
+            <Button fx:id="btn_ajouter_pdf" layoutX="443.0" layoutY="582.0" mnemonicParsing="false" onAction="#ajouter_formation_pdf_action" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #00597C;" text="Ajouter PDF" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
