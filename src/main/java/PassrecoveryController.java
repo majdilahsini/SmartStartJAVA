@@ -14,8 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
-import javax.mail.MessagingException;
-import static services.sendmail.sendto;
+//import javax.mail.MessagingException;
+//import static services.sendmail.sendto;
 import services.usersService;
 
 /**
@@ -36,7 +36,7 @@ public class PassrecoveryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+/*
     @FXML
     private void sendmailtoclient(ActionEvent event) throws MessagingException {
        String email= textfield1.getText();
@@ -58,7 +58,7 @@ public class PassrecoveryController implements Initializable {
        
        }
         
-    }
+    }*/
      private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
     Alert alert = new Alert(alertType);
     alert.setTitle(title);

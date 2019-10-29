@@ -84,6 +84,7 @@ public class MainWindowUtilisateurController implements Initializable {
         
         Stage stage;
         Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
+        // borderpane.setCenter(signUpPage);
         Scene scene = new Scene(signUpPage);
         stage = (Stage)Quit.getScene().getWindow();
         stage.hide();

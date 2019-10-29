@@ -9,7 +9,7 @@ package services;
  *
  * @author firos
  */
-
+/*
 import javax.mail.internet.MimeMessage;
 import java.util.*;
 import javax.mail.*;
@@ -71,3 +71,4 @@ public class sendmail {
            System.out.println("message send successfully");
 }
 }
+*/

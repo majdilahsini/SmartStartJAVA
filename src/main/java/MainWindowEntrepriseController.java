@@ -70,13 +70,16 @@ public class MainWindowEntrepriseController implements Initializable {
     private void returntologin(ActionEvent event) throws IOException {
         
         Stage stage;
-        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
-        Scene scene = new Scene(signUpPage);
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
+        borderpane.setCenter(signUpPage);
+       /* Scene scene = new Scene(signUpPage);
         stage = (Stage)Quit.getScene().getWindow();
         stage.hide();
         stage.setScene(scene);
-        stage.show();
-        
+        stage.show();*/
+           
+     //   Parent root = FXMLLoader.load(getClass().getResource("/fxml/LesOffres.fxml"));
+      
     }
 
     @FXML
