@@ -1,7 +1,11 @@
 /*
  * Empty Stylesheet file.
  */
-
+.root
+{
+     -fx-background-image: url("output_free.gif");
+     -fx-background-size:cover;
+}
 .mainFxmlClass {
 
 }
