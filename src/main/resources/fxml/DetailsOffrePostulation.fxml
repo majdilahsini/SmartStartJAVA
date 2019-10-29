@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -21,7 +22,11 @@
             <Text fx:id="date" layoutX="193.0" layoutY="122.0" opacity="0.49" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
             <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
                <children>
-                  <ImageView fx:id="img" fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/download.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />

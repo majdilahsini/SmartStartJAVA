@@ -3,6 +3,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -30,7 +31,11 @@
             <Text fx:id="date" layoutX="179.0" layoutY="85.0" opacity="0.49" strokeType="OUTSIDE" strokeWidth="0.0" text="Date publication" />
             <AnchorPane layoutX="17.0" layoutY="14.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
                <children>
-                  <ImageView fx:id="img" fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/download.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />

@@ -17,8 +17,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import services.ServiceApplication;
@@ -50,16 +48,12 @@ public class LesOffreController implements Initializable {
             ServiceApplication a = new ServiceApplication ();
             for (Offre e: o.AfficherOffres2(Session.getId())) {
                 root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre_Utilisateur.fxml"));
-                
                 Text t = (Text) root2.lookup("#nom");
                 t.setText(e.getTitre());
-                
                 Text t2 = (Text) root2.lookup("#id");
                 t2.setText(Integer.toString(e.getId()));
-                
                 Text nbr = (Text) root2.lookup("#nbr");
                 nbr.setText(Integer.toString(a.NbrApplicationOffre(e.getId()))+ " Candidatures");
-                
                 Text date = (Text) root2.lookup("#date");
                 date.setText("Publié le "+e.getDate_publication());
                 
@@ -72,13 +66,9 @@ public class LesOffreController implements Initializable {
                 Text domaine = (Text) root2.lookup("#domaine");
                 domaine.setText(o.getDomaineByID(e));
                 
+                
                 Text skills = (Text) root2.lookup("#skills");
                 skills.setText("Les compétences :"+ o.getSkillByID(e.getSkill1_id())+ o.getSkillByID(e.getSkill2_id())+ o.getSkillByID(e.getSkill3_id()));
-                
-                ImageView im = (ImageView) root2.lookup("#img");
-                Image img = new Image(e.getPhotdeloffre());
-                im.setImage(img);
-                //System.out.println(e.getPhotdeloffre());
                 
                 vbx.getChildren().add(root2);
             }

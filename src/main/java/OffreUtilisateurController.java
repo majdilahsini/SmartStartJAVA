@@ -15,7 +15,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import utils.Getlists;
@@ -46,8 +45,6 @@ public class OffreUtilisateurController implements Initializable {
     private Text domaine;
     @FXML
     private Text contrat;
-    @FXML
-    private ImageView img;
 
     /**
      * Initializes the controller class.
