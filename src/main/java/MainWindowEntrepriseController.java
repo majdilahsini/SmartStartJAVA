@@ -108,7 +108,9 @@ public class MainWindowEntrepriseController implements Initializable {
     }
 
     @FXML
-    private void creer_formation_action(ActionEvent event) {
+    private void creer_formation_action(ActionEvent event) throws IOException {
+           Parent root = FXMLLoader.load(getClass().getResource("/fxml/ajoutformation.fxml"));
+        borderpane.setCenter(root);
     }
 
     @FXML
