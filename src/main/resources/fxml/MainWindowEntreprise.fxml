@@ -154,7 +154,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXButton fx:id="deconnect12" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un Sujet" textFill="#fff9f9">
+                              <JFXButton fx:id="ajoutersujet" alignment="BASELINE_LEFT" onAction="#ajoutersujet" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un Sujet" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -162,7 +162,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect1261" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
+                              <JFXButton fx:id="forum" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#forumAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

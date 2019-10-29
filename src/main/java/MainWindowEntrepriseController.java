@@ -53,11 +53,11 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton deconnect11111;
     @FXML
-    private JFXButton deconnect12;
-    @FXML
-    private JFXButton deconnect1261;
-    @FXML
     private BorderPane borderpane;
+    @FXML
+    private JFXButton ajoutersujet;
+    @FXML
+    private JFXButton forum;
 
     /**
      * Initializes the controller class.
@@ -115,6 +115,14 @@ public class MainWindowEntrepriseController implements Initializable {
 
     @FXML
     private void afficher_formation_action(ActionEvent event) {
+    }
+
+    @FXML
+    private void ajoutersujet(ActionEvent event) {
+    }
+
+    @FXML
+    private void forumAction(ActionEvent event) {
     }
     
 }

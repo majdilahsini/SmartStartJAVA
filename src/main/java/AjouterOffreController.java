@@ -11,7 +11,9 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entities.Offre;
 import entities.Session;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
@@ -27,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import services.ServiceOffre;
 import utils.Getlists;
 
@@ -69,6 +72,12 @@ public class AjouterOffreController implements Initializable {
     @FXML
     private ImageView salaireicon;
     private int[] verif = new int[]{0,0,0,0,0,0,0,0,0};
+    @FXML
+    private ImageView img;
+    @FXML
+    private JFXButton uploadimg;
+    
+    private File file;
     
 
 
@@ -132,7 +141,7 @@ public class AjouterOffreController implements Initializable {
     }
 
     @FXML
-    private void ajouterbsdAction(ActionEvent event) {
+    private void ajouterbsdAction(ActionEvent event) throws MalformedURLException {
 
         
         if (domaine.getValue() != null) 
@@ -160,7 +169,8 @@ public class AjouterOffreController implements Initializable {
                                  gl.getSkillbynom(skillscombo.getValue()),
                                  gl.getSkillbynom(skillscombo1.getValue()),
                                  gl.getSkillbynom(skillscombo2.getValue()),
-                                 Integer.parseInt(niveaufield1.getText()));
+                                 Integer.parseInt(niveaufield1.getText()),
+                                 file.toURI().toURL().toExternalForm());
             
           ServiceOffre o = new ServiceOffre();
           System.out.println(o.ajouterOffre(e));
@@ -257,5 +267,20 @@ public class AjouterOffreController implements Initializable {
             verif[2] =0;   
         }
                 
+    }
+
+    @FXML
+    private void uploadimgAction(ActionEvent event) throws MalformedURLException {
+        
+        FileChooser fileChooser = new FileChooser();
+        file = fileChooser.showOpenDialog(uploadimg.getScene().getWindow());
+        if(file != null){
+            Image img1 = new Image(file.toURI().toURL().toExternalForm());
+            img.setImage(img1);
+            img.setFitWidth(129);
+            img.setFitHeight(127);
+            img.setPreserveRatio(true);
+        }
+        
     }
 }
