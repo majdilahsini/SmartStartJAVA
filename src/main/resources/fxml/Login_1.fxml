@@ -29,13 +29,13 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Hyperlink fx:id="fgtPwdLink" layoutX="332.0" layoutY="320.0" onAction="#recovery" prefHeight="34.0" prefWidth="157.0" text="Forgot password?" textFill="#1592b5">
+      <Hyperlink fx:id="fgtPwdLink" layoutX="324.0" layoutY="306.0" onAction="#recovery" prefHeight="34.0" prefWidth="157.0" text="Forgot password?" textFill="#1592b5">
          <font>
             <Font size="17.0" />
          </font>
       </Hyperlink>
-      <JFXTextField fx:id="loginField" layoutX="324.0" layoutY="218.0" maxWidth="430.0" minWidth="255.0" onKeyPressed="#verifentry" onKeyReleased="#checkentry" prefHeight="45.0" prefWidth="430.0" promptText="USERNAME" unFocusColor="#54afff" />
-      <JFXPasswordField fx:id="pwdField" layoutX="325.0" layoutY="275.0" maxWidth="430.0" minWidth="255.0" prefHeight="45.0" prefWidth="430.0" promptText="PASSWORD" unFocusColor="#53b1ff" />
+      <JFXTextField fx:id="loginField" layoutX="324.0" layoutY="195.0" maxWidth="430.0" minWidth="255.0" onKeyPressed="#verifentry" onKeyReleased="#checkentry" prefHeight="45.0" prefWidth="430.0" promptText="USERNAME" unFocusColor="#54afff" />
+      <JFXPasswordField fx:id="pwdField" layoutX="325.0" layoutY="252.0" maxWidth="430.0" minWidth="255.0" prefHeight="45.0" prefWidth="430.0" promptText="PASSWORD" unFocusColor="#53b1ff" />
       <Line endX="29.0" layoutX="487.0" layoutY="459.0" startX="-145.0" stroke="#abaaaa" />
       <Line endX="74.0" layoutX="668.0" layoutY="448.0" startX="-100.0" stroke="#abaaaa" />
       <Text fill="#abaaaa" layoutX="531.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OR" />
@@ -60,9 +60,9 @@
             <Image url="@assets/logo.png" />
          </image>
       </ImageView>
-      <Hyperlink fx:id="adminlogin" layoutX="655.0" layoutY="-2.0" onAction="#paneladmin" text="admin login panel">
+      <Hyperlink fx:id="adminlogin" layoutX="576.0" layoutY="307.0" onAction="#paneladmin" text="Login As administrateur">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font size="16.0" />
          </font>
       </Hyperlink>
    </children>
