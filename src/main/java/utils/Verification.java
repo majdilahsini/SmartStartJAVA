@@ -59,4 +59,34 @@ public class Verification {
         return a;
 
 }
+     public int siEmailExiste(String s) {
+        
+        String r = "SELECT COUNT(*) FROM `users` WHERE `email`= ?";
+        int a = -1;
+        
+        try {
+            ps = c.prepareStatement(r);
+            ps.setString(1, s);
+            res = ps.executeQuery();
+            
+            if (res.next()) {
+                
+                //System.out.println(res.getInt(1));
+                
+                a = res.getInt(1);
+            }
+                
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Verification.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return a;
+
+}
+     public boolean isValid(String email) {
+      String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+      return email.matches(regex);
+   }
+    
 }
