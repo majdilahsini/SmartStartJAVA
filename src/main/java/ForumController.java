@@ -77,6 +77,8 @@ public class ForumController implements Initializable {
     private JFXButton Rel;
     @FXML
     private AnchorPane a;
+    @FXML
+    private AnchorPane plan;
 
     /**
      * Initializes the controller class.
@@ -289,7 +291,9 @@ public class ForumController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(ForumController.class.getName()).log(Level.SEVERE, null, ex);
     }
-            
+        
+           //  plan.setVisible(false);
+           //  plan.setVisible(true);
         
     }
        
