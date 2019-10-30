@@ -25,7 +25,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#1f1f1f" layoutX="62.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+            <Text fill="#1f1f1f" layoutX="42.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font size="20.0" />
                </font>
@@ -35,19 +35,19 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#1f1f1f" layoutX="42.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+            <Text fill="#1f1f1f" layoutX="21.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#1f1f1f" layoutX="50.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <Text fill="#1f1f1f" layoutX="24.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <JFXTextField fx:id="fnField" layoutX="202.0" layoutY="204.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fnField" prefHeight="40.0" prefWidth="209.0" />
-            <JFXTextField fx:id="emField" layoutX="213.0" layoutY="280.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#emFieldv" prefHeight="40.0" prefWidth="209.0" />
-            <JFXTextField fx:id="pnField" layoutX="212.0" layoutY="345.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="emailfield" layoutX="202.0" layoutY="204.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#emailfield" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="fullname" layoutX="213.0" layoutY="280.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fullname" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="fonenumberfield" layoutX="212.0" layoutY="345.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fonenumberfield" prefHeight="40.0" prefWidth="209.0" />
             <JFXTextField fx:id="usrnField" layoutX="202.0" layoutY="51.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#usrnFieldv" prefHeight="40.0" prefWidth="209.0" />
             <JFXPasswordField fx:id="pwdField" layoutX="202.0" layoutY="129.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pwdFieldv" prefHeight="40.0" prefWidth="209.0" />
             <JFXButton fx:id="singupBtn2" layoutX="66.0" layoutY="545.0" onAction="#signupentreprise" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
@@ -60,15 +60,20 @@
                   <Font size="20.0" />
                </font>
             </Hyperlink>
-            <Text fill="#1f1f1f" layoutX="41.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
+            <Text fill="#1f1f1f" layoutX="42.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <JFXTextField fx:id="pnField1" layoutX="213.0" layoutY="418.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
+            <JFXTextField fx:id="adresse" layoutX="213.0" layoutY="418.0" maxWidth="231.0" minWidth="189.0" prefHeight="40.0" prefWidth="209.0" />
+            <ImageView fx:id="usericon" fitHeight="32.0" fitWidth="32.0" layoutX="444.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="telicon" fitHeight="32.0" fitWidth="32.0" layoutX="444.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="fullicon" fitHeight="32.0" fitWidth="32.0" layoutX="444.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="emailicon" fitHeight="32.0" fitWidth="32.0" layoutX="444.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="passicon" fitHeight="32.0" fitWidth="32.0" layoutX="444.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="643.0" fitWidth="932.0" layoutX="499.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="676.0" fitWidth="934.0" layoutX="499.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/career3.jpg" />
          </image>
