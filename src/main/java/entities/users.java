@@ -21,7 +21,14 @@ public class users {
     private String adresse;
     private String role;
 
-
+ public users(String username, String password, String email, String fullname, String tel, String adresse) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.fullname = fullname;
+        this.tel = tel;
+        this.adresse = adresse;
+ }
     public users(String username, String password, String email, String fullname, String tel, String adresse, String role) {
         this.username = username;
         this.password = password;
@@ -51,15 +58,7 @@ public class users {
         this.role = role;
     }
 
-    public users(String username, String password, String email, String tel, String adresse, String role) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.tel = tel;
-        this.adresse = adresse;
-        this.role = role;
-    }
-
+  
     public users(String username, String password, String email, String role) {
         this.username = username;
         this.password = password;
