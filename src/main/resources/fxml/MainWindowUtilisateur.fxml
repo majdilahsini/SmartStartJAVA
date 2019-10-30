@@ -28,13 +28,13 @@
                   <ColorAdjust brightness="0.03" contrast="-0.14" />
                </effect>
             </JFXButton>
-            <Accordion layoutX="-1.0" layoutY="64.0" prefHeight="351.0" prefWidth="328.0">
+            <Accordion layoutX="-1.0" layoutY="64.0" prefHeight="399.0" prefWidth="328.0">
               <panes>
                   <TitledPane fx:id="monespace" blendMode="SCREEN" prefHeight="128.0" prefWidth="328.0" text="Mon Espace">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="324.0">
                            <children>
-                              <JFXButton fx:id="deconnect1" alignment="BASELINE_LEFT" layoutX="1.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mon Profil CV" textFill="#fff9f9">
+                              <JFXButton fx:id="monprofilcv" alignment="BASELINE_LEFT" layoutX="1.0" onAction="#monprofilcvAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mon Profil CV" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -51,6 +51,14 @@
                                  </effect>
                               </JFXButton>
                               <JFXButton fx:id="MES_ENTRETIENS_BUTTON" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="89.0" onAction="#Mesentretiens_button" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Entretiens" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="myProjectButton1" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="133.0" onAction="#myProjectAction" prefHeight="36.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="mes Project" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -80,7 +88,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect11" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="44.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Candidatures" textFill="#fff9f9">
+                              <JFXButton fx:id="mescand" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="44.0" onAction="#mescandAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Candidatures" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -88,7 +96,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <AnchorPane blendMode="SRC_ATOP" layoutY="88.0" opacity="0.94" prefHeight="44.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="88.0" opacity="0.94" prefHeight="90.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -100,7 +108,33 @@
                   </TitledPane>
                   <TitledPane animated="false" blendMode="SCREEN" expanded="false" text="     Les crowdfundings">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="ProjectsButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="44.0" onAction="#ProjectsAction" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Projects" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="myInvestmentButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="88.0" onAction="#myInvestmentAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="My Investment" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="AjouterProjectButton" alignment="BASELINE_LEFT" layoutX="-1.0" onAction="#AjouterProjectAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="AjouterProject" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                           </children></AnchorPane>
                     </content>
                      <font>
                         <Font size="20.0" />

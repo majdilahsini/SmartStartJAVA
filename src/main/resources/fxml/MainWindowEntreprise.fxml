@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowEntrepriseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowEntrepriseController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="327.0" style="-fx-background-color: #00597C;">
          <children>
@@ -24,7 +24,7 @@
                   <ColorAdjust brightness="-0.19" contrast="1.0" />
                </effect>
             </JFXButton>
-            <JFXButton fx:id="deconnect2" alignment="BASELINE_LEFT" blendMode="SCREEN" layoutX="-1.0" layoutY="516.0" onAction="#returntologin" prefHeight="62.0" prefWidth="328.0" style="-fx-background-color: #E4E4E4;" text="Déconnexion">
+            <JFXButton fx:id="deconnect" alignment="BASELINE_LEFT" blendMode="SCREEN" layoutX="-1.0" layoutY="516.0" onAction="#decconectAction" prefHeight="62.0" prefWidth="328.0" style="-fx-background-color: #E4E4E4;" text="Déconnexion">
                <font>
                   <Font size="20.0" />
                </font>
@@ -32,9 +32,9 @@
                   <ColorAdjust brightness="0.03" contrast="-0.14" />
                </effect>
             </JFXButton>
-            <Accordion layoutX="-1.0" layoutY="78.0" prefHeight="349.0" prefWidth="328.0">
+            <Accordion layoutX="-1.0" layoutY="78.0" prefHeight="398.0" prefWidth="328.0">
               <panes>
-                  <TitledPane fx:id="monespace" blendMode="SCREEN" prefHeight="161.0" prefWidth="327.0" text="Mon Espace">
+                  <TitledPane fx:id="monespace" blendMode="SCREEN" prefHeight="208.0" prefWidth="328.0" text="Mon Espace">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="324.0">
                            <children>
@@ -55,6 +55,14 @@
                                  </effect>
                               </JFXButton>
                               <JFXButton fx:id="mes_formations_btn" alignment="BASELINE_LEFT" layoutY="89.0" onAction="#afficher_mesformation_action" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Formations" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="myProjectButton1" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="133.0" onAction="#myProjectAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="mes Project" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -132,7 +140,8 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXButton fx:id="deconnect1213" alignment="BASELINE_LEFT" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un projet" textFill="#fff9f9">
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="129.0" opacity="0.94" prefHeight="168.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                              <JFXButton fx:id="ProjectsButton" alignment="BASELINE_LEFT" onAction="#ProjectsAction" prefHeight="25.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Projects" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -140,8 +149,15 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
-                              <JFXButton fx:id="deconnect11111" alignment="BASELINE_LEFT" layoutX="-2.0" layoutY="44.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Projets" textFill="#fff9f9">
+                              <JFXButton fx:id="myInvestmentButton" alignment="BASELINE_LEFT" layoutY="89.0" onAction="#myInvestmentAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="My Investment" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="AjouterProjectButton" alignment="BASELINE_LEFT" layoutY="44.0" onAction="#AjouterProjectAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="AjouterProject" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

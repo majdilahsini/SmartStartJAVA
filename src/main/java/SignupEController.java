@@ -9,19 +9,24 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entities.users;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import services.usersService;
 import utils.Verification;
@@ -102,7 +107,15 @@ public class SignupEController implements Initializable {
 }
 
     @FXML
-    private void returntologinAction(ActionEvent event) {
+    private void returntologinAction(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
+        Scene scene = new Scene(signUpPage);
+        stage = (Stage)returntologin.getScene().getWindow();
+        stage.hide();
+        stage.setScene(scene);
+        stage.show();
+       
     }
 
 

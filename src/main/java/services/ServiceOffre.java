@@ -84,11 +84,16 @@ public class ServiceOffre implements iOffre{
                    + "`titre`=?,"
                    + "`domaine_id`=?,"
                    + "`entreprise_id`=?,"
-                   + "`date_publication`=STR_TO_DATE(?,'%d,%m,%Y'),"
+                   
                    + "`niveau_etude`=?,"
                    + "`langue_ref`=?,"
                    + "`type_post_id`=?,"
-                   + "`description`=?"
+                  
+                   + "`skill1_id` = ?,"
+                   + "`skill2_id` = ?,"
+                   + "`skill3_id` = ?,"
+                   + "`langue_ref` = ?,"
+                   + "`salaire` = ?"
                    + " WHERE id = ?";
            
            ps = c.prepareStatement(r);
@@ -96,11 +101,16 @@ public class ServiceOffre implements iOffre{
            ps.setInt(2, e.getDomaine_id());
            ps.setInt(3, e.getEntreprise_id());
           // ps.setString(4, e.getDate_publication());
-           ps.setInt(5, e.getNiveau_etude());
-           ps.setInt(6, e.getLangue_ref());
-           ps.setInt(7, e.getType_post_id());
-           //ps.setString(8, e.getDescription());
-           ps.setInt(9, e.getId());
+           ps.setInt(4, e.getNiveau_etude());
+           ps.setInt(5, e.getLangue_ref());
+           ps.setInt(6, e.getType_post_id());
+           //ps.setString(8, e.getDescriptipson());
+           ps.setInt(7, e.getSkill1_id());
+           ps.setInt(8, e.getSkill2_id());
+           ps.setInt(9, e.getSkill3_id());
+           ps.setInt(10, e.getLangue_ref());
+           ps.setInt(11, e.getSalaire());
+           ps.setInt(12, e.getId());
            
            executeTest = ps. executeUpdate();
            
@@ -203,7 +213,7 @@ public class ServiceOffre implements iOffre{
         List<Offre> offres = new ArrayList<>();
         Offre o = null;
         
-        String r = "SELECT `id`,`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y'),`langue_ref`,`type_post_id`,`skill1_id`,`skill2_id`,`skill3_id`,`salaire`,`photo`  FROM offres"
+        String r = "SELECT `id`,`titre`,`domaine_id`,`entreprise_id`,DATE_FORMAT(`date_publication`, '%d/%m/%Y'),`langue_ref`,`type_post_id`,`skill1_id`,`skill2_id`,`skill3_id`,`salaire`,`photo`, `niveau_etude`  FROM offres"
                 + " WHERE id = ?";
         
         try {
@@ -226,6 +236,7 @@ public class ServiceOffre implements iOffre{
                     o.setSkill3_id(rs.getInt("skill3_id"));
                     o.setSalaire(rs.getInt("salaire"));
                     o.setPhoto(rs.getString("photo"));
+                    o.setNiveau_etude(rs.getInt("niveau_etude"));
                     //o.setDescription(res.getString("description"));
                 offres.add(o);
             }
@@ -412,6 +423,8 @@ public class ServiceOffre implements iOffre{
         else
             return TypeDePoste;
     }
+    
+  
 
 
 }      

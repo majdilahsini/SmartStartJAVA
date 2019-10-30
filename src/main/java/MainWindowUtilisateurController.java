@@ -39,10 +39,6 @@ public class MainWindowUtilisateurController implements Initializable {
     @FXML
     private BorderPane borderpane;
     @FXML
-    private JFXButton deconnect1;
-    @FXML
-    private JFXButton deconnect11;
-    @FXML
     private JFXButton deconnect2;
     private JFXButton offresbtn;
     @FXML
@@ -59,6 +55,18 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton Quit;
     @FXML
     private JFXButton MES_ENTRETIENS_BUTTON;
+    @FXML
+    private JFXButton myProjectButton1;
+    @FXML
+    private JFXButton ProjectsButton;
+    @FXML
+    private JFXButton myInvestmentButton;
+    @FXML
+    private JFXButton AjouterProjectButton;
+    @FXML
+    private JFXButton monprofilcv;
+    @FXML
+    private JFXButton mescand;
 
     
     
@@ -121,6 +129,45 @@ public class MainWindowUtilisateurController implements Initializable {
     private void Mesentretiens_button(ActionEvent event) throws IOException {
                   Parent root = FXMLLoader.load(getClass().getResource("/fxml/afficherEnt.fxml"));
         borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void myProjectAction(ActionEvent event) throws IOException {
+           Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/afficheMyproject.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void ProjectsAction(ActionEvent event) throws IOException {
+        Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/afficheProjects.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void myInvestmentAction(ActionEvent event) throws IOException {
+         Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/affichemyInvestment.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void AjouterProjectAction(ActionEvent event) throws IOException {
+         Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/AjouteProjet2.fxml"));
+        borderpane.setCenter(root);
+        
+    }
+
+    @FXML
+    private void monprofilcvAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Modifierprofil.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void mescandAction(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Modifierprofil.fxml"));
+        borderpane.setCenter(root);
+        
     }
 
 

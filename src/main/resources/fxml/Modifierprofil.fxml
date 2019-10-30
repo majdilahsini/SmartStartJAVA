@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ModifierprofilController">
+   <children>
+      <Text fill="#1f1f1f" layoutX="447.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="51.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="14.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="41.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="#1f1f1f" layoutX="450.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="emailfield" layoutX="173.0" layoutY="120.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#emailfield" prefHeight="40.0" prefWidth="209.0" />
+      <JFXTextField fx:id="fullname" layoutX="586.0" layoutY="117.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fullnamefield" prefHeight="40.0" prefWidth="209.0" />
+      <JFXTextField fx:id="pnField" layoutX="172.0" layoutY="178.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <JFXTextField fx:id="usrnField" layoutX="176.0" layoutY="62.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#usrnFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <JFXPasswordField fx:id="pwdField" layoutX="585.0" layoutY="62.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pwdFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <Text fill="#1f1f1f" layoutX="450.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="adressefield" layoutX="586.0" layoutY="181.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#Adressefield" prefHeight="40.0" prefWidth="209.0" />
+      <Line fx:id="line1" endX="197.66665649414062" layoutX="149.0" layoutY="324.0" opacity="0.54" startX="-61.0" visible="false" />
+      <Line fx:id="line2" endX="177.0" layoutX="563.0" layoutY="324.0" opacity="0.54" startX="-84.33334350585938" visible="false" />
+      <JFXButton fx:id="ajoutskill" layoutX="124.0" layoutY="271.0" onAction="#ajoutskillAction" prefHeight="44.0" prefWidth="223.0" style="-fx-background-color: #074A39;" text="Ajouter Compétences" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="ajoutlangue" layoutX="567.0" layoutY="273.0" onAction="#ajoutlangueAction" prefHeight="44.0" prefWidth="175.0" style="-fx-background-color: #074A39;" text="Ajouter Langues" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="skillscombo" layoutX="90.0" layoutY="342.0" onShown="#skillscomboshown" prefHeight="52.0" prefWidth="245.0" visible="false" />
+      <JFXComboBox fx:id="skillscombo1" layoutX="92.0" layoutY="408.0" onShown="#skillscombo1shown" prefHeight="52.0" prefWidth="245.0" visible="false" />
+      <JFXComboBox fx:id="skillscombo2" layoutX="95.0" layoutY="471.0" onShown="#skillscombo2shown" prefHeight="52.0" prefWidth="245.0" visible="false" />
+      <Text fx:id="c1" layoutX="90.0" layoutY="358.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 1" visible="false" />
+      <Text fx:id="c2" layoutX="92.0" layoutY="424.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 2" visible="false" />
+      <Text fx:id="c3" layoutX="96.0" layoutY="487.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 3" visible="false" />
+      <JFXComboBox fx:id="languecombo1" layoutX="483.0" layoutY="352.0" onShown="#langue1comboshown" prefHeight="52.0" prefWidth="245.0" visible="false" />
+      <Text fx:id="l1" layoutX="483.0" layoutY="368.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Langue 1" visible="false" />
+      <JFXComboBox fx:id="languecombo2" layoutX="482.0" layoutY="411.0" onShown="#langue2shown" prefHeight="52.0" prefWidth="245.0" visible="false" />
+      <Text fx:id="l2" layoutX="482.0" layoutY="427.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Langue 2" visible="false" />
+      <JFXButton fx:id="confirmer" layoutX="321.0" layoutY="565.0" onAction="#confirmerAction" prefHeight="44.0" prefWidth="223.0" style="-fx-background-color: #074A39;" text="Confirmer" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="languecombo11" layoutX="493.0" layoutY="362.0" onShown="#skillscomboshown" prefHeight="52.0" prefWidth="245.0" visible="false" />
+   </children>
+</AnchorPane>

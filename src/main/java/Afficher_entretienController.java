@@ -286,7 +286,7 @@ public class Afficher_entretienController implements Initializable {
     @FXML
     private void valider_modifEnt_action(ActionEvent event) throws SQLException{
                 
-        if (HeureCorrect() && DateCorrect()) {
+        if (HeureCorrect() && DateCorrect2() && DateCorrect() && DateCorrect3() && validerPosteVide() && validerDescriptionVide() ) {
          Entretien e = new Entretien();
               EntretienService as = new EntretienService();
                     es.UpdateEntretien(Integer.parseInt(reffield.getText()),postefield.getText(),datefield.getText(),heurefeild.getText(), descriptionfield.getText());
@@ -361,6 +361,9 @@ public class Afficher_entretienController implements Initializable {
                 getValue().getdescription_entProperty());
         // prixtotale.setCellValueFactory(new PropertyValueFactory<>("5"));
     }
+    
+    
+    
         private boolean HeureCorrect() {
                 Pattern p = Pattern.compile("[0-9][0-9]+([:][0-9][0-9]+)+");
         Matcher m = p.matcher(heurefeild.getText());
@@ -374,12 +377,47 @@ public class Afficher_entretienController implements Initializable {
             alert.showAndWait();
             return false;
     } }
+        
+        
+        private boolean validerDescriptionVide() {
+              Pattern p = Pattern.compile("");
+        Matcher m = p.matcher(descriptionfield.getText());
+        if ( m.find() && m.group().equals(descriptionfield.getText())){
 
-    private boolean DateCorrect() {
-                        Pattern p = Pattern.compile("[0-9][0-9]+([-][0-9][0-9]+)+([-][0-9][0-9]+)+");
+                       Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Description");
+            alert.setHeaderText("Verifier le champ Description");
+            alert.setContentText("Veuiller remplir tous les champs vides");
+            alert.showAndWait();
+                        return false ;
+
+        }else{
+ 
+            return true;
+        }
+        }
+                        private boolean validerPosteVide() {
+              Pattern p = Pattern.compile("");
+        Matcher m = p.matcher(postefield.getText());
+        if ( m.find() && m.group().equals(postefield.getText())){
+
+                       Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Poste");
+            alert.setHeaderText("Verifier le champ poste");
+            alert.setContentText("Veuiller remplir tous les champs vides");
+            alert.showAndWait();
+                        return false ;
+
+        }else{
+ 
+            return true;
+        }
+        }
+                          private boolean DateCorrect2() {
+                               Pattern p = Pattern.compile("[0-9][0-9][0-9][0-9]+([-][0-9][0-9]+)+([-][0-9][0-9]+)+");
         Matcher m = p.matcher(datefield.getText());
-        if ( m.find() && m.group().equals(datefield.getText())){
-            return true ;
+         if ( m.find() && m.group().equals(datefield.getText())){
+                  return true ;
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("valider Date");
@@ -387,9 +425,73 @@ public class Afficher_entretienController implements Initializable {
             alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
             alert.showAndWait();
             return false;
-    }
+                          }}
+                          
+
+   private boolean DateCorrect() {
+
+         long millis=System.currentTimeMillis();  
+           java.sql.Date date2=new java.sql.Date(millis);  
+           String MDP = datefield.getText();
+           int MD2 = date2.toLocalDate().getMonthValue();
+           int YD2 = date2.toLocalDate().getYear();
+           int DD2 = date2.toLocalDate().getDayOfMonth();
         
+           int A = Integer.parseInt(MDP.substring(0, 4));
+           int M = Integer.parseInt(MDP.substring(5, 7));
+           int D = Integer.parseInt(MDP.substring(8,10));
+          /* if ( m.find() && m.group().equals(datefield.getText())){*/
+               if (A > YD2 ){return true;}
+               else if (A==YD2){  
+                       if (M > MD2 ){return true;}
+                       else if ( M==MD2 ){
+                           if (D>DD2){return true;}
+                           else  {   
+                               Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                               
+                               
+                               return false;} 
+                                      }
+                       else  { 
+             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                           return false;} //if (M<MD2)
+                                   }
+               else  {
+                         Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                   
+                   return false;} }
+   
+        private boolean DateCorrect3() {
+            if (Integer.parseInt(datefield.getText().substring(5, 7)) > 12 ) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Verifier Date");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+            return false;
+         }
+            else if (Integer.parseInt(datefield.getText().substring(8, 10)) > 31){
+      Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Verifier Date");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+            return false;
     }
+            else return true ; 
+        }
 
     @FXML
     private void Envoyer_Mail_Action(ActionEvent event) throws MessagingException {

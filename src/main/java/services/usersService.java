@@ -49,7 +49,7 @@ public class usersService {
     }
     public void modifierUtilisateur (Integer id ,users u ){
        try {
-           PreparedStatement pt =c.prepareStatement("update users set  username =?,password=?,email =?,fullname=?,adresse=?,tel=? where id_utilisateur=?");
+           PreparedStatement pt =c.prepareStatement("update users set  username =?,password=?,email =?,fullname=?,adresse=?,tel=? where id=?");
           pt.setString(1, u.getUsername());
            pt.setString(2, u.getPassword());
              pt.setString(3, u.getEmail());
@@ -72,13 +72,11 @@ public class usersService {
     }
     public void modifierUtilisateurProfile (Integer id ,users u ){
        try {
-           PreparedStatement pt =c.prepareStatement("update users set  username =?,email =?,fullname=?,adresse=?,tel=? where id=?");
+           PreparedStatement pt =c.prepareStatement("update users set  username =?,password =?,email =?,fullname=?,adresse=?,tel=? where id=?");
           pt.setString(1, u.getUsername());
            pt.setString(2, u.getEmail());
              pt.setString(3, u.getFullname());
-          
-              
-               
+           pt.setString(3, u.getPassword());
             pt.setString(4, u.getAdresse());
             pt.setString(5, u.getTel());
             
@@ -186,6 +184,91 @@ public class usersService {
        
          return t;
     }
+       public String getpassword(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select password from users  where users.id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("password");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+       
+       public String getEmail(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select email from users  where users.id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("email");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+       public String getfullname(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select fullname from users  where users.id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("fullname");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+       public String getadresse(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select adresse from users  where users.id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("adresse");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+       public String getTel(int id) {
+          String t = null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select tel from users  where users.id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      t=rs.getString("tel");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+         return t;
+    }
+       
+       
+       
+       
         public String getnameentreprise(int id) {
           String t = null;
          try {

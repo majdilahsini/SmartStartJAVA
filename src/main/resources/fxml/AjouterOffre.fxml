@@ -62,5 +62,18 @@
             <ImageView fx:id="img" fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
+      <Text fx:id="message" fill="#007910" layoutX="517.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre offre a été crée" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fx:id="message1" fill="RED" layoutX="481.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur de création de l'offre" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="typeicon" fitHeight="32.0" fitWidth="32.0" layoutX="784.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="domaineicon" fitHeight="32.0" fitWidth="32.0" layoutX="784.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="langueicon" fitHeight="32.0" fitWidth="32.0" layoutX="784.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="compticon" fitHeight="32.0" fitWidth="32.0" layoutX="336.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
