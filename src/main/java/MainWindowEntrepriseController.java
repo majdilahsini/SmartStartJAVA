@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -48,10 +49,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton afficher_formation_btn;
     @FXML
-    private JFXButton deconnect1213;
-    @FXML
-    private JFXButton deconnect11111;
-    @FXML
     private BorderPane borderpane;
     @FXML
     private JFXButton ajoutersujet;
@@ -59,6 +56,14 @@ public class MainWindowEntrepriseController implements Initializable {
     private JFXButton forum;
     @FXML
     private JFXButton MesentretiensBtn;
+    @FXML
+    private JFXButton myProjectButton1;
+    @FXML
+    private JFXButton ProjectsButton;
+    @FXML
+    private JFXButton myInvestmentButton;
+    @FXML
+    private JFXButton AjouterProjectButton;
 
     /**
      * Initializes the controller class.
@@ -133,6 +138,37 @@ public class MainWindowEntrepriseController implements Initializable {
     private void Mesentretiens_btn_Action(ActionEvent event) throws IOException {
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/afficher_entretien.fxml"));
         borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void myProjectAction(ActionEvent event) throws IOException {
+         Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/afficheMyproject.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void ProjectsAction(ActionEvent event) throws IOException {
+        Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/afficheProjects.fxml"));
+        borderpane.setCenter(root);
+        
+        
+        
+    }
+
+    @FXML
+    private void myInvestmentAction(ActionEvent event) throws IOException {
+        Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/affichemyInvestment.fxml"));
+        borderpane.setCenter(root);
+        
+        
+    }
+
+    @FXML
+    private void AjouterProjectAction(ActionEvent event) throws IOException {
+         Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/AjouteProjet2.fxml"));
+        borderpane.setCenter(root);
+        
+        
     }
     
 }
