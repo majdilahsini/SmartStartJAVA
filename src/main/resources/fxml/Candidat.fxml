@@ -28,7 +28,7 @@
       <Text fx:id="tel" layoutX="194.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tel" />
       <Text fx:id="skills" layoutX="193.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="skills" />
       <Text fx:id="id" layoutX="181.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" visible="false" />
-      <JFXButton fx:id="accepter" alignment="CENTER" contentDisplay="CENTER" layoutX="651.0" layoutY="133.0" onAction="#accepterAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Accepter" textFill="#fff9f9">
+      <JFXButton fx:id="notifermail" alignment="CENTER" contentDisplay="CENTER" layoutX="651.0" layoutY="133.0" onAction="#notierAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #2E7F17;" text="Accepter" textFill="#fff9f9">
          <font>
             <Font size="17.0" />
          </font>
@@ -39,5 +39,10 @@
       <Text fx:id="mail" layoutX="193.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mail" />
       <Text fx:id="langues" layoutX="194.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="langues" />
       <ProgressIndicator fx:id="ringprogress" layoutX="22.0" layoutY="27.0" prefHeight="143.0" prefWidth="150.0" progress="0.83" />
+      <Text fx:id="message" fill="#005e10" layoutX="584.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Un email a été envoyé !" visible="false">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

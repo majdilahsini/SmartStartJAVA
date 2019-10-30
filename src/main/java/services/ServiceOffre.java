@@ -315,6 +315,29 @@ public class ServiceOffre implements iOffre{
         return Entreprise;
         
     }
+    
+        public String getEntrepriseByID(int id) {
+        
+                String Entreprise = null;
+        
+        try {
+            
+            String r = "SELECT `fullname` FROM `users` WHERE id = ?";
+            
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) 
+                Entreprise = rs.getString(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return Entreprise;
+        
+    }
 
     @Override
     public String getLangueByRef(int id) {
