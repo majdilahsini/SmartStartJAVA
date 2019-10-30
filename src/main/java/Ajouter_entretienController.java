@@ -117,7 +117,7 @@ public class Ajouter_entretienController implements Initializable {
                  date1 = date_ent.getValue().toString();
 validerHeure() &&
          java.sql.Date d = new Date(datel.getTime());*/
-       if ( validerHeure() && validerDate() && validerPosteVide() && validerDescriptionVide() && validerCombo1Vide() ) {
+       if (  validerCombo1Vide() && validerPosteVide() && DateCorrect2() && validerDate() && validerHeure()   && validerDescriptionVide()  ) {
          String date1 = date_ent.getValue().toString();
          Entretien e = new Entretien (se.getEntByID(nomEnt_Text.getText()),
                  su.getUserByID(nom_utlisateurCombo.getSelectionModel().getSelectedItem().toString()),
@@ -202,21 +202,67 @@ validerHeure() &&
             return false;
         }
         }
-        private boolean validerDate() {
-      
-        if ( date_ent.getValue() == null ){
-                       Alert alert = new Alert(AlertType.WARNING);
+    
+     private boolean DateCorrect2() {
+                     
+         if ( date_ent.getValue() == null ){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("valider Date");
-            alert.setHeaderText("Verifier Champ Date");
-            alert.setContentText("Veuiller remplir tous les champs vides");
+            alert.setHeaderText("Champ Date vide");
+            alert.setContentText("Veuiller selectionner une Date");
             alert.showAndWait();
-                        return false ;
-
-        }else{
- 
-            return true;
-        }
-        }
+            return false;
+                    }else{
+                        return true;
+                          }}
+        
+        
+        private boolean validerDate() {
+            boolean b ;
+          long millis=System.currentTimeMillis();  
+           java.sql.Date date2=new java.sql.Date(millis);  
+           String MDP = date_ent.getValue().toString();
+           int MD2 = date2.toLocalDate().getMonthValue();
+           int YD2 = date2.toLocalDate().getYear();
+           int DD2 = date2.toLocalDate().getDayOfMonth();
+        
+           int A = Integer.parseInt(MDP.substring(0, 4));
+           int M = Integer.parseInt(MDP.substring(5, 7));
+           int D = Integer.parseInt(MDP.substring(8,10));
+           
+           if (A > YD2 ){return true;}
+               else if (A==YD2){  
+                       if (M > MD2 ){return true;}
+                       else if ( M==MD2 ){
+                           if (D>DD2){return true;}
+                           else  {   
+                               Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                               
+                               
+                               return false;} 
+                                      }
+                       else  { 
+             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                           return false;} //if (M<MD2)
+                                   }
+               else  {
+                         Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                   
+                   return false;}}
+        
+        
                 private boolean validerPosteVide() {
               Pattern p = Pattern.compile("");
         Matcher m = p.matcher(postText.getText());
