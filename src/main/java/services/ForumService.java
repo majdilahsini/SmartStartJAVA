@@ -144,4 +144,23 @@ public class ForumService implements IForumService {
        
          return t;    
     }
+
+    @Override
+    public String FindEmailId(int id) {
+        String mail=null ;
+                   try {
+             PreparedStatement pt = c.prepareStatement("select email from users where id=?");
+             pt.setInt(1, id);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                      mail=rs.getString("email");
+              }
+         } catch (SQLException ex) {
+             Logger.getLogger(ForumService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        
+        return mail;
+    }
 }

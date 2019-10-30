@@ -1,26 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="401.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ForumController">
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ForumController">
    <children>
-      <TableView fx:id="table" layoutX="44.0" layoutY="59.0" onMouseClicked="#fetch" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="table" layoutX="38.0" layoutY="62.0" onMouseClicked="#fetch" prefHeight="162.0" prefWidth="566.0">
         <columns>
-          <TableColumn fx:id="nom" prefWidth="75.0" text="Nom" />
-          <TableColumn fx:id="com" prefWidth="124.0" text="Commentaire " />
+          <TableColumn fx:id="nom" prefWidth="116.0" text="Nom" />
+          <TableColumn fx:id="com" prefWidth="449.0" text="Commentaire " />
         </columns>
       </TableView>
-      <TextArea fx:id="commentaire" layoutX="44.0" layoutY="274.0" prefHeight="107.0" prefWidth="388.0" promptText="commentaire" />
-      <Button fx:id="Ajouter" layoutX="446.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#ajouter" prefHeight="107.0" prefWidth="71.0" text="Ajouter" />
-      <Button fx:id="Modifier" layoutX="527.0" layoutY="274.0" mnemonicParsing="false" onAction="#modifier" onMouseClicked="#modifierCom" prefHeight="107.0" prefWidth="71.0" text="modifier" />
-      <Button fx:id="Supprimer" layoutX="447.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#SupprimerCom" prefHeight="25.0" prefWidth="152.0" text="supprimer" />
-      <Text layoutX="259.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="le message selectionné mis par :" />
-      <Label fx:id="nomLabel" layoutX="437.0" layoutY="75.0" prefHeight="17.0" prefWidth="161.0" />
+      <Text fill="#2f8ac2" layoutX="31.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="le message selectionné mis par :">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font></Text>
+      <Label fx:id="nomLabel" layoutX="333.0" layoutY="240.0" prefHeight="17.0" prefWidth="161.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <JFXButton fx:id="Ajouter" layoutX="494.0" layoutY="431.0" onMouseClicked="#ajouter" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #1592B5;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="Supprimer" layoutX="494.0" layoutY="386.0" onMouseClicked="#SupprimerCom" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #1592B5;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="Modifier" layoutX="494.0" layoutY="340.0" onAction="#modifier" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #1592B5;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea fx:id="commentaire" focusColor="#4965b9" layoutX="31.0" layoutY="309.0" prefHeight="153.0" prefWidth="431.0" promptText="Commentaire" unFocusColor="#1f91c2">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextArea>
+      <Text fill="#3315c9" layoutX="275.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forum" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="33.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="Rel" layoutX="494.0" layoutY="296.0" onAction="#reclamation" prefHeight="38.0" prefWidth="143.0" style="-fx-background-color: #1592B5;" text="Reclamation Com" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

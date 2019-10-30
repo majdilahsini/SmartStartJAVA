@@ -6,6 +6,7 @@
 
 
 import Connection.DBConnection;
+import com.jfoenix.controls.JFXButton;
 import entities.Forum;
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.ForumService;
+import services.sendReclamation;
+
 import entities.Session;
 import services.usersService;
 //import LoginController1;
@@ -39,6 +42,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import javax.mail.MessagingException;
+import static services.sendReclamation.sendRc;
 
 /**
  * FXML Controller class
@@ -64,9 +69,9 @@ public class ForumController implements Initializable {
     @FXML
     private Button Supprimer;
     @FXML
-    private TextField nomCom;
-    @FXML
     private Label nomLabel;
+    @FXML
+    private JFXButton Rel;
 
     /**
      * Initializes the controller class.
@@ -155,7 +160,6 @@ public class ForumController implements Initializable {
        String b=table.getSelectionModel().getSelectedItem().getCommentaire();
     }
 
-    @FXML
     private void modifierCom(MouseEvent event) {
         Forum b= new Forum("test",commentaire.getText());
         ForumService a= new ForumService();
@@ -261,7 +265,7 @@ public class ForumController implements Initializable {
          //   Session.getId()=m.getIdUtilisateur(loginField.getText(),pwdField.getText());
          String k= m.getUsername(i);
          System.out.println(k);
-        if ((commentaire.getText().equals("") )||(commentaire.getText().equals("9a7ba"))) {
+        if ((commentaire.getText().equals("") )||(commentaire.getText().equals("ezdze"))) {
             showAlert(Alert.AlertType.ERROR, commentaire.getScene().getWindow(), 
     "erreur d'ajouter", "impossible d'ajouter un message vide");
         }
@@ -291,6 +295,22 @@ public class ForumController implements Initializable {
     alert.initOwner(owner);
     alert.show();
 }
+
+    @FXML
+    private void reclamation(ActionEvent event) throws MessagingException{
+         Connection con =  DBConnection.getInstance().getConnection();
+         String recl= commentaire.getText();
+        // usersService m=new usersService();
+            ForumService a= new ForumService();
+        int i=Session.getId();
+         System.out.println(i);
+          // String h=table.getSelectionModel().getSelectedItem().getCommentaire();
+         String mail=a.FindEmailId(i);
+         System.out.println(mail);
+         sendRc(mail ,recl);
+          showAlert(Alert.AlertType.INFORMATION, nomLabel.getScene().getWindow(), 
+    "Form Information!", "reclamation envoyer vers l'adimn ");
+    }
     
     }    
 

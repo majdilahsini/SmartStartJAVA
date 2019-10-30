@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AfficherEntController">
+   <children>
+      <TableView fx:id="tableEnt" layoutX="33.0" layoutY="55.0" prefHeight="307.0" prefWidth="671.0">
+        <columns>
+            <TableColumn fx:id="refColonne" prefWidth="31.0" text="REF" />
+          <TableColumn fx:id="NomEntColonne" prefWidth="82.0" text="Entreprise" />
+          <TableColumn fx:id="Nom_cColonne" prefWidth="118.0" text="Nom_condiat" />
+            <TableColumn fx:id="PosteColonne" prefWidth="111.0" text="Poste" />
+            <TableColumn fx:id="DateColonne" prefWidth="83.0" text="Date" />
+            <TableColumn fx:id="HeureColone" prefWidth="77.0" text="heure" />
+            <TableColumn fx:id="DescriptionColonne" prefWidth="98.0" text="Description" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="deletebtn" layoutX="33.0" layoutY="362.0" onAction="#delete_row1_Action" ripplerFill="#ee1111" text="REFUSER" textFill="#eb1111">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="33.0" layoutY="14.0" text="MES ENTRETIENS " textFill="#290965">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="ConfirmerMail_btn" layoutX="141.0" layoutY="362.0" onAction="#confirmer_mail_Action" text="Confirmer par email" textFill="#0af206">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane fx:id="EmailBox" layoutX="352.0" layoutY="369.0" prefHeight="257.0" prefWidth="460.0" style="-fx-background-color: #d0d9d0;">
+         <children>
+            <Label text="Email Box" textFill="#3c3939">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="35.0" text="FROM :" />
+            <Label layoutX="3.0" layoutY="151.0" text="TO :" />
+            <Label layoutX="6.0" layoutY="93.0" text="Password :" />
+            <JFXTextField fx:id="username" layoutX="6.0" layoutY="52.0" promptText="ex : xx@gmail.com" />
+            <JFXTextField fx:id="password" layoutX="6.0" layoutY="113.0" />
+            <JFXTextField fx:id="recipientEmail" layoutX="6.0" layoutY="168.0" promptText="ex : xx@gmail.com" />
+            <Label layoutX="213.0" layoutY="77.0" text="Message :" />
+            <JFXTextArea fx:id="message" layoutX="215.0" layoutY="97.0" prefHeight="92.0" prefWidth="220.0" />
+            <JFXButton fx:id="EnvoyerBtn" layoutX="213.0" layoutY="217.0" onAction="#envoyer_btn_Action" text="Envoyer" textFill="#1f9a35">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="AnnulerMail_btn" layoutX="336.0" layoutY="217.0" onAction="#AnnulerMail_btn_Action" text="Annuler" textFill="#ee160e">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="ccEmail" layoutX="6.0" layoutY="220.0" />
+            <Label layoutX="11.0" layoutY="203.0" text="CC :" />
+            <Label layoutX="213.0" layoutY="20.0" text="Title :" />
+            <JFXTextField fx:id="title" layoutX="213.0" layoutY="40.0" />
+            <ImageView fitHeight="17.0" fitWidth="29.0" layoutX="407.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/x.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="290.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/tick.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="213.0" fitWidth="248.0" layoutX="48.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/candidat12.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
