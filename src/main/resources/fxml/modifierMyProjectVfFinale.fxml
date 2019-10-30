@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="modifpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.ModifiermyProjet1Controller">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="modifpane1" layoutX="10.0" layoutY="10.0" prefHeight="383.0" prefWidth="576.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="Suivant1" layoutX="584.0" layoutY="430.0" onAction="#Suivant1Action" prefHeight="46.0" prefWidth="97.0" text="Suivant" textFill="#269a17">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="nptext" layoutX="25.0" layoutY="65.0" maxWidth="358.0" minWidth="198.0" onKeyTyped="#nomprojetControl" prefHeight="31.0" prefWidth="198.0" promptText="Nom Projet" unFocusColor="#434343">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="telptext" layoutX="107.0" layoutY="264.0" maxWidth="368.0" minWidth="151.0" onKeyTyped="#telprojetcrole" prefHeight="50.0" prefWidth="169.0" unFocusColor="#222222">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="eptext" layoutX="101.0" layoutY="317.0" maxWidth="245.0" minWidth="166.0" onKeyTyped="#emailcontrole" prefHeight="50.0" prefWidth="245.0" promptText="exemple@exemple.com" unFocusColor="#323232">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="adtext" layoutX="101.0" layoutY="364.0" maxWidth="227.0" minWidth="167.0" onKeyTyped="#adresseContol" prefHeight="50.0" prefWidth="227.0" unFocusColor="#3d6541">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <JFXComboBox fx:id="cattext" layoutX="467.0" layoutY="86.0" prefHeight="25.0" prefWidth="187.0" promptText="Categorie" />
+            <JFXTextArea fx:id="Dotext" layoutX="454.0" layoutY="183.0" maxWidth="227.0" minWidth="227.0" onKeyTyped="#descriptioncontrl" prefWidth="227.0" unFocusColor="#436f3b" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="284.0" prefHeight="31.0" prefWidth="70.0" text="Tel_Projet :" textFill="#00597c" AnchorPane.leftAnchor="35.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="326.0" prefHeight="31.0" prefWidth="89.0" text="Email_projet :" textFill="#00597c" AnchorPane.leftAnchor="13.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="385.0" prefHeight="25.0" prefWidth="70.0" text="Adresse :" textFill="#00597c" AnchorPane.leftAnchor="22.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="454.0" layoutY="138.0" prefHeight="31.0" prefWidth="136.0" text="Description_objet :" textFill="#00597c">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageProjet7" fitHeight="31.0" fitWidth="53.0" layoutX="224.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet8" fitHeight="31.0" fitWidth="53.0" layoutX="277.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet9" fitHeight="31.0" fitWidth="53.0" layoutX="333.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet710" fitHeight="31.0" fitWidth="53.0" layoutX="320.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet11" fitHeight="31.0" fitWidth="53.0" layoutX="700.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet12" fitHeight="31.0" fitWidth="53.0" layoutX="613.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane prefHeight="59.0" prefWidth="665.0" style="-fx-background-color: #00597c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="269.0" layoutY="15.0" prefHeight="30.0" prefWidth="227.0" text="Modifier Projet" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fx:id="image_projet" fitHeight="112.0" fitWidth="156.0" layoutX="35.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="uploadimage" layoutX="39.0" layoutY="227.0" onAction="#annuler1Action" prefHeight="46.0" prefWidth="136.0" ripplerFill="#bc4d4d" text="Upload image" textFill="#8a2121">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="AnchorPane" fx:id="ajouteProjet2pane" layoutX="10.0" layoutY="10.0" prefHeight="383.0" prefWidth="576.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton fx:id="ValideProjet" layoutX="105.0" layoutY="474.0" onAction="#ValideProjetAction" prefHeight="39.0" prefWidth="97.0" style="-fx-background-color: #269a17;" text="Valider" textFill="#dcdddb" />
+            <JFXTextField fx:id="Votrefinancetext" layoutX="133.0" layoutY="91.0" maxWidth="358.0" minWidth="198.0" onKeyPressed="#Votrefinancetext" prefHeight="31.0" prefWidth="258.0" unFocusColor="#2f2f5b" AnchorPane.leftAnchor="133.0" />
+            <JFXTextField fx:id="nbreteamtext" layoutX="130.0" layoutY="136.0" maxWidth="368.0" minWidth="151.0" onKeyTyped="#nbreteamcontrol" prefHeight="31.0" prefWidth="245.0" unFocusColor="#2f2f5b" AnchorPane.leftAnchor="130.0" />
+            <JFXTextField fx:id="montanttext" layoutX="133.0" layoutY="177.0" maxWidth="239.0" minWidth="166.0" onKeyTyped="#montantcontroll" prefHeight="31.0" prefWidth="239.0" unFocusColor="#2f2f5b" AnchorPane.leftAnchor="133.0" />
+            <JFXTextField fx:id="comptbancairetext" layoutX="153.0" layoutY="224.0" maxWidth="239.0" minWidth="167.0" onKeyTyped="#comptebancairecontrol" prefHeight="31.0" prefWidth="239.0" unFocusColor="#2f2f5b" AnchorPane.leftAnchor="153.0" />
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="106.0" prefHeight="31.0" prefWidth="111.0" text="Votre_finance :" textFill="#343f8d" AnchorPane.leftAnchor="22.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="151.0" prefHeight="31.0" prefWidth="97.0" text="Nbre_Team :" textFill="#343f8d" AnchorPane.leftAnchor="29.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="188.0" prefHeight="31.0" prefWidth="104.0" text="Montant  :" textFill="#343f8d" AnchorPane.leftAnchor="26.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="243.0" prefHeight="25.0" prefWidth="126.0" text="Compte_Bancaire :" textFill="#343f8d" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="290.0" prefHeight="31.0" prefWidth="97.0" text="Date_debut :" textFill="#343f8d" AnchorPane.leftAnchor="29.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="344.0" prefHeight="31.0" prefWidth="126.0" text="Duree :" textFill="#343f8d" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="Annule2Projet" layoutX="305.0" layoutY="467.0" onAction="#Annule2ProjetAction" prefHeight="46.0" prefWidth="97.0" style="-fx-background-color: #8a2121;" text="Annuler" textFill="#ebe3e3" />
+            <JFXDatePicker fx:id="datedebutprojet" defaultColor="#232085" layoutX="154.0" layoutY="274.0" prefHeight="31.0" prefWidth="227.0" />
+            <JFXTextField fx:id="dureeprojet" layoutX="153.0" layoutY="328.0" maxWidth="217.0" minWidth="167.0" onKeyTyped="#dureecontrolle" prefHeight="31.0" prefWidth="217.0" unFocusColor="#2f2f5b" />
+            <ImageView fx:id="imageProjet1" fitHeight="31.0" fitWidth="40.0" layoutX="402.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="uploadimage" layoutX="525.0" layoutY="460.0" onAction="#uploadimageAction" prefHeight="46.0" prefWidth="111.0" style="-fx-background-color: #0edada;" text="uploadimage" textFill="WHITE" />
+            <ImageView fx:id="imageProjet2" fitHeight="31.0" fitWidth="40.0" layoutX="402.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet3" fitHeight="31.0" fitWidth="40.0" layoutX="422.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet4" fitHeight="31.0" fitWidth="40.0" layoutX="406.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="mofifimageimage" fitHeight="155.0" fitWidth="239.0" layoutX="506.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProjet6" fitHeight="31.0" fitWidth="40.0" layoutX="382.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="datelabel" layoutX="426.0" layoutY="260.0" prefHeight="39.0" prefWidth="198.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="59.0" prefWidth="665.0" style="-fx-background-color: #00597c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="401.0" layoutY="15.0" prefHeight="30.0" prefWidth="227.0" text="Modifier Projet" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
