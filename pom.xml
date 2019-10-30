@@ -145,5 +145,32 @@
     <artifactId>javax.mail</artifactId>
     <version>1.6.0</version>
 </dependency>
+        <dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itextpdf</artifactId>
+    <version>5.1.0</version>
+</dependency>
+
+<dependency>
+	<groupId>com.itextpdf</groupId>
+	<artifactId>hyph</artifactId>
+	<version>7.1.8</version>
+</dependency>
+
+  <dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>kernel</artifactId>
+    <version>7.1.8</version>
+  </dependency>
+  <dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>io</artifactId>
+    <version>7.1.8</version>
+  </dependency>
+  <dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>layout</artifactId>
+    <version>7.1.8</version>
+  </dependency>
     </dependencies>
 </project>
