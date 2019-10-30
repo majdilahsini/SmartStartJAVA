@@ -216,9 +216,9 @@ public class ModifierOffreController implements Initializable {
         ServiceOffre o = new ServiceOffre();
         
         if (s == 7) {
-            file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
+            
             if ( file == null) {
-            e = new Offre (titrefield.getText(), 
+            e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
                                  Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
@@ -230,7 +230,8 @@ public class ModifierOffreController implements Initializable {
                                  Integer.parseInt(niveaufield1.getText()),
                                  "/fxml/assets/No_Image_Available.jpg");
             } else {
-            e = new Offre (titrefield.getText(), 
+                file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
+                e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
                                  Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
@@ -261,7 +262,7 @@ public class ModifierOffreController implements Initializable {
             message1.setVisible(true);
         }
 
-            
+         System.out.println(s);   
        
         
     }

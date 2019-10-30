@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import entities.Offre;
 import entities.Session;
 import entities.Userlangues;
 import entities.Userskill;
@@ -21,9 +22,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import services.ServiceOffre;
 import services.ServiceUserskill;
 import services.Serviceuserlangues;
 import utils.Getlists;
+import utils.OfrreSession;
 
 /**
  * FXML Controller class
@@ -82,7 +85,8 @@ public class ModifierprofilController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
+        
     }    
 
     @FXML
