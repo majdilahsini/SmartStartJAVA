@@ -39,8 +39,6 @@ public class MainWindowUtilisateurController implements Initializable {
     @FXML
     private BorderPane borderpane;
     @FXML
-    private JFXButton deconnect1;
-    @FXML
     private JFXButton deconnect11;
     @FXML
     private JFXButton deconnect2;
@@ -67,6 +65,8 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton myInvestmentButton;
     @FXML
     private JFXButton AjouterProjectButton;
+    @FXML
+    private JFXButton monprofilcv;
 
     
     
@@ -154,6 +154,12 @@ public class MainWindowUtilisateurController implements Initializable {
          Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/AjouteProjet2.fxml"));
         borderpane.setCenter(root);
         
+    }
+
+    @FXML
+    private void monprofilcvAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Modifierprofil.fxml"));
+        borderpane.setCenter(root);
     }
 
 
