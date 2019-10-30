@@ -13,6 +13,10 @@ import java.util.logging.Logger;
  * @author radhwen
  */
 public class Forum {
+
+    public static void add(Forum o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private int Id_user ;
     private int Id_commentaire ;
     private String nom;
@@ -62,12 +66,30 @@ public class Forum {
     public String getNom() {
         return nom;
     }
+    
 
     public String getCommentaire() {
         return commentaire;
     }
     private static final Logger LOG = Logger.getLogger(Forum.class.getName());
 
+    public void setId_user(int Id_user) {
+        this.Id_user = Id_user;
+    }
+
+    public void setId_commentaire(int Id_commentaire) {
+        this.Id_commentaire = Id_commentaire;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;

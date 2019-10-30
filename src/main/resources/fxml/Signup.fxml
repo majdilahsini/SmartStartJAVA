@@ -50,7 +50,7 @@
       </Hyperlink>
       <JFXTextField fx:id="emailfield" layoutX="738.0" layoutY="206.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#emailfield" prefHeight="40.0" prefWidth="209.0" />
       <JFXTextField fx:id="fullname" layoutX="749.0" layoutY="282.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#fullnamefield" prefHeight="40.0" prefWidth="209.0" />
-      <JFXTextField fx:id="pnField" layoutX="748.0" layoutY="347.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pnFieldv" prefHeight="40.0" prefWidth="209.0" />
+      <JFXTextField fx:id="fonenumberfield" layoutX="748.0" layoutY="347.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#phonenumberv" prefHeight="40.0" prefWidth="209.0" />
       <JFXTextField fx:id="usrnField" layoutX="738.0" layoutY="53.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#usrnFieldv" prefHeight="40.0" prefWidth="209.0" />
       <JFXPasswordField fx:id="pwdField" layoutX="738.0" layoutY="131.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#pwdFieldv" prefHeight="40.0" prefWidth="209.0" />
       <JFXButton fx:id="singupBtn2" layoutX="602.0" layoutY="547.0" onAction="#signupAction" prefHeight="44.0" prefWidth="386.0" style="-fx-background-color: #074A39;" text="Sign up" textFill="WHITE">
@@ -69,8 +69,8 @@
       </AnchorPane>
       <ImageView fx:id="usericon" fitHeight="32.0" fitWidth="32.0" layoutX="974.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="passicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="nameicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="mailicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="emailicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fullicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="telicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true" />
       <Text fill="#1f1f1f" layoutX="608.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
          <font>
@@ -78,5 +78,6 @@
          </font>
       </Text>
       <JFXTextField fx:id="adressefield" layoutX="749.0" layoutY="408.0" maxWidth="231.0" minWidth="189.0" onKeyReleased="#Adressefield" prefHeight="40.0" prefWidth="209.0" />
+      <ImageView fx:id="adresseicon" fitHeight="32.0" fitWidth="32.0" layoutX="973.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import services.ForumService;
 import services.sendReclamation;
 
+
 import entities.Session;
 import services.usersService;
 //import LoginController1;
@@ -41,6 +42,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
 import javax.mail.MessagingException;
 import static services.sendReclamation.sendRc;
@@ -62,7 +65,7 @@ public class ForumController implements Initializable {
     private TableColumn<Forum, String> nom;
     @FXML
     private TableColumn<Forum, String> com;
-    
+    private BorderPane borderpane;
     
     @FXML
     private Button Modifier;
@@ -72,15 +75,17 @@ public class ForumController implements Initializable {
     private Label nomLabel;
     @FXML
     private JFXButton Rel;
+    @FXML
+    private AnchorPane a;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          System.out.println("You clicked me!");
-       // label.setText("Hello World!");
         
+       // label.setText("Hello World!");
+        a.setVisible(false);
        try{
          Connection con =  DBConnection.getInstance().getConnection();
                
@@ -155,6 +160,7 @@ public class ForumController implements Initializable {
 */
     @FXML
     private void fetch(MouseEvent event) {
+          a.setVisible(true);
        nomLabel.setText(table.getSelectionModel().getSelectedItem().getNom());
        commentaire.setText(table.getSelectionModel().getSelectedItem().getCommentaire());
        String b=table.getSelectionModel().getSelectedItem().getCommentaire();
@@ -204,9 +210,7 @@ public class ForumController implements Initializable {
         
         a.ModifierCommentaire(b);
         try {//FXMLLoader loader = new FXMLLoader();
-                //loader.setLocation(getClass().getResource("/com/esprit/view/Accueil.fxml"));
                 Parent page2 = FXMLLoader.load(getClass().getResource("Forum.fxml"));
-                // Give the controller access to the main app.
 //                AfficherPersonneController controller =loader.getController();
 //                controller.setListData(new ListData());
                 Scene scene = new Scene(page2);
@@ -257,7 +261,7 @@ public class ForumController implements Initializable {
     }
 
     @FXML
-    private void ajouter(MouseEvent event) throws SQLException {
+    private void ajouter(MouseEvent event) throws SQLException, IOException {
         Connection con =  DBConnection.getInstance().getConnection();
         usersService m=new usersService();
          int i=Session.getId();
@@ -274,16 +278,19 @@ public class ForumController implements Initializable {
         ForumService a= new ForumService();
         a.AjouterCommentaire(b);
         try {
-                Parent page2 = FXMLLoader.load(getClass().getResource("Forum.fxml"));
+                /*Parent page2 = FXMLLoader.load(getClass().getResource("Forum.fxml"));
               
                 Scene scene = new Scene(page2);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
-                stage.show();
+                stage.show();*/
+                 Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
+                 borderpane.setCenter(signUpPage);
             } catch (IOException ex) {
                 Logger.getLogger(ForumController.class.getName()).log(Level.SEVERE, null, ex);
     }
-        //message _ affichage direct dans la scene
+            
+        
     }
        
     }

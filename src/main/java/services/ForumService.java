@@ -8,6 +8,7 @@ package services;
 
 import Connection.DBConnection;
 import entities.Forum;
+import entities.Offre;
 import entities.login;
 import entities.users;
 import interfaces.IForumService;
@@ -16,6 +17,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -163,4 +166,5 @@ public class ForumService implements IForumService {
         
         return mail;
     }
+
 }

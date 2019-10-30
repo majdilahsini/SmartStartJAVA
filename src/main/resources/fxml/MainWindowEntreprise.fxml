@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowEntrepriseController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1169.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainWindowEntrepriseController">
    <children>
       <AnchorPane layoutY="-1.0" prefHeight="640.0" prefWidth="327.0" style="-fx-background-color: #00597C;">
          <children>
@@ -173,7 +173,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <JFXButton fx:id="ajoutersujet" alignment="BASELINE_LEFT" onAction="#ajoutersujet" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer un Sujet" textFill="#fff9f9">
+                              <JFXButton fx:id="forum" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="-2.0" onAction="#forumAction" prefHeight="56.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -181,15 +181,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="forum" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="43.0" onAction="#forumAction" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter Forum" textFill="#fff9f9">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <effect>
-                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
-                                 </effect>
-                              </JFXButton>
-                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="54.0" opacity="0.94" prefHeight="243.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
                            </children>
                         </AnchorPane>
                     </content>

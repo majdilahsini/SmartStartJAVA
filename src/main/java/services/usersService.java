@@ -49,7 +49,7 @@ public class usersService {
     }
     public void modifierUtilisateur (Integer id ,users u ){
        try {
-           PreparedStatement pt =c.prepareStatement("update users set  username =?,password=?,email =?,fullname=?,adresse=?,tel=?,role=? where id_utilisateur=?");
+           PreparedStatement pt =c.prepareStatement("update users set  username =?,password=?,email =?,fullname=?,adresse=?,tel=? where id_utilisateur=?");
           pt.setString(1, u.getUsername());
            pt.setString(2, u.getPassword());
              pt.setString(3, u.getEmail());
@@ -58,9 +58,9 @@ public class usersService {
                
             pt.setString(5, u.getAdresse());
             pt.setString(6, u.getTel());
-               pt.setString(7, u.getRole());
+               
              
-               pt.setInt(10,id);
+               pt.setInt(7,id);
                
              
             pt.executeUpdate();
@@ -233,5 +233,14 @@ public class usersService {
          }
          return m;
   }
-        
+        public int getIdUtilisateur (String username) throws SQLException{
+        int m=0;
+          PreparedStatement pt = c.prepareStatement("select id  from users where username=? ");
+             pt.setString(1,username );
+               ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+                m=rs.getInt("id");}
+              
+              return m;
+     }
 }

@@ -63,9 +63,6 @@ public class SignupController implements Initializable {
     private File file;
     @FXML
     private Label error;
-    private JFXTextField fnField;
-    @FXML
-    private JFXTextField pnField;
     @FXML
     private JFXTextField usrnField;
     @FXML
@@ -79,7 +76,6 @@ public class SignupController implements Initializable {
     private ImageView usericon;
     @FXML
     private ImageView passicon;
-    @FXML
     private ImageView nameicon;
    
     
@@ -92,9 +88,15 @@ public class SignupController implements Initializable {
     @FXML
     private JFXTextField adressefield;
     @FXML
-    private ImageView mailicon;
-    @FXML
     private ImageView telicon;
+    @FXML
+    private ImageView emailicon;
+    @FXML
+    private ImageView fullicon;
+    @FXML
+    private ImageView adresseicon;
+    @FXML
+    private JFXTextField fonenumberfield;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -105,7 +107,7 @@ public class SignupController implements Initializable {
     private void returntologinAction(ActionEvent event) throws IOException {
         
         Stage stage;
-        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
         Scene scene = new Scene(signUpPage);
         stage = (Stage)returntologin.getScene().getWindow();
         stage.hide();
@@ -116,11 +118,15 @@ public class SignupController implements Initializable {
 
 
 
-
-    @FXML
+/*
     private void pnFieldv(KeyEvent event) {
+         if (Pattern.matches("[0-9]+", fnField.getText()) && fnField.getText().length() > 2 ) 
+                telicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                telicon.setImage(new Image("/fxml/assets/error.png"));
+        
     }
-
+*/
     @FXML
     private void usrnFieldv(KeyEvent event) {
         
@@ -149,13 +155,14 @@ public class SignupController implements Initializable {
     private void signupAction(ActionEvent event) {
            Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
-        String user=pnField.getText();
-        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),pnField.getText(),adressefield.getText(),"utilisateur");
+        String user=fonenumberfield.getText();
+        
+        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adressefield.getText(),"utilisateur");
         String s=u.ajouterUtilisateur(p);
        if (s.equals("vous ete inscrit")){
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 
     "succes!!", "utilisateur ajoutée");
-      SendSMS(user,"inscription ressusite pour");
+      SendSMS(user,usrnField.getText(),pwdField.getText());
        }   
     
        else if(s.equals("non valide"))
@@ -163,7 +170,7 @@ public class SignupController implements Initializable {
     "erreur", "utilisateur déja inscrit");
     
     }
-    private void fnField(KeyEvent event) {
+    /*private void fnField(KeyEvent event) {
         
         
          if (Pattern.matches("[a-zA-Z]+", fnField.getText()) && fnField.getText().length() > 2 ) 
@@ -172,7 +179,7 @@ public class SignupController implements Initializable {
                 nameicon.setImage(new Image("/fxml/assets/error.png"));
          
     }
-
+*/
 
     private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
     Alert alert = new Alert(alertType);
@@ -186,14 +193,36 @@ public class SignupController implements Initializable {
 
     @FXML
     private void emailfield(KeyEvent event) {
+        
+         Verification v = new Verification();
+         Verification e = new Verification();
+          if (v.siEmailExiste(emailfield.getText()) == 0 && emailfield.getText().length()>2 && e.isValid(emailfield.getText()) ) 
+
+                emailicon.setImage(new Image("/fxml/assets/ok.png"));
+        else 
+                emailicon.setImage(new Image("/fxml/assets/error.png"));
     }
 
     @FXML
     private void fullnamefield(KeyEvent event) {
+          if (fullname.getText().length() > 2 ) 
+                fullicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                fullicon.setImage(new Image("/fxml/assets/error.png"));
+        
     }
 
     @FXML
     private void Adressefield(KeyEvent event) {
+    }
+
+    @FXML
+    private void phonenumberv(KeyEvent event) {
+          if (Pattern.matches("[+]+[0-9]+", fonenumberfield.getText()) && fonenumberfield.getText().length() == 12 ) 
+               telicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                telicon.setImage(new Image("/fxml/assets/error.png"));
+        
     }
 
 

@@ -108,5 +108,20 @@ public class adminService {
        }
         return x;
     } 
+      public String Adminemail(String username ) {
+       String m=null;
+         try {
+             PreparedStatement pt = c.prepareStatement("select email from admin where username=?");
+             pt.setString(1,username);
+             ResultSet rs=pt.executeQuery();
+              while(rs.next()){
+            
+                       m=   rs.getString("email");
+              ;}
+         } catch (SQLException ex) {
+             Logger.getLogger(adminService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return m;
+  }
         
 }
