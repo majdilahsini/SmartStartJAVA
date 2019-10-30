@@ -63,5 +63,19 @@
       <Text layoutX="68.0" layoutY="348.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 1" />
       <Text layoutX="68.0" layoutY="421.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 2" />
       <Text layoutX="69.0" layoutY="496.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 3" />
+      <Text fx:id="message" fill="#007910" layoutX="527.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre offre a été crée" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="message1" fill="RED" layoutX="491.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur de création de l'offre" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="typeicon" fitHeight="32.0" fitWidth="32.0" layoutX="794.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="domaineicon" fitHeight="32.0" fitWidth="32.0" layoutX="794.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="langueicon" fitHeight="32.0" fitWidth="32.0" layoutX="794.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="compticon" fitHeight="32.0" fitWidth="32.0" layoutX="346.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
