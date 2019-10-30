@@ -36,8 +36,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton deconnect1;
     @FXML
-    private JFXButton deconnect1111;
-    @FXML
     private JFXButton mes_formations_btn;
     @FXML
     private TitledPane offrebtn;
@@ -59,6 +57,8 @@ public class MainWindowEntrepriseController implements Initializable {
     private JFXButton ajoutersujet;
     @FXML
     private JFXButton forum;
+    @FXML
+    private JFXButton MesentretiensBtn;
 
     /**
      * Initializes the controller class.
@@ -127,6 +127,12 @@ public class MainWindowEntrepriseController implements Initializable {
         
         Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
         borderpane.setCenter(signUpPage);
+    }
+
+    @FXML
+    private void Mesentretiens_btn_Action(ActionEvent event) throws IOException {
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/afficher_entretien.fxml"));
+        borderpane.setCenter(root);
     }
     
 }
