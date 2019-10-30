@@ -31,8 +31,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton Quit;
     @FXML
-    private JFXButton deconnect2;
-    @FXML
     private TitledPane monespace;
     @FXML
     private JFXButton deconnect1;
@@ -51,8 +49,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private BorderPane borderpane;
     @FXML
-    private JFXButton ajoutersujet;
-    @FXML
     private JFXButton forum;
     @FXML
     private JFXButton MesentretiensBtn;
@@ -64,6 +60,8 @@ public class MainWindowEntrepriseController implements Initializable {
     private JFXButton myInvestmentButton;
     @FXML
     private JFXButton AjouterProjectButton;
+    @FXML
+    private JFXButton deconnect;
 
     /**
      * Initializes the controller class.
@@ -123,9 +121,6 @@ public class MainWindowEntrepriseController implements Initializable {
     private void afficher_formation_action(ActionEvent event) {
     }
 
-    @FXML
-    private void ajoutersujet(ActionEvent event) {
-    }
 
     @FXML
     private void forumAction(ActionEvent event) throws IOException {
@@ -167,6 +162,20 @@ public class MainWindowEntrepriseController implements Initializable {
     private void AjouterProjectAction(ActionEvent event) throws IOException {
          Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/AjouteProjet2.fxml"));
         borderpane.setCenter(root);
+        
+        
+    }
+
+    @FXML
+    private void decconectAction(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
+        // borderpane.setCenter(signUpPage);
+        Scene scene = new Scene(signUpPage);
+        stage = (Stage)Quit.getScene().getWindow();
+        stage.hide();
+        stage.setScene(scene);
+        stage.show();
         
         
     }

@@ -133,14 +133,15 @@ public class LoginController1 implements Initializable {
 
     @FXML
     private void signuputilisateur(ActionEvent event) throws IOException {
-      FXMLLoader loader=new FXMLLoader(getClass().getResource("/fxml/Signup.fxml"));
-            Parent root =loader.load();
-            Scene tableViewScene = new Scene(root);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.close();
-            window.setScene(tableViewScene);
-           window.setMaximized(true);
-            window.show();
+        Stage stage;
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Signup.fxml"));
+        // borderpane.setCenter(signUpPage);
+        Scene scene = new Scene(signUpPage);
+        stage = (Stage)loginField.getScene().getWindow();
+        stage.hide();
+        stage.setScene(scene);
+        stage.show();
+        
     }
 
     @FXML
