@@ -37,6 +37,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceOffre;
 import utils.Getlists;
+import utils.OfrreSession;
 
 
 /**
@@ -77,9 +78,7 @@ public class ModifierOffreController implements Initializable {
     @FXML
     private ImageView salaireicon;
     private int[] verif = new int[]{0,0,0,0,0,0,0,0,0};
-    @FXML
     private ImageView img;
-    @FXML
     private JFXButton uploadimg;
     
     private File file;
@@ -95,6 +94,8 @@ public class ModifierOffreController implements Initializable {
     private ImageView langueicon;
     @FXML
     private ImageView compticon;
+    @FXML
+    private ImageView im;
     
 
 
@@ -103,7 +104,19 @@ public class ModifierOffreController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+       Getlists gl = new Getlists();
+       ServiceOffre se = new ServiceOffre();
+        for (Offre e : se.AfficherOffresByID(OfrreSession.getId())) {
+            titrefield.setText(e.getTitre());
+            niveaufield.setText(Integer.toString(e.getNiveau_etude()));
+            niveaufield1.setText(Integer.toString(e.getSalaire()));
+            
+            im.setImage(new Image(e.getPhoto()));
+            
+           
+        }  
+        
     }    
 
     @FXML
@@ -354,4 +367,7 @@ public class ModifierOffreController implements Initializable {
             img.setPreserveRatio(true);
         }
     }
+
+
+    
 }
