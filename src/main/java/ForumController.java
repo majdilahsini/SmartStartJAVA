@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import services.ForumService;
 import services.sendReclamation;
 
+
 import entities.Session;
 import services.usersService;
 //import LoginController1;
@@ -41,6 +42,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Window;
 import javax.mail.MessagingException;
 import static services.sendReclamation.sendRc;
@@ -62,7 +64,8 @@ public class ForumController implements Initializable {
     private TableColumn<Forum, String> nom;
     @FXML
     private TableColumn<Forum, String> com;
-    
+        @FXML
+    private BorderPane borderpane;
     
     @FXML
     private Button Modifier;
@@ -78,7 +81,7 @@ public class ForumController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          System.out.println("You clicked me!");
+        
        // label.setText("Hello World!");
         
        try{
@@ -257,7 +260,7 @@ public class ForumController implements Initializable {
     }
 
     @FXML
-    private void ajouter(MouseEvent event) throws SQLException {
+    private void ajouter(MouseEvent event) throws SQLException, IOException {
         Connection con =  DBConnection.getInstance().getConnection();
         usersService m=new usersService();
          int i=Session.getId();
@@ -274,16 +277,18 @@ public class ForumController implements Initializable {
         ForumService a= new ForumService();
         a.AjouterCommentaire(b);
         try {
-                Parent page2 = FXMLLoader.load(getClass().getResource("Forum.fxml"));
+                /*Parent page2 = FXMLLoader.load(getClass().getResource("Forum.fxml"));
               
                 Scene scene = new Scene(page2);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
-                stage.show();
+                stage.show();*/
+                 Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Forum.fxml"));
+                 borderpane.setCenter(signUpPage);
             } catch (IOException ex) {
                 Logger.getLogger(ForumController.class.getName()).log(Level.SEVERE, null, ex);
     }
-        //message _ affichage direct dans la scene
+         
     }
        
     }

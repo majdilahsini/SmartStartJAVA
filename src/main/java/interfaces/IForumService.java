@@ -7,6 +7,8 @@ package interfaces;
 
 
 import entities.Forum;
+import entities.Offre;
+import java.util.List;
 /**
  *
  * @author radhwen
@@ -17,4 +19,5 @@ public interface IForumService {
     public void ModifierCommentaire(Forum f);
     public int FindIdCommentaire( String comm);
     public String FindEmailId(int id);
+    
 }
