@@ -63,12 +63,12 @@
       <Text layoutX="68.0" layoutY="348.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 1" />
       <Text layoutX="68.0" layoutY="421.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 2" />
       <Text layoutX="69.0" layoutY="496.0" opacity="0.38" strokeType="OUTSIDE" strokeWidth="0.0" text="Compétence 3" />
-      <Text fx:id="message" fill="#007910" layoutX="527.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre offre a été crée" visible="false">
+      <Text fx:id="message" fill="#007910" layoutX="527.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre offre a été modifé" visible="false">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="message1" fill="RED" layoutX="491.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur de création de l'offre" visible="false">
+      <Text fx:id="message1" fill="RED" layoutX="491.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur de modification de l'offre" visible="false">
          <font>
             <Font size="18.0" />
          </font>

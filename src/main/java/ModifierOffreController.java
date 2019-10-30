@@ -232,7 +232,7 @@ public class ModifierOffreController implements Initializable {
             } 
             
           
-          if (o.ajouterOffre(e) == 1) {
+          if (o.modifierOffre(e) == 1) {
               //message.setText("Votre offre a été crée");
               message.setVisible(true);
               message1.setVisible(false);
@@ -244,7 +244,7 @@ public class ModifierOffreController implements Initializable {
                 
               
         } else {
-            message.setText("Erreur de création de l'offre");
+            //message.setText("Erreur de création de l'offre");
             message1.setVisible(true);
         }
 
