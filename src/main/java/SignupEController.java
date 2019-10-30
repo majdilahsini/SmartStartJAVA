@@ -20,9 +20,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Window;
 import services.usersService;
+import utils.Verification;
 
 /**
  * FXML Controller class
@@ -33,11 +35,8 @@ public class SignupEController implements Initializable {
 
     @FXML
     private Label error;
-    @FXML
     private JFXTextField fnField;
-    @FXML
     private JFXTextField emField;
-    @FXML
     private JFXTextField pnField;
     @FXML
     private JFXTextField usrnField;
@@ -47,8 +46,25 @@ public class SignupEController implements Initializable {
     private JFXButton singupBtn2;
     @FXML
     private Hyperlink returntologin;
-    @FXML
     private JFXTextField pnField1;
+    @FXML
+    private JFXTextField emailfield;
+    @FXML
+    private JFXTextField fullname;
+    @FXML
+    private JFXTextField fonenumberfield;
+    @FXML
+    private JFXTextField adresse;
+    @FXML
+    private ImageView usericon;
+    @FXML
+    private ImageView telicon;
+    @FXML
+    private ImageView fullicon;
+    @FXML
+    private ImageView emailicon;
+    @FXML
+    private ImageView passicon;
 
     /**
      * Initializes the controller class.
@@ -64,7 +80,7 @@ public class SignupEController implements Initializable {
     private void signupentreprise(ActionEvent event) {
         Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
-        users p =new users(usrnField.getText(),pwdField.getText(),fnField.getText(),emField.getText(),pnField.getText(),pnField1.getText(),"entreprise");
+        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adresse.getText(),"entreprise");
         String s=u.ajouterUtilisateur(p);
        if (s.equals("vous ete inscrit"))
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 
@@ -87,6 +103,53 @@ public class SignupEController implements Initializable {
 
     @FXML
     private void returntologinAction(ActionEvent event) {
+    }
+
+
+
+    @FXML
+    private void usrnFieldv(KeyEvent event) {
+         Verification v = new Verification();
+         if (v.siUsernameExiste(usrnField.getText()) == 0 && usrnField.getText().length()>2) 
+
+                usericon.setImage(new Image("/fxml/assets/ok.png"));
+        else 
+                usericon.setImage(new Image("/fxml/assets/error.png"));
+    }
+
+    @FXML
+    private void pwdFieldv(KeyEvent event) {
+         if (pwdField.getText().length()>4) 
+                passicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                passicon.setImage(new Image("/fxml/assets/error.png"));
+    }
+
+    @FXML
+    private void emailfield(KeyEvent event) {
+          Verification v = new Verification();
+         Verification e = new Verification();
+          if (v.siEmailExiste(emailfield.getText()) == 0 && emailfield.getText().length()>2 && e.isValid(emailfield.getText()) ) 
+
+                emailicon.setImage(new Image("/fxml/assets/ok.png"));
+        else 
+                emailicon.setImage(new Image("/fxml/assets/error.png"));
+    }
+
+    @FXML
+    private void fullname(KeyEvent event) {
+         if (fullname.getText().length() > 2 ) 
+                fullicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                fullicon.setImage(new Image("/fxml/assets/error.png"));
+    }
+
+    @FXML
+    private void fonenumberfield(KeyEvent event) {
+          if (Pattern.matches("[+]+[0-9]+", fonenumberfield.getText()) && fonenumberfield.getText().length() == 12 ) 
+               telicon.setImage(new Image("/fxml/assets/ok.png"));
+         else 
+                telicon.setImage(new Image("/fxml/assets/error.png"));
     }
     
 }

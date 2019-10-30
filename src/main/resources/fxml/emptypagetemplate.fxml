@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="966.0" style="-fx-background-color: #CDCDCD;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="14.0" layoutY="14.0" prefHeight="359.0" prefWidth="656.0" style="-fx-background-color: #CDCDCD;">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-background-color: #008CB3;" text="username" />
+          <TableColumn prefWidth="97.0" style="-fx-background-color: #008CB3;" text="password" />
+            <TableColumn prefWidth="78.0" style="-fx-background-color: #008CB3;" text="email" />
+            <TableColumn prefWidth="114.0" style="-fx-background-color: #008CB3;" text="full name" />
+            <TableColumn prefWidth="128.0" style="-fx-background-color: #008CB3;" text="tel" />
+            <TableColumn prefWidth="163.0" style="-fx-background-color: #008CB3;" text="adresse" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <effect>
+            <Blend />
+         </effect>
+      </TableView>
+      <JFXTextField layoutX="389.0" layoutY="404.0" unFocusColor="#008cb3" />
+      <JFXTextField focusColor="#008cb3" layoutX="133.0" layoutY="461.0" unFocusColor="#008cb3" />
+      <JFXTextField layoutX="133.0" layoutY="522.0" unFocusColor="#008cb3" />
+      <JFXTextField layoutX="133.0" layoutY="391.0" unFocusColor="#008cb3" />
+   </children>
+</AnchorPane>

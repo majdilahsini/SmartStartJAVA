@@ -63,8 +63,6 @@ public class SignupController implements Initializable {
     private File file;
     @FXML
     private Label error;
-    private JFXTextField fnField;
-    private JFXTextField pnField;
     @FXML
     private JFXTextField usrnField;
     @FXML
@@ -120,7 +118,7 @@ public class SignupController implements Initializable {
 
 
 
-
+/*
     private void pnFieldv(KeyEvent event) {
          if (Pattern.matches("[0-9]+", fnField.getText()) && fnField.getText().length() > 2 ) 
                 telicon.setImage(new Image("/fxml/assets/ok.png"));
@@ -128,7 +126,7 @@ public class SignupController implements Initializable {
                 telicon.setImage(new Image("/fxml/assets/error.png"));
         
     }
-
+*/
     @FXML
     private void usrnFieldv(KeyEvent event) {
         
@@ -157,13 +155,14 @@ public class SignupController implements Initializable {
     private void signupAction(ActionEvent event) {
            Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
-        String user=pnField.getText();
-        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),pnField.getText(),adressefield.getText(),"utilisateur");
+        String user=fonenumberfield.getText();
+        
+        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adressefield.getText(),"utilisateur");
         String s=u.ajouterUtilisateur(p);
        if (s.equals("vous ete inscrit")){
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 
     "succes!!", "utilisateur ajoutée");
-      SendSMS(user,"inscription ressusite pour ");
+      SendSMS(user,usrnField.getText(),pwdField.getText());
        }   
     
        else if(s.equals("non valide"))
