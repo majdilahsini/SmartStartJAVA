@@ -50,6 +50,7 @@ public class MesOffreController implements Initializable {
             ServiceOffre o = new ServiceOffre();
             ServiceApplication a = new ServiceApplication ();
             for (Offre e: o.AfficherOffresByEntreprise(Session.getId())) {
+                System.out.println(Session.getId());
                 root2 = FXMLLoader.load(getClass().getResource("/fxml/Offre.fxml"));
                 Text t = (Text) root2.lookup("#nom");
                 t.setText(e.getTitre());

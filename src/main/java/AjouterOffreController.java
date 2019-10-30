@@ -5,16 +5,21 @@
  */
 
 
+import com.google.common.io.Files;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entities.Offre;
 import entities.Session;
+import java.awt.Color;
+import java.awt.Paint;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
@@ -78,6 +83,18 @@ public class AjouterOffreController implements Initializable {
     private JFXButton uploadimg;
     
     private File file;
+    @FXML
+    private Text message;
+    @FXML
+    private Text message1;
+    @FXML
+    private ImageView typeicon;
+    @FXML
+    private ImageView domaineicon;
+    @FXML
+    private ImageView langueicon;
+    @FXML
+    private ImageView compticon;
     
 
 
@@ -144,23 +161,51 @@ public class AjouterOffreController implements Initializable {
     private void ajouterbsdAction(ActionEvent event) throws MalformedURLException {
 
         
-        if (domaine.getValue() != null) 
+        if (domaine.getValue() != null) {
+            domaineicon.setImage(new Image("/fxml/assets/ok.png"));
             verif[3] = 1;
-        if (poste.getValue() != null) 
+        } else 
+            domaineicon.setImage(new Image("/fxml/assets/error.png"));
+                
+        if (poste.getValue() != null) {
+            typeicon.setImage(new Image("/fxml/assets/ok.png"));
             verif[4] = 1;
-        if (langue.getValue() != null) 
+        } else
+            typeicon.setImage(new Image("/fxml/assets/error.png"));
+            
+        if (langue.getValue() != null){
+            langueicon.setImage(new Image("/fxml/assets/ok.png"));
             verif[5] = 1;
-        if (skillscombo.getValue() != null) 
+        } else 
+            langueicon.setImage(new Image("/fxml/assets/error.png"));
+            
+        if (skillscombo.getValue() != null) {
+            compticon.setImage(new Image("/fxml/assets/ok.png"));
             verif[6] = 1;
+        } else {
+            compticon.setImage(new Image("/fxml/assets/error.png"));
+        }
+        
+        if (titrefield.getText().length() == 0)
+            titreicon.setImage(new Image("/fxml/assets/error.png"));
+        if (niveaufield.getText().length() == 0)
+            niveauetudeicon.setImage(new Image("/fxml/assets/error.png"));
+        if (niveaufield1.getText().length() == 0)
+            salaireicon.setImage(new Image("/fxml/assets/error.png"));
+            
         
         int s=0;
         for (int i: verif)
             s = s + i;
         
         Getlists gl = new Getlists();
+        Offre e;
+        ServiceOffre o = new ServiceOffre();
         
-        if (s ==7) {
-            Offre e = new Offre (titrefield.getText(), 
+        if (s == 7) {
+            file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
+            if ( file == null) {
+            e = new Offre (titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
                                  Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
@@ -170,11 +215,37 @@ public class AjouterOffreController implements Initializable {
                                  gl.getSkillbynom(skillscombo1.getValue()),
                                  gl.getSkillbynom(skillscombo2.getValue()),
                                  Integer.parseInt(niveaufield1.getText()),
-                                 file.toURI().toURL().toExternalForm());
+                                 "/fxml/assets/No_Image_Available.jpg");
+            } else {
+            e = new Offre (titrefield.getText(), 
+                                 gl.getDomainebynom(domaine.getValue()),
+                                 Session.getId(),
+                                 Integer.parseInt(niveaufield.getText()),
+                                 gl.getLanguebyRef(langue.getValue()),
+                                 gl.getTypeDePosteByID(poste.getValue()),
+                                 gl.getSkillbynom(skillscombo.getValue()),
+                                 gl.getSkillbynom(skillscombo1.getValue()),
+                                 gl.getSkillbynom(skillscombo2.getValue()),
+                                 Integer.parseInt(niveaufield1.getText()),
+                                 "file:/C:/wamp64/www/"+file.getName()); 
+                                 
+            } 
             
-          ServiceOffre o = new ServiceOffre();
-          System.out.println(o.ajouterOffre(e));
-        
+          
+          if (o.ajouterOffre(e) == 1) {
+              //message.setText("Votre offre a été crée");
+              message.setVisible(true);
+              message1.setVisible(false);
+              //message.setStyle("-fx-text-inner-color: Green;");
+          } else {
+              //message.setText("Erreur de création de l'offre");
+              message1.setVisible(true);
+          }
+                
+              
+        } else {
+            message.setText("Erreur de création de l'offre");
+            message1.setVisible(true);
         }
 
             
@@ -274,6 +345,7 @@ public class AjouterOffreController implements Initializable {
         
         FileChooser fileChooser = new FileChooser();
         file = fileChooser.showOpenDialog(uploadimg.getScene().getWindow());
+        
         if(file != null){
             Image img1 = new Image(file.toURI().toURL().toExternalForm());
             img.setImage(img1);
@@ -281,6 +353,5 @@ public class AjouterOffreController implements Initializable {
             img.setFitHeight(127);
             img.setPreserveRatio(true);
         }
-        
     }
 }
