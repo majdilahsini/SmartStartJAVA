@@ -12,47 +12,24 @@ package entities;
 public class Inscription {
     private int id  ;
     private int user_id ;
+    private int entreprise_id;
     private int formation_ref ;
     private String lettre_motivation ;
-    private String nom;
-    private String Nom_formation ;
-    private int tel ;
-    private String prenom ;
+  
     
     public Inscription() {
     }
-    public String getNom() {
-        return nom;
-    }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public Inscription(int id, int user_id, int entreprise_id, int formation_ref, String lettre_motivation) {
+        this.id = id;
+        this.user_id = user_id;
+        this.entreprise_id = entreprise_id;
+        this.formation_ref = formation_ref;
+        this.lettre_motivation = lettre_motivation;
     }
+  
 
-    public String getNom_formation() {
-        return Nom_formation;
-    }
-
-    public void setNom_formation(String Nom_formation) {
-        this.Nom_formation = Nom_formation;
-    }
-
-    public int getTel() {
-        return tel;
-    }
-
-    public void setTel(int tel) {
-        this.tel = tel;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-    
+ 
 
     
 

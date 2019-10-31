@@ -12,11 +12,32 @@ package entities;
 public class Domaine {
     
     int id ;
+    int entreprise_id;
     String nom_domaine;
 
-    public Domaine(int id, String nom_domaine) {
+    public Domaine(int id, int entreprise_id, String nom_domaine) {
         this.id = id;
+        this.entreprise_id = entreprise_id;
+        
         this.nom_domaine = nom_domaine;
+    }
+
+  /*   public Domaine(int entreprise_id, String nom_domaine) {
+     
+        this.entreprise_id = entreprise_id;
+        this.nom_domaine = nom_domaine;
+    }*/
+    public Domaine(int entreprise_id, String nom_domaine) {
+        this.entreprise_id = entreprise_id;
+        this.nom_domaine = nom_domaine;
+    }
+
+    public int getEntreprise_id() {
+        return entreprise_id;
+    }
+
+    public void setEntreprise_id(int entreprise_id) {
+        this.entreprise_id = entreprise_id;
     }
 
     public Domaine() {
