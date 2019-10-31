@@ -123,34 +123,7 @@ for (int i=0 ;i<r.size();i++){
    datefin.setCellValueFactory(new PropertyValueFactory<Formation,Date>("date_fin")); 
    entreprise_txt.setCellValueFactory(new PropertyValueFactory<Formation,String>("nomentreprise")); 
     Tab_formations.setItems(list);
-        /////////////////////////////////////////////////////////////
-        /*
-          ObservableList<Formation> data2 = FXCollections.observableArrayList();
-                Formation e = new Formation();
-        FormationService sc = new FormationService();
-        List<Formation> Formation = sc.afficherFormation();
-        data2= FXCollections.observableArrayList(Formation);
-FilteredList<Formation> filterData = new FilteredList<>(data2, p -> true);
-rechercher_txt.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
-     filterData.setPredicate(pers -> {
-                
-                if (newvalue == null || newvalue.isEmpty()) {
-                    return true;
-                }
-                String typedText = newvalue.toLowerCase();
-         if (pers.getNom().toLowerCase().startsWith(typedText)) {
-                    
-                    return true;
-                }
-                
-                
-                return false;
-            });
-});
-       SortedList<Formation> sortedList = new SortedList<>(filterData);
-            sortedList.comparatorProperty().bind(table_formation.comparatorProperty());
-            table_formation.setItems(sortedList);
-        */
+     
         
     }
 
