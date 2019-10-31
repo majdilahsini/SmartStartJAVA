@@ -16,6 +16,7 @@ import Connection.DBConnection;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entities.Formation;
+import entities.Session;
 
 import java.io.IOException;
 import java.net.URL;
@@ -106,7 +107,7 @@ public class Affich_mes_formationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         FormationService f = new FormationService();
-         ArrayList<Formation> r = f.affichermesFormation(12);
+         ArrayList<Formation> r = f.affichermesFormation(Session.getId());
           ObservableList<Formation> list =FXCollections.observableArrayList();
            for (int i=0 ;i<r.size();i++){
                  Formation c = new Formation(r.get(i).getRef(),r.get(i).getEntreprise_id(),r.get(i).getDomaine_id(),r.get(i).getNom(),r.get(i).getDescription(), r.get(i).getDuree(),r.get(i).getDate_debut(),r.get(i).getDate_fin(),r.get(i).getAdresse(),r.get(i).getPrix(),r.get(i).getContact(),r.get(i).getEmail(),r.get(i).getNbres_inscrits());
