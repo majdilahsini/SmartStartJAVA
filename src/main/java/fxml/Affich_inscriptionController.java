@@ -7,6 +7,7 @@ package fxml;
 
 import entities.Formation;
 import entities.Formation_user;
+import entities.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -60,7 +61,7 @@ public class Affich_inscriptionController implements Initializable {
 
  InscriptionService f = new InscriptionService();
  
-         List<Formation_user> r = f.afficherFormation(2);
+         List<Formation_user> r = f.afficherFormation(Session.getId());
           ObservableList<Formation_user> list =FXCollections.observableArrayList();
           list.addAll(r);
         System.out.println(list);
