@@ -29,6 +29,16 @@
                   </Label>
                </children>
             </Pane>
+            <Label layoutX="34.0" layoutY="94.0" text="Nbres inscrits">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="692.0" layoutY="539.0" text="Nom Formation">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
