@@ -12,20 +12,11 @@
    <children>
       <AnchorPane id="AnchorPane" fx:id="pane_inscri_formation" prefHeight="640.0" prefWidth="854.0">
          <children>
-            <Button fx:id="btn_retour_inscp" layoutX="670.0" layoutY="542.0" mnemonicParsing="false" onAction="#retour_inscri_action" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #00597C;" styleClass="blue-btn" text="Retour" textFill="#f8f4f4">
+            <Button fx:id="btn_retour_inscp" layoutX="671.0" layoutY="529.0" mnemonicParsing="false" onAction="#retour_inscri_action" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #2a8eb5;" styleClass="blue-btn" text="Retour" textFill="#f8f4f4">
                <font>
-                  <Font name="System Bold Italic" size="19.0" />
+                  <Font name="Century Gothic Bold Italic" size="21.0" />
                </font>
             </Button>
-            <Pane layoutX="-8.0" layoutY="-10.0" prefHeight="47.0" prefWidth="854.0" style="-fx-background-color: #00597C;" styleClass="blue-btn">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="9.0" prefHeight="20.0" prefWidth="426.0" text="inscrits aux formations" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold Italic" size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
             <TableView fx:id="tab_inscri_formation" layoutX="108.0" layoutY="188.0" prefHeight="200.0" prefWidth="671.0" stylesheets="@../Style/styles.css">
                <columns>
                   <TableColumn fx:id="nom_inscri" prefWidth="145.0" text="Nom et Prenom" />
@@ -34,6 +25,15 @@
                   <TableColumn fx:id="lettre_inscri" minWidth="0.0" prefWidth="177.0" text="lettre de motivation" />
                </columns>
             </TableView>
+            <Pane focusTraversable="true" layoutX="-7.0" prefHeight="50.0" prefWidth="851.0" style="-fx-background-color: #2a8eb5;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="205.0" layoutY="11.0" prefHeight="20.0" prefWidth="426.0" text="inscrits aux formations" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>
