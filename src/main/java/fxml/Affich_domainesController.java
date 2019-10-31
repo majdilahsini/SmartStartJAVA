@@ -9,6 +9,7 @@ import fxml.*;
 import com.jfoenix.controls.JFXTextField;
 import entities.Domaine;
 import entities.Formation;
+import entities.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -63,7 +64,7 @@ public class Affich_domainesController implements Initializable {
         Domaine i = new Domaine();
       
                  ObservableList<Domaine> data2 = FXCollections.observableArrayList();
-        List<Domaine> domaines = ds.affichercategories(2);
+        List<Domaine> domaines = ds.affichercategories(Session.getId());
         data2= FXCollections.observableArrayList(domaines);
          
            
@@ -74,7 +75,7 @@ public class Affich_domainesController implements Initializable {
 
     @FXML
     private void ajouter_domaine_action(ActionEvent event) throws SQLException, IOException {
-         Domaine d = new Domaine(2,domaine_txt.getText());
+         Domaine d = new Domaine(Session.getId(),domaine_txt.getText());
            ds.creerDomaine(d);
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
