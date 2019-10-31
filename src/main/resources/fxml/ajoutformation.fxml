@@ -82,7 +82,6 @@
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="email_btn" layoutX="345.0" layoutY="574.0" mnemonicParsing="false" onAction="#email_action" text="Button" />
             <AnchorPane layoutX="80.0" layoutY="145.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
                <children>
                   <ImageView fx:id="image_formation" fitHeight="127.0" fitWidth="129.0" layoutX="11.0" layoutY="8.0" onDragDetected="#browse" pickOnBounds="true" preserveRatio="true" />
