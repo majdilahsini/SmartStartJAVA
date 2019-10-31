@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="modifpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.ModifiermyProjet1Controller">
    <children>
-      <AnchorPane id="AnchorPane" fx:id="modifpane1" layoutX="10.0" layoutY="10.0" prefHeight="383.0" prefWidth="576.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane id="AnchorPane" fx:id="modifpane1" layoutX="10.0" layoutY="10.0" prefHeight="383.0" prefWidth="576.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton fx:id="Suivant1" layoutX="584.0" layoutY="430.0" onAction="#Suivant1Action" prefHeight="46.0" prefWidth="97.0" text="Suivant" textFill="#269a17">
                <font>
@@ -85,7 +85,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane id="AnchorPane" fx:id="ajouteProjet2pane" layoutX="10.0" layoutY="10.0" prefHeight="383.0" prefWidth="576.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane id="AnchorPane" fx:id="ajouteProjet2pane" layoutX="10.0" layoutY="10.0" prefHeight="383.0" prefWidth="576.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton fx:id="ValideProjet" layoutX="105.0" layoutY="474.0" onAction="#ValideProjetAction" prefHeight="39.0" prefWidth="97.0" style="-fx-background-color: #269a17;" text="Valider" textFill="#dcdddb" />
             <JFXTextField fx:id="Votrefinancetext" layoutX="133.0" layoutY="91.0" maxWidth="358.0" minWidth="198.0" onKeyPressed="#Votrefinancetext" prefHeight="31.0" prefWidth="258.0" unFocusColor="#2f2f5b" AnchorPane.leftAnchor="133.0" />
@@ -122,11 +122,10 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <JFXButton fx:id="Annule2Projet" layoutX="305.0" layoutY="467.0" onAction="#Annule2ProjetAction" prefHeight="46.0" prefWidth="97.0" style="-fx-background-color: #8a2121;" text="Annuler" textFill="#ebe3e3" />
+            <JFXButton fx:id="Annule2Projet" layoutX="542.0" layoutY="471.0" onAction="#Annule2ProjetAction" prefHeight="46.0" prefWidth="97.0" style="-fx-background-color: #8a2121;" text="Annuler" textFill="#ebe3e3" />
             <JFXDatePicker fx:id="datedebutprojet" defaultColor="#232085" layoutX="154.0" layoutY="274.0" prefHeight="31.0" prefWidth="227.0" />
             <JFXTextField fx:id="dureeprojet" layoutX="153.0" layoutY="328.0" maxWidth="217.0" minWidth="167.0" onKeyTyped="#dureecontrolle" prefHeight="31.0" prefWidth="217.0" unFocusColor="#2f2f5b" />
             <ImageView fx:id="imageProjet1" fitHeight="31.0" fitWidth="40.0" layoutX="402.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
-            <JFXButton fx:id="uploadimage" layoutX="525.0" layoutY="460.0" onAction="#uploadimageAction" prefHeight="46.0" prefWidth="111.0" style="-fx-background-color: #0edada;" text="uploadimage" textFill="WHITE" />
             <ImageView fx:id="imageProjet2" fitHeight="31.0" fitWidth="40.0" layoutX="402.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imageProjet3" fitHeight="31.0" fitWidth="40.0" layoutX="422.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imageProjet4" fitHeight="31.0" fitWidth="40.0" layoutX="406.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true" />
