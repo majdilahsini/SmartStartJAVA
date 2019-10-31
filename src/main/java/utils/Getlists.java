@@ -255,15 +255,24 @@ public class Getlists {
             //System.out.println(k);
             for (int j: a2) {
                 //System.out.println(j);
-                if (j == k)
+                if (j == k && j != -1) {
                     note++;
+                  }
+                    
             }
         }
-        
-        return (int) Math.ceil(note * 3.33);
-        
+        double note2 = 0;
+        for (int j: a2) {
+                //System.out.println(j);
+                if (j != -1) {
+                    note2++;
+                  }
+        }
+
+        return (int) Math.floor((note / note2)*10);
         
         }
+        
         
         
         public int getNoteLangues (int id1, int id2) {

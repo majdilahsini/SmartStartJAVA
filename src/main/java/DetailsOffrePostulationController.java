@@ -144,7 +144,7 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         ringprogress.setProgress((g.getNoteSkills(Session.getId(),OfrreSession.getId())*5 + g.getNoteLangues(Session.getId(),OfrreSession.getId()))/61.0);
-        
+
     }    
 
     @FXML
