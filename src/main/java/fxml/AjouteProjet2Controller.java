@@ -310,7 +310,7 @@ s.ajouterProjet(p);
 
     @FXML
     private void telprojetcrole(KeyEvent event) {
-         if (Pattern.matches("[0-9]+", telptext.getText()) &&( telptext.getText().length() == 8) && (telptext.getText().startsWith("2", 0) || telptext.getText().startsWith("9", 0) || telptext.getText().startsWith("5", 0) || telptext.getText().startsWith("7", 0))) {
+         if (Pattern.matches("[0-9]+", telptext.getText()) &&( telptext.getText().length() == 7) && (telptext.getText().startsWith("2", 0) || telptext.getText().startsWith("9", 0) || telptext.getText().startsWith("5", 0) || telptext.getText().startsWith("7", 0))) {
             imageProjet8.setImage(new Image("/fxml/assets/ok.png"));
              verif[8]=1;
                         
@@ -327,7 +327,7 @@ s.ajouterProjet(p);
 
     @FXML
     private void emailcontrole(KeyEvent event) {
-         if (eptext.getText().length()>=10 && eptext.getText().endsWith("@gmail.com") ) {
+         if (eptext.getText().length()>=5 && eptext.getText().endsWith("@gmail.com") ) {
            imageProjet9.setImage(new Image("/fxml/assets/ok.png"));
             verif[5]=1;
                         Suivant1.setVisible(true);
