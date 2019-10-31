@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="firas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.InscritauxformationController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="pane_inscri_formation" prefHeight="640.0" prefWidth="854.0">
+         <children>
+            <Button fx:id="btn_retour_inscp" layoutX="670.0" layoutY="542.0" mnemonicParsing="false" onAction="#retour_inscri_action" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #00597C;" styleClass="blue-btn" text="Retour" textFill="#f8f4f4">
+               <font>
+                  <Font name="System Bold Italic" size="19.0" />
+               </font>
+            </Button>
+            <Pane layoutX="-8.0" layoutY="-10.0" prefHeight="47.0" prefWidth="854.0" style="-fx-background-color: #00597C;" styleClass="blue-btn">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="9.0" prefHeight="20.0" prefWidth="426.0" text="inscrits aux formations" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <TableView fx:id="tab_inscri_formation" layoutX="108.0" layoutY="188.0" prefHeight="200.0" prefWidth="671.0" stylesheets="@../Style/styles.css">
+               <columns>
+                  <TableColumn fx:id="nom_inscri" prefWidth="145.0" text="Nom et Prenom" />
+                  <TableColumn fx:id="tel_inscri" prefWidth="126.0" text="telephone" />
+                  <TableColumn fx:id="nom_formation" minWidth="0.0" prefWidth="221.0" text="Nom formation" />
+                  <TableColumn fx:id="lettre_inscri" minWidth="0.0" prefWidth="177.0" text="lettre de motivation" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
