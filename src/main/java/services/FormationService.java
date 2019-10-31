@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.chart.XYChart;
 
 /**
  *
@@ -248,5 +249,22 @@ System.out.println(pres.executeUpdate());
         }
 return Nom_entreprise ;
         }
+         public     XYChart.Series<String, Integer>  statformations(int id) throws SQLException {
+       
+        String req =" SELECT `Nom`,`Nbres inscrits` from `formations` where `entreprise_id`="+id+" ";
+        XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
+        
+             PreparedStatement ste = (PreparedStatement) conn.prepareStatement(req);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+                
+                
+                series.getData().add(new XYChart.Data<>(rs.getString("Nom"), rs.getInt("Nbres inscrits")));
+            }
+            //barChart.getData().add(series);
+        
+        return series;
+       
+   }
     
 }
