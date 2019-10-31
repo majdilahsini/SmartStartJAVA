@@ -8,6 +8,7 @@ package services;
 import Connection.DBConnection;
 import Connection.Generic_Connection;
 import entities.Formation;
+
 import interfaces.IFormationService;
 import java.sql.Connection;
 import java.sql.Date;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.chart.XYChart;
 
 /**
  *
@@ -37,26 +39,32 @@ public class FormationService extends Generic_Connection implements IFormationSe
             }
              }
               @Override
-   public void creerFormation (Formation f) throws SQLException {  
-  String req="INSERT INTO `formations`(`domaine_id`,`Nom`,`description`,`duree`, `date_debut`, `date_fin`, `prix`,`adresse`,`email` ,`contact`) VALUES"
-                + "(?,?,?,?,?,?,?,?,?,?)";
+   public void creerFormation (Formation f) throws SQLException { 
+     
+  String req="INSERT INTO `formations`(`entreprise_id`,`domaine_id`,`Nom`,`description`,`duree`, `date_debut`, `date_fin`,`adresse`,`prix`,`contact`,`email`) VALUES"
+                + "(?,?,?,?,?,?,?,?,?,?,?)";
   PreparedStatement pres = conn.prepareStatement(req);
-pres.setInt(1, f.getDomaine_id());
-pres.setString(2, f.getNom());
-pres.setString(3, f.getDescription());
-pres.setInt(4,f.getDuree());
-pres.setDate(5, f.getDate_debut());
-pres.setDate(6,f.getDate_fin());
-pres.setDouble(7, f.getPrix());
+ pres.setInt(1,f.getEntreprise_id()); 
+pres.setInt(2, f.getDomaine_id());
+pres.setString(3, f.getNom());
+pres.setString(4, f.getDescription());
+pres.setInt(5,f.getDuree());
+pres.setDate(6, f.getDate_debut());
+pres.setDate(7,f.getDate_fin());
+
 pres.setString(8, f.getAdresse());
-pres.setString(9, f.getEmail());
+pres.setDouble(9, f.getPrix());
 pres.setInt(10, f.getContact());
+pres.setString(11, f.getEmail());
+
+//pres.setString(12, f.getImage());
+
 
 System.out.println(pres.executeUpdate());
       System.out.println("formation inseré");
   
   }
- @Override
+ /*@Override
    public ArrayList<Formation> afficherFormation() {
         ArrayList<Formation> mylist = new ArrayList();
         try {
@@ -65,6 +73,50 @@ System.out.println(pres.executeUpdate());
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
          Formation c = new Formation(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getDate(7),rs.getDouble(8),rs.getString(9),rs.getString(10),rs.getInt(11));
+                mylist.add(c);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return mylist;
+    }*/
+   
+      @Override
+
+   public ArrayList<Formation> afficherFormation() {
+        ArrayList<Formation> mylist = new ArrayList();
+        FormationService f = new FormationService();
+        DomaineService s=new DomaineService();
+        try {
+            Statement st = conn.createStatement();
+            String req = "SELECT `ref`, `entreprise_id`, `domaine_id`, `Nom`, `description`, `duree`, `date_debut`, `date_fin`, `adresse`, `prix`, `contact`, `email` FROM `formations`  ";
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+         Formation c = new Formation(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getDate(7),rs.getDate(8),rs.getString(9),rs.getDouble(10),rs.getInt(11),rs.getString(12));
+          c.setNomentreprise(f.getentrepriseByID(rs.getInt(2)));
+     c.setNomdomaine(s.getDomaineByID(rs.getInt(3)));
+         
+                mylist.add(c);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return mylist;
+    }
+      @Override
+
+   public ArrayList<Formation> affichermesFormation(int id) {
+        ArrayList<Formation> mylist = new ArrayList();
+        try {
+            Statement st = conn.createStatement();
+            String req = "SELECT `ref`, `entreprise_id`, `domaine_id`, `Nom`, `description`, `duree`, `date_debut`, `date_fin`,`adresse`, `prix`,`contact`, `email`,`Nbres inscrits` FROM `formations` where entreprise_id='" + id + "'";
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+         Formation c = new Formation(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getDate(7),rs.getDate(8),rs.getString(9),rs.getDouble(10),rs.getInt(11),rs.getString(12),rs.getInt(13));
                 mylist.add(c);
 
             }
@@ -86,56 +138,12 @@ System.out.println(pres.executeUpdate());
         }
     }
      
-  /*  public void modifierFormation(int ref ,int domaine_id , String nom , String prérequis , String description , int duree , Date date_debut , Date date_fin ,Double prix ,String adresse , String email, int contact){
-  
  
-     try {
-         PreparedStatement pres;
-         String req="UPDATE formations SET"
-          + "`domaine_id`=?"
-          + ",`Nom`=?"
-        
-          + ",`Prérequis`=?"
-          + ",`description`=?"
-          + ",`duree`=?"
-          + ",`date_debut`=?"
-          + ",`date_fin`=?"
-       
-          + ",`prix`=?"
-         
-       
-          + ",`adresse`=?"
-          + ",`email`=?"
-          + ",`contact`=?"
-          + " WHERE ref= ? ";
-         pres = conn.prepareStatement(req);
-         
-pres.setInt(1,domaine_id);
-pres.setString(2, nom);
-pres.setString(3,prérequis);
-pres.setString(4, description);
-pres.setInt(5,duree);
-pres.setDate(6,date_debut);
-pres.setDate(7,date_fin);
-pres.setDouble(8,prix);
-pres.setString(9,adresse);
-pres.setString(10,email);
-pres.setInt(11,contact);
- pres.setInt(12,ref);
-System.out.println(pres.executeUpdate());
-      System.out.println("element modifié");
-     }
-      catch (SQLException ex) {
-         Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
-     }
-  
-   
-}*/
      @Override
-    public void modifierFormation(int domaine_id,String Nom,String description,int duree,Date date_debut,Date date_fin,Double prix,String adresse,String email,int contact,int ref)throws SQLException {
+    public void modifierFormation(String Nom,String description,int duree,Date date_debut,Date date_fin,Double prix,String adresse,String email,int contact,int ref)throws SQLException {
   String req="UPDATE formations SET "
-          + "`domaine_id`=?"
-          + ",`Nom`=?"
+         
+          + "`Nom`=?"
          
           + ",`description`=?"
           + ",`duree`=?"
@@ -148,22 +156,22 @@ System.out.println(pres.executeUpdate());
           + ",`contact`=?"
           + " WHERE ref= ? ";
  PreparedStatement pres = conn.prepareStatement(req);
-pres.setInt(1,domaine_id);
-pres.setString(2, Nom);
+
+pres.setString(1, Nom);
 
 
 
-pres.setString(3,description);
-pres.setInt(4,duree);
-pres.setDate(5,date_debut);
-pres.setDate(6,date_fin);
+pres.setString(2,description);
+pres.setInt(3,duree);
+pres.setDate(4,date_debut);
+pres.setDate(5,date_fin);
 
-pres.setDouble(7,prix);
+pres.setDouble(6,prix);
 
-pres.setString(8,adresse);
-pres.setString(9,email);
-pres.setInt(10,contact);
- pres.setInt(11, ref);
+pres.setString(7,adresse);
+pres.setString(8,email);
+pres.setInt(9,contact);
+ pres.setInt(10, ref);
 
 
   
@@ -175,35 +183,18 @@ System.out.println(pres.executeUpdate());
       public Formation Get_Mission_by_Id(int id) throws SQLException {
         ResultSet rs = null;
         PreparedStatement pstmt = null;
-        String resq = "select * from formations where ref ='" + id + "'";
+        String resq = "SELECT `Nom`, `description`, `duree`, `date_debut`, `date_fin`, `prix`, `adresse`, `email`, `contact` FROM `formations` where ref ='" + id + "'";
         pstmt = conn.prepareStatement(resq);
         rs = pstmt.executeQuery();
         while (rs.next()) {
-            return new Formation(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getDate(7),rs.getDouble(8),rs.getString(9),rs.getString(10),rs.getInt(11));
+            return new Formation(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getDate(4),rs.getDate(5),rs.getDouble(6),rs.getString(7),rs.getString(8),rs.getInt(9));
 
         }
         return new Formation();
     }
 
    
-     public ArrayList<Formation> afficherImage(int id) {
-        ArrayList<Formation> mylist = new ArrayList();
-        try {
-            Statement st = conn.createStatement();
-            String req = "select image from formations where ref='"+id+"'";
-            ResultSet rs = st.executeQuery(req);
-            while (rs.next()) {
-                Formation c = new Formation(rs.getString(1));
-                mylist.add(c);
-                System.out.println("ok");
-
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return mylist;
-    }
+  
      public void deleteEnt(int ref) {
          try {
        
@@ -219,58 +210,16 @@ System.out.println(pres.executeUpdate());
             Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     @Override
-    public List<Formation> filtrer(String catnom) {
-     
-         List<Formation> formations = new ArrayList<>();
-         Formation p = null ;
+  
          
-         String req="SELECT f.Nom,f.duree,f.date_debut,f.date_fin FROM formations f JOIN domaines d  on f.domaine_id = d.id where d.id = (SELECT id as `IdDomaine` from domaine where nom_domaine=?)";
-         
-         
-         
-      try {   
-         PreparedStatement pstm;
-         
-         pstm = conn.prepareStatement(req);
-         pstm.setString(1,catnom);
-         ResultSet res = pstm.executeQuery();
-         while (res.next()) {
-             
-             p = new Formation();
-             p.setRef(res.getInt("Ref"));
-          p.setNom(res.getString("Nom") );
-             p.setDomaine_id(res.getInt("domaine_id"));
-             p.setDescription(res.getString("description") );
-             p.setDuree(res.getInt("duree"));
-             p.setDate_debut(res.getDate("date_debut"));
-             p.setDate_fin(res.getDate("date_fin"));
-           p.setPrix(res.getInt("prix"));
-            p.setAdresse(res.getString("adresse"));
-             p.setEmail(res.getString("email"));
-           p.setContact(res.getInt("contact"));
-             
-             
-             
-             
-             formations.add(p);
-             
-             
-         }
-         
-      
-     } catch (SQLException ex) {
-         Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
-     }
-     return formations ;
-    }
+   
     public ArrayList<Formation> afficherFormation_Combo(String ch) {
         DomaineService s=new DomaineService();
         int id=s.getDomaineByID(ch);
         ArrayList<Formation> mylist = new ArrayList();
         try {
             Statement st = conn.createStatement();
-            String req = "select * from formations where domaine_id='"+id+"'";
+            String req = "SELECT `entreprise_id`, `domaine_id`, `Nom`, `description`, `duree`, `date_debut`, `date_fin`, `prix`, `adresse`, `email`, `contact` FROM `formations` WHERE  domaine_id='"+id+"'";
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
          Formation c = new Formation(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getDate(7),rs.getDouble(8),rs.getString(9),rs.getString(10),rs.getInt(11));
@@ -284,6 +233,38 @@ System.out.println(pres.executeUpdate());
         return mylist;
     }
     
-    
+      public String getentrepriseByID (int i){
+                 String Nom_entreprise = null ;
+
+     try {
+            String r ="SELECT fullname FROM users WHERE id=?";
+              PreparedStatement   ps = conn.prepareStatement(r);
+              ps.setInt(1,  i);
+              ResultSet rs = ps.executeQuery();
+                while (rs.next()) 
+                Nom_entreprise = rs.getString(1);
+                } catch (SQLException ex) {
+            Logger.getLogger(FormationService.class.getName()).log(Level.SEVERE, null, ex);
+                      
+        }
+return Nom_entreprise ;
+        }
+         public     XYChart.Series<String, Integer>  statformations(int id) throws SQLException {
+       
+        String req =" SELECT `Nom`,`Nbres inscrits` from `formations` where `entreprise_id`="+id+" ";
+        XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
+        
+             PreparedStatement ste = (PreparedStatement) conn.prepareStatement(req);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+                
+                
+                series.getData().add(new XYChart.Data<>(rs.getString("Nom"), rs.getInt("Nbres inscrits")));
+            }
+            //barChart.getData().add(series);
+        
+        return series;
+       
+   }
     
 }

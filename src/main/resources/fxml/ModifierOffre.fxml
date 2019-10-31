@@ -37,7 +37,7 @@
       </JFXTextField>
       <BorderPane layoutX="73.0" layoutY="33.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="245.0" style="-fx-border-color: #54afff;">
          <center>
-            <ImageView fitHeight="202.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="im" fitHeight="202.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
       <JFXButton alignment="BASELINE_LEFT" layoutX="73.0" layoutY="243.0" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #00597C;" text="Upload image" textFill="#fff9f9">

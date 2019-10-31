@@ -2,7 +2,6 @@ package fxml;
 
 
 
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,17 +9,29 @@ package fxml;
  */
 
 
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import entities.Formation;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
@@ -38,12 +49,17 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.mail.Authenticator;
+import javax.mail.PasswordAuthentication;
+
 import services.DomaineService;
+
 import services.FormationService;
-//import services.Upload;
+import entities.Session;
 
 /**
  * FXML Controller class
@@ -84,7 +100,7 @@ public class AjoutformationController implements Initializable {
     private Button btn_retour_formation;
       File selectedfilFile;
     String path_img;
-  //  Upload u = new Upload();
+  
     @FXML
     private ImageView image_formation;
     @FXML
@@ -103,35 +119,41 @@ public class AjoutformationController implements Initializable {
     private ImageView formationImage5;
     @FXML
     private ImageView formationImage6;
+    
+    private File file;
     /**
      * Initializes the controller class.
      */
    private int[] verif=new int[] {0,0,0,0,0,0,0,0 };
     @FXML
     private Button btn_ajouter_pdf;
+    @FXML
+    private Button email_btn;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
           ObservableList obs = FXCollections.observableArrayList(ds.getFormationType());
         domainecombo.setItems(obs);
     }    
 
     @FXML
     private void ajouter_formation_action(ActionEvent event) throws ParseException, SQLException {
+         
           SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
         java.util.Date date1 = formatter1.parse(datedeb_txt.getValue().toString());
         java.sql.Date d = new Date(date1.getTime());
           java.util.Date date2 = formatter1.parse(datefin_txt.getValue().toString());
         java.sql.Date dd = new Date(date2.getTime());
           double prix = Double.parseDouble(txt_prix.getText());
-        int contact = Integer.parseInt(txt_contact.getText());
+     int contact = Integer.parseInt(txt_contact.getText());
         int duree = Integer.parseInt(txt_duree.getText());
         int j=0;
         for (int i : verif)
             j=j+i;
         
-         Formation f = new Formation(ds.getDomaineByID(domainecombo.getSelectionModel().getSelectedItem().toString()),txt_nom.getText(),txt_description.getText(),duree,
-             d,dd,prix,txt_adresse.getText(),txt_email.getText(),contact);
+         Formation f = new Formation(Session.getId(),ds.getDomaineByID(domainecombo.getSelectionModel().getSelectedItem().toString()),txt_nom.getText(),txt_description.getText(),duree,
+             d,dd,txt_adresse.getText(),prix,contact,txt_email.getText());
 if(j==8)
         fs.creerFormation(f);
 
@@ -152,23 +174,18 @@ if(j==8)
 
     @FXML
     private void browse(ActionEvent event) throws IOException {
-       /*    FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image", "*.jpg", "*.png")
-        );
-        selectedfilFile = fc.showOpenDialog(null);
-        if (selectedfilFile != null) {
-            System.out.println("where are u at");
-            Upload u = new Upload();
-            u.upload(selectedfilFile);
-            imageupload.getItems().add(selectedfilFile.getName());
-  System.out.println("c bn");
-            path_img = selectedfilFile.getAbsolutePath();
-            System.out.println("BLess you man");
-        } else {
-            System.out.println("FICHIER erroné");
-        }*/
+         FileChooser fileChooser = new FileChooser();
+        file = fileChooser.showOpenDialog(btn_img.getScene().getWindow());
+        if(file != null){
+            Image img1 = new Image(file.toURI().toURL().toExternalForm());
+            image_formation.setImage(img1);
+            image_formation.setFitWidth(129);
+            image_formation.setFitHeight(127);
+            image_formation.setPreserveRatio(true);
+        }
+        
     }
+    
 
     private void retour_formation_action(ActionEvent event) throws IOException {
         Stage stage;
@@ -249,7 +266,7 @@ if(j==8)
 
     @FXML
     private void contact_controle(KeyEvent event) {
-        if (txt_prix.getText().length() < 7 && Pattern.matches("[0-9]+", txt_prix.getText())) {
+        if (txt_contact.getText().length() < 7 && Pattern.matches("[0-9]+", txt_contact.getText())) {
             formationImage5.setImage(new Image("/fxml/assets/ok.png"));
             verif[4]=1;
         }
@@ -292,14 +309,78 @@ if(j==8)
         
     }
 
-    private void pdf_action(ActionEvent event) {
-   //     pdf a = new pdf();
-    //    a.creation();
-      
-    }
-
+  
     @FXML
-    private void ajouter_formation_pdf_action(ActionEvent event) {
+    private void ajouter_formation_pdf_action(ActionEvent event) throws FileNotFoundException, DocumentException, ParseException, IOException {
+          SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date date1 = formatter1.parse(datedeb_txt.getValue().toString());
+        java.sql.Date d = new Date(date1.getTime());
+          java.util.Date date2 = formatter1.parse(datefin_txt.getValue().toString());
+        java.sql.Date dd = new Date(date2.getTime());
+    
+   
+ FileChooser fc = new FileChooser();
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF File", "*.pdf"));
+        fc.setTitle("save tp pdf");
+        fc.setInitialFileName("untitiled.pdf");
+        Stage window = new Stage();
+
+           
+            File file=fc.showSaveDialog(window);
+            String str = file.getAbsolutePath();
+            if(file!=null)
+            {
+                OutputStream fil = new FileOutputStream(new File(str));
+
+
+            Document document = new Document();
+
+            PdfWriter.getInstance(document, fil);
+
+
+            document.open();
+            String par2=" \n \n \n  FORMATION : "+txt_nom.getText();
+                        
+            String para1="\n \n           Domaine : "+domainecombo.getSelectionModel().getSelectedItem().toString()
+                    + "\n \n              Description de la formation :  "+txt_description.getText()
+                    + "\n \n              Duree:   "+txt_duree.getText()+" heures"
+                    + "\n \n              Date debut :   "+d
+                    + "\n \n              Date  fin :   "+dd 
+                    + "\n \n              Adresse :   "+txt_adresse.getText()
+                    + "\n \n              Prix formation :   "+ txt_prix.getText()+" DT"
+                    + "\n \n              Vous pouvez nous contacter sur  :  "+txt_contact.getText()
+                    + "\n \n              Notre email :   "+txt_email.getText()
+              
+                    
+                    
+                    
+                    + "\n \n              Vous étes les bienvenus venus ";
+                   
+        
+
+            Paragraph paragraph = new Paragraph(par2);
+                        Paragraph paragraph2 = new Paragraph(para1);
+
+                       // paragraph.setAlignment(Element.ALIGN_CENTER);
+                        paragraph2.setAlignment(Element.TITLE);
+
+                        paragraph2.setAlignment(Element.ALIGN_LEFT);
+    //                       ImageData imageData = ImageDataFactory.create("logo.png");
+   //Image pdfImg = new Image(imageData);
+    
+  // document.add((Element) pdfImg);
+           
+            document.add(paragraph);
+              document.add(paragraph2);      
+            document.close();
+            fil.close();
     }
     
+}
+
+   
+
+    @FXML
+    private void browse(MouseEvent event) {
+    }
 }

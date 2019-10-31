@@ -5,14 +5,18 @@
  */
 
 
+import Connection.ConnexionBD;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import entities.Offre;
 import entities.Session;
 import entities.Userlangues;
 import entities.Userskill;
+import entities.users;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -21,9 +25,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import services.ServiceOffre;
 import services.ServiceUserskill;
 import services.Serviceuserlangues;
+import services.usersService;
 import utils.Getlists;
+import utils.OfrreSession;
 
 /**
  * FXML Controller class
@@ -82,6 +89,20 @@ public class ModifierprofilController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        afficher();
+    }        
+public void afficher(){
+            Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
+            
+     int b=Session.getId();
+     usersService a=new usersService();
+     
+     emailfield.setText(a.getEmail(b));
+     fullname.setText(a.getfullname(b));
+     pnField.setText(a.getTel(b));
+     usrnField.setText(a.getUsername(b));
+     pwdField.setText(a.getpassword(b));
+     adressefield.setText(a.getadresse(b));
         // TODO
     }    
 
@@ -210,6 +231,12 @@ public class ModifierprofilController implements Initializable {
         Userlangues ul = new Userlangues(Session.getId(), gl.getLanguebyRef(languecombo1.getValue()), gl.getLanguebyRef(languecombo2.getValue()));
         Serviceuserlangues s2 = new Serviceuserlangues ();
         s2.ajouterUserslangue(ul);
+        
+        users u1 = new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),pnField.getText(),adressefield.getText());
+        usersService f=new usersService();
+        f.modifierUtilisateur(Session.getId(), u1);
+        
     }
     
 }
+ 

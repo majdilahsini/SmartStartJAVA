@@ -24,7 +24,7 @@
                   <ColorAdjust brightness="-0.19" contrast="1.0" />
                </effect>
             </JFXButton>
-            <JFXButton fx:id="deconnect2" alignment="BASELINE_LEFT" blendMode="SCREEN" layoutX="-1.0" layoutY="516.0" onAction="#returntologin" prefHeight="62.0" prefWidth="328.0" style="-fx-background-color: #E4E4E4;" text="Déconnexion">
+            <JFXButton fx:id="deconnect" alignment="BASELINE_LEFT" blendMode="SCREEN" layoutX="-1.0" layoutY="516.0" onAction="#decconectAction" prefHeight="62.0" prefWidth="328.0" style="-fx-background-color: #E4E4E4;" text="Déconnexion">
                <font>
                   <Font size="20.0" />
                </font>
@@ -112,7 +112,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <AnchorPane blendMode="SRC_ATOP" layoutY="87.0" opacity="0.94" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
+                              <AnchorPane blendMode="SRC_ATOP" layoutY="126.0" opacity="0.94" prefHeight="171.0" prefWidth="327.0" style="-fx-background-color: #00597C;" />
                               <JFXButton fx:id="creer_formation_btn" alignment="BASELINE_LEFT" layoutX="-1.0" onAction="#creer_formation_action" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Créer une formation" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
@@ -122,6 +122,14 @@
                                  </effect>
                               </JFXButton>
                               <JFXButton fx:id="afficher_formation_btn" alignment="BASELINE_LEFT" layoutY="42.0" onAction="#afficher_formation_action" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter les formations" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <JFXButton fx:id="statistiques_formation_btn" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="86.0" onAction="#statistique_formation_action" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Statistiques des formations" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

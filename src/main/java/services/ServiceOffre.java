@@ -84,16 +84,16 @@ public class ServiceOffre implements iOffre{
                    + "`titre`=?,"
                    + "`domaine_id`=?,"
                    + "`entreprise_id`=?,"
-                   + "`date_publication`=STR_TO_DATE(?,'%d,%m,%Y'),"
+                   
                    + "`niveau_etude`=?,"
                    + "`langue_ref`=?,"
                    + "`type_post_id`=?,"
-                   + "`description`=?,"
+                  
                    + "`skill1_id` = ?,"
                    + "`skill2_id` = ?,"
                    + "`skill3_id` = ?,"
-                   + "`langue1_ref` = ?,"
-                   
+                   + "`langue_ref` = ?,"
+                   + "`salaire` = ?"
                    + " WHERE id = ?";
            
            ps = c.prepareStatement(r);
@@ -101,14 +101,15 @@ public class ServiceOffre implements iOffre{
            ps.setInt(2, e.getDomaine_id());
            ps.setInt(3, e.getEntreprise_id());
           // ps.setString(4, e.getDate_publication());
-           ps.setInt(5, e.getNiveau_etude());
-           ps.setInt(6, e.getLangue_ref());
-           ps.setInt(7, e.getType_post_id());
+           ps.setInt(4, e.getNiveau_etude());
+           ps.setInt(5, e.getLangue_ref());
+           ps.setInt(6, e.getType_post_id());
            //ps.setString(8, e.getDescriptipson());
-           ps.setInt(8, e.getSkill1_id());
-           ps.setInt(9, e.getSkill2_id());
-           ps.setInt(10, e.getSkill3_id());
-           ps.setInt(11, e.getLangue_ref());
+           ps.setInt(7, e.getSkill1_id());
+           ps.setInt(8, e.getSkill2_id());
+           ps.setInt(9, e.getSkill3_id());
+           ps.setInt(10, e.getLangue_ref());
+           ps.setInt(11, e.getSalaire());
            ps.setInt(12, e.getId());
            
            executeTest = ps. executeUpdate();

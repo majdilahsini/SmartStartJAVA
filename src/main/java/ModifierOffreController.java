@@ -37,6 +37,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import services.ServiceOffre;
 import utils.Getlists;
+import utils.OfrreSession;
 
 
 /**
@@ -77,9 +78,7 @@ public class ModifierOffreController implements Initializable {
     @FXML
     private ImageView salaireicon;
     private int[] verif = new int[]{0,0,0,0,0,0,0,0,0};
-    @FXML
     private ImageView img;
-    @FXML
     private JFXButton uploadimg;
     
     private File file;
@@ -95,6 +94,8 @@ public class ModifierOffreController implements Initializable {
     private ImageView langueicon;
     @FXML
     private ImageView compticon;
+    @FXML
+    private ImageView im;
     
 
 
@@ -103,7 +104,19 @@ public class ModifierOffreController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+       Getlists gl = new Getlists();
+       ServiceOffre se = new ServiceOffre();
+        for (Offre e : se.AfficherOffresByID(OfrreSession.getId())) {
+            titrefield.setText(e.getTitre());
+            niveaufield.setText(Integer.toString(e.getNiveau_etude()));
+            niveaufield1.setText(Integer.toString(e.getSalaire()));
+            
+            im.setImage(new Image(e.getPhoto()));
+            
+           
+        }  
+        
     }    
 
     @FXML
@@ -203,9 +216,9 @@ public class ModifierOffreController implements Initializable {
         ServiceOffre o = new ServiceOffre();
         
         if (s == 7) {
-            file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
+            
             if ( file == null) {
-            e = new Offre (titrefield.getText(), 
+            e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
                                  Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
@@ -217,7 +230,8 @@ public class ModifierOffreController implements Initializable {
                                  Integer.parseInt(niveaufield1.getText()),
                                  "/fxml/assets/No_Image_Available.jpg");
             } else {
-            e = new Offre (titrefield.getText(), 
+                file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
+                e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
                                  Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
@@ -248,7 +262,7 @@ public class ModifierOffreController implements Initializable {
             message1.setVisible(true);
         }
 
-            
+         System.out.println(s);   
        
         
     }
@@ -354,4 +368,7 @@ public class ModifierOffreController implements Initializable {
             img.setPreserveRatio(true);
         }
     }
+
+
+    
 }

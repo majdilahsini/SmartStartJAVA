@@ -334,14 +334,14 @@ public class Afficher_entretienController implements Initializable {
                             int i =   Session.getId();
 
         EntretienService es= new EntretienService();
-        ArrayList<Entretien> abonnements = new ArrayList<>();
+        ArrayList<Entretien> entretiens = new ArrayList<>();
         try {
-            abonnements=(ArrayList<Entretien>) es.rechercheEntretien(
+            entretiens=(ArrayList<Entretien>) es.rechercheEntretien(
                     rechercherText.getText(),i);
         } catch (SQLException ex) {
             Logger.getLogger(Afficher_entretienController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ObservableList<Entretien> obsl = FXCollections.observableArrayList(abonnements);
+        ObservableList<Entretien> obsl = FXCollections.observableArrayList(entretiens);
         tableEntretien.setItems(obsl);
         refColonne.setCellValueFactory(cell -> cell.
                 getValue().getref_entProperty());

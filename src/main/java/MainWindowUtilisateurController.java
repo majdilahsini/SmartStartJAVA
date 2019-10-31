@@ -39,8 +39,6 @@ public class MainWindowUtilisateurController implements Initializable {
     @FXML
     private BorderPane borderpane;
     @FXML
-    private JFXButton deconnect11;
-    @FXML
     private JFXButton deconnect2;
     private JFXButton offresbtn;
     @FXML
@@ -49,8 +47,6 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton deconnect12;
     @FXML
     private JFXButton deconnect121;
-    @FXML
-    private JFXButton deconnect111;
     @FXML
     private JFXButton consulterlesoffres;
     @FXML
@@ -67,6 +63,12 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton AjouterProjectButton;
     @FXML
     private JFXButton monprofilcv;
+    @FXML
+    private JFXButton mescand;
+    @FXML
+    private JFXButton mesformation_btn;
+    @FXML
+    private JFXButton consulter_formation_btn;
 
     
     
@@ -159,6 +161,26 @@ public class MainWindowUtilisateurController implements Initializable {
     @FXML
     private void monprofilcvAction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Modifierprofil.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void mescandAction(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Modifierprofil.fxml"));
+        borderpane.setCenter(root);
+        
+    }
+
+    @FXML
+    private void mes_formation_action(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/affich_inscription.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void consulter_formations_action(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/affiche_formations_users.fxml"));
         borderpane.setCenter(root);
     }
 

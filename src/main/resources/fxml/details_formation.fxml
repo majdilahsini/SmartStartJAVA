@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="houssem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.Details_formationController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="pane_detail_formation" layoutX="3.0" layoutY="-3.0" prefHeight="647.0" prefWidth="843.0">
+         <children>
+            <Label alignment="TOP_RIGHT" layoutX="27.0" layoutY="95.0" text="Nom Formation :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_RIGHT" layoutX="28.0" layoutY="156.0" text="Description :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_RIGHT" layoutX="29.0" layoutY="556.0" text="Adresse :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_RIGHT" layoutX="445.0" layoutY="355.0" text="Prix :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_RIGHT" layoutX="410.0" layoutY="414.0" text="Contact :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_retour_formation" layoutX="672.0" layoutY="571.0" mnemonicParsing="false" onAction="#retour" prefHeight="47.0" prefWidth="140.0" style="-fx-background-color: #2a8eb5;" text="Retour" textFill="#f2eded">
+               <font>
+                  <Font name="Century Gothic Italic" size="23.0" />
+               </font></Button>
+            <Label alignment="TOP_RIGHT" layoutX="27.0" layoutY="319.0" text="Durée :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_RIGHT" layoutX="30.0" layoutY="401.0" text="Date debut :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_RIGHT" layoutX="31.0" layoutY="477.0" text="Date Fin :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="BOTTOM_RIGHT" layoutX="420.0" layoutY="475.0" text="Email :" textFill="#1699c4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="titre" layoutX="197.0" layoutY="92.0" prefHeight="32.0" prefWidth="255.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="descripton" layoutX="22.0" layoutY="184.0" prefHeight="76.0" prefWidth="312.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="duree" layoutX="108.0" layoutY="317.0" prefHeight="30.0" prefWidth="140.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="datedeb" layoutX="150.0" layoutY="399.0" prefHeight="30.0" prefWidth="128.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="datefin" layoutX="140.0" layoutY="475.0" prefHeight="30.0" prefWidth="140.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="adresse" layoutX="140.0" layoutY="556.0" prefHeight="30.0" prefWidth="342.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="prix" layoutX="516.0" layoutY="355.0" prefHeight="30.0" prefWidth="90.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="contact" layoutX="516.0" layoutY="415.0" prefHeight="28.0" prefWidth="193.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="email" layoutX="516.0" layoutY="475.0" prefHeight="30.0" prefWidth="248.0" text="Label">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="image_formation" fitHeight="189.0" fitWidth="334.0" layoutX="445.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane focusTraversable="true" layoutX="-5.0" layoutY="2.0" prefHeight="50.0" prefWidth="851.0" style="-fx-background-color: #2a8eb5;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="238.0" layoutY="11.0" prefHeight="20.0" prefWidth="426.0" text="Detail Formation" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

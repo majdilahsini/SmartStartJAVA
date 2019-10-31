@@ -19,6 +19,6 @@ public interface IFormationService {
      public void creerFormation(Formation f) throws SQLException;
      public ArrayList<Formation> afficherFormation();
      public void supprimerFormation(Formation f);
-    public void modifierFormation(int domaine_id,String Nom,String description,int duree,Date date_debut,Date date_fin,Double prix,String adresse,String email,int contact,int ref)throws SQLException ;
-  public List<Formation> filtrer(String catnom);
+    public void modifierFormation(String Nom,String description,int duree,Date date_debut,Date date_fin,Double prix,String adresse,String email,int contact,int ref)throws SQLException ;
+  public ArrayList<Formation> affichermesFormation(int id);
 }

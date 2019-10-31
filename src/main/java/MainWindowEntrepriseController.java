@@ -31,8 +31,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private JFXButton Quit;
     @FXML
-    private JFXButton deconnect2;
-    @FXML
     private TitledPane monespace;
     @FXML
     private JFXButton deconnect1;
@@ -51,8 +49,6 @@ public class MainWindowEntrepriseController implements Initializable {
     @FXML
     private BorderPane borderpane;
     @FXML
-    private JFXButton ajoutersujet;
-    @FXML
     private JFXButton forum;
     @FXML
     private JFXButton MesentretiensBtn;
@@ -64,6 +60,10 @@ public class MainWindowEntrepriseController implements Initializable {
     private JFXButton myInvestmentButton;
     @FXML
     private JFXButton AjouterProjectButton;
+    @FXML
+    private JFXButton deconnect;
+    @FXML
+    private JFXButton statistiques_formation_btn;
 
     /**
      * Initializes the controller class.
@@ -94,8 +94,11 @@ public class MainWindowEntrepriseController implements Initializable {
     }
 
     @FXML
-    private void afficher_mesformation_action(ActionEvent event) {
+    private void afficher_mesformation_action(ActionEvent event) throws IOException {
+     Parent root = FXMLLoader.load(getClass().getResource("/fxml/affich_mes_formation.fxml"));
+        borderpane.setCenter(root);
     }
+    
 
     @FXML
     private void createoffreAction(ActionEvent event) throws IOException {
@@ -120,12 +123,11 @@ public class MainWindowEntrepriseController implements Initializable {
     }
 
     @FXML
-    private void afficher_formation_action(ActionEvent event) {
+    private void afficher_formation_action(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("/fxml/affich_formation.fxml"));
+        borderpane.setCenter(root);
     }
 
-    @FXML
-    private void ajoutersujet(ActionEvent event) {
-    }
 
     @FXML
     private void forumAction(ActionEvent event) throws IOException {
@@ -169,6 +171,26 @@ public class MainWindowEntrepriseController implements Initializable {
         borderpane.setCenter(root);
         
         
+    }
+
+    @FXML
+    private void decconectAction(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent signUpPage = FXMLLoader.load(getClass().getResource("/fxml/Login_1.fxml"));
+        // borderpane.setCenter(signUpPage);
+        Scene scene = new Scene(signUpPage);
+        stage = (Stage)Quit.getScene().getWindow();
+        stage.hide();
+        stage.setScene(scene);
+        stage.show();
+        
+        
+    }
+
+    @FXML
+    private void statistique_formation_action(ActionEvent event) throws IOException {
+           Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/statisque_formation.fxml"));
+        borderpane.setCenter(root);
     }
     
 }
