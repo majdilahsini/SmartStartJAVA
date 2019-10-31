@@ -157,33 +157,7 @@ public class Modif_formationController implements Initializable {
      manel.getChildren().clear();
     manel.getChildren().add(root);
     }
-   /*  void modifierEvent2(int ref ,int domaine_id, String nom , String description, int duree , Date date_debut , Date date_fin ,Double prix ,String adresse , String email, int contact) throws ParseException{
-            String a=Integer.toString(ref);
-                        String b=Integer.toString(domaine_id);
-            String c=Integer.toString(duree);
-            String o=Double.toString(prix);
-            String t=Integer.toString(contact);
-          
-         SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date date1 = formatter1.parse(datedeb_txt.getValue().toString());
-        java.sql.Date d = new Date(date1.getTime());
-         java.util.Date date2 = formatter1.parse(datefin_txt.getValue().toString());
-        java.sql.Date dd = new Date(date2.getTime());
-            
-            this.idfor.setText(a);
-            this.id_domaine.setText(b);
-            this.txt_nom.setText(nom);
-            this.txt_description.setText(description);
-            this.txt_duree.setText(c);
-            this.datedeb_txt.setDayCellFactory((Callback<DatePicker, DateCell>) d);
-                        this.datefin_txt.setDayCellFactory((Callback<DatePicker, DateCell>) dd);
-            this.txt_prix.setText(o);
-            this.txt_adresse.setText(adresse);
-            this.txt_email.setText(email);
-            this.txt_contact.setText(t);
-
-    }*/
-
+   
     @FXML
     private void retour_modif_action(ActionEvent event) throws IOException {
          Parent root=(AnchorPane)   FXMLLoader.load(getClass().getResource("/fxml/detail_mes_formations.fxml"));
