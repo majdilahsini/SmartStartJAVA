@@ -256,9 +256,10 @@ emaimprojet_cl.setCellValueFactory(new PropertyValueFactory<>("emailProjet"));
         s.ajouterInvesstissement(i);
         
         
+        
        // Send.Sender("racemcherni1@gmail.com","Azerty1234567890", "koussay.sghaier@esprit.tn","", "it s me", "loveyou");
         
-   final String fromEmail = "racemcherni1@gmail.com"; //"racemcherni1@gmail.com"  ; //requires valid gmail id
+  /* final String fromEmail = "racemcherni1@gmail.com"; //"racemcherni1@gmail.com"  ; //requires valid gmail id
         final String password = "Azerty1234567890"; // correct password for gmail id
 	final String toEmail ="koussaysghaier27@gmail.com"; // can be any email id 
 		
@@ -289,7 +290,7 @@ emaimprojet_cl.setCellValueFactory(new PropertyValueFactory<>("emailProjet"));
       
         montant.setText("");
         ribtext.setText("");
-        //erreurlabell.setText(" email de verification envoyer ");
+        //erreurlabell.setText(" email de verification envoyer ");*/
         anchpaneafficheprojects1.setVisible(true);
         anchpaneafficheprojects2.setVisible(false);
         investissementpane.setVisible(false);

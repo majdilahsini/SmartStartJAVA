@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import static org.joda.time.format.ISODateTimeFormat.date;
 
 /**
  *
@@ -391,7 +393,7 @@ long pro=0;
   
    public     XYChart.Series<String, Integer>  mesinvestisStat(int id) throws SQLException {
        
-        String req =" SELECT p.nom_projet,i.montant FROM investissement i,projet p WHERE i.id_projet=P.id_projet and i.id_invesstisseur="+id+" order by i.montant desc limit 4";
+        String req =" SELECT p.nom_projet as nom,i.montant as mont FROM investissement i,projet p WHERE i.id_projet=P.id_projet and i.id_invesstisseur="+id+" order by i.montant desc limit 4";
         XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
         
              PreparedStatement ste = (PreparedStatement) con.prepareStatement(req);
@@ -399,7 +401,7 @@ long pro=0;
             while (rs.next()){
                 
                 
-                series.getData().add(new XYChart.Data<>(rs.getString("p.nom_projet"), rs.getInt("i.montant")));
+                series.getData().add(new XYChart.Data<>(rs.getString("nom"), rs.getInt("mont")));
             }
             //barChart.getData().add(series);
         
