@@ -64,13 +64,7 @@ public class Affich_formationController implements Initializable {
     private TableView<Formation> table_formation;
     @FXML
     private TableColumn<Formation, String> titre_formation;
- ////   @FXML
-  //  private TableColumn<Formation, Button> consult;
- ////   @FXML
-  //  private TableColumn<Formation, Button> sup;
-  //  @FXML
-  //  private TableColumn<Formation, Button> modif;
-   
+
      static public Formation missionsel1;
    
 
@@ -115,7 +109,6 @@ public class Affich_formationController implements Initializable {
             titre_formation.setCellValueFactory(new PropertyValueFactory<Formation,String>("nom"));
                         date_fin1.setCellValueFactory(new PropertyValueFactory<Formation,String>("nomdomaine"));
 
-   // consult.setCellValueFactory(new PropertyValueFactory<Formation,Button>("detail_btn"));
     date_deb.setCellValueFactory(new PropertyValueFactory<Formation,Button>("date_debut"));
    date_fin.setCellValueFactory(new PropertyValueFactory<Formation,Button>("date_fin")); 
     table_formation.setItems(list);
