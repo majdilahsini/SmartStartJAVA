@@ -48,8 +48,6 @@ public class MainWindowUtilisateurController implements Initializable {
     @FXML
     private JFXButton deconnect121;
     @FXML
-    private JFXButton deconnect111;
-    @FXML
     private JFXButton consulterlesoffres;
     @FXML
     private JFXButton Quit;
@@ -67,6 +65,10 @@ public class MainWindowUtilisateurController implements Initializable {
     private JFXButton monprofilcv;
     @FXML
     private JFXButton mescand;
+    @FXML
+    private JFXButton mesformation_btn;
+    @FXML
+    private JFXButton consulter_formation_btn;
 
     
     
@@ -168,6 +170,18 @@ public class MainWindowUtilisateurController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Modifierprofil.fxml"));
         borderpane.setCenter(root);
         
+    }
+
+    @FXML
+    private void mes_formation_action(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/affich_inscription.fxml"));
+        borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void consulter_formations_action(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/affiche_formations_users.fxml"));
+        borderpane.setCenter(root);
     }
 
 
