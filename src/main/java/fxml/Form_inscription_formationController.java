@@ -6,6 +6,7 @@
 package fxml;
 
 import com.jfoenix.controls.JFXTextArea;
+import entities.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -51,7 +52,7 @@ public class Form_inscription_formationController implements Initializable {
         ////////////////////////////////////////////////////////////////////////session.get(id)
               // int  ids =  ms.getID_formationByNom (ch);  
     
-           ms.creerInscription(2,ms.getIdentrepriseByRef(id),id,lettre_txt.getText());
+           ms.creerInscription(Session.getId(),ms.getIdentrepriseByRef(id),id,lettre_txt.getText());
 ms.update_nombreins(id, 1);
             
           JOptionPane.showMessageDialog(null, " inscription réussi");
