@@ -9,6 +9,7 @@ package fxml;
 import fxml.*;
 import entities.Formation;
 import entities.Inscription;
+import entities.Session;
 import entities.Utilisateur;
 import entities.inscrits_formation;
 import java.io.IOException;
@@ -66,7 +67,7 @@ public class InscritauxformationController implements Initializable {
        
         InscriptionService f = new InscriptionService();
  
-         List<inscrits_formation> r = f.afficher_inscrit_Formation(2);
+         List<inscrits_formation> r = f.afficher_inscrit_Formation(Session.getId());
           ObservableList<inscrits_formation> list =FXCollections.observableArrayList();
           list.addAll(r);
         System.out.println(list);
