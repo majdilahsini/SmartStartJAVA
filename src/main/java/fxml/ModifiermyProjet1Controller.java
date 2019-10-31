@@ -12,7 +12,9 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import entities.Projet;
 import entities.Session;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,6 +29,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -57,8 +60,6 @@ public class ModifiermyProjet1Controller implements Initializable {
     private JFXComboBox<String> cattext;
     @FXML
     private JFXTextArea Dotext;
-    @FXML
-    private JFXButton annuler1;
     @FXML
     private ImageView imageProjet7;
     @FXML
@@ -118,7 +119,7 @@ private int id=0;
     @FXML
     private ImageView mofifimageimage;
     
-    
+     private File file;
     
     /**
      * Initializes the controller class.
@@ -153,13 +154,22 @@ private int id=0;
                 p = s.getProjet(id);
             } catch (SQLException ex) {
                 Logger.getLogger(ModifiermyProjet1Controller.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
+            
+    //Image im=new Image(p.getImage());
+        
+       // mofifimageimage.setImage(im);        
+            
+            
+            
     nptext.setText(p.getNomprojet());
     telptext.setText(Integer.toString(p.getTelProjet()));
     adtext.setText(p.getAdresseProjet());
     Dotext.setText(p.getDescriptionProjet());    
-    
-    Votrefinancetext.setText(Integer.toString(p.getVotreFinance()));
+    eptext.setText(p.getEmailProjet());
+    datelabel.setText(p.getDateDebutProjet());
+   Votrefinancetext.setText(Integer.toString(p.getVotreFinance()));
     nbreteamtext.setText(Integer.toString(p.getNbreTeam()));
     montanttext.setText(Long.toString( p.getMontant()));
     comptbancairetext.setText(Long.toString( p.getCompteBancaire()));
@@ -265,10 +275,18 @@ private int id=0;
 
     @FXML
     private void annuler1Action(ActionEvent event) throws IOException {
-        Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/afficheMyproject.fxml"));
-    
-      modifpane.getChildren().clear();
-      modifpane.getChildren().add(root);
+        
+        
+         FileChooser fileChooser = new FileChooser();
+       file = fileChooser.showOpenDialog(uploadimage.getScene().getWindow());
+        
+       if(file != null){
+           Image img = new Image(file.toURI().toURL().toExternalForm());
+          
+            image_projet.setImage(img);
+          image_projet.setFitWidth(129);
+           image_projet.setFitHeight(127);
+          image_projet.setPreserveRatio(true);}
         
         
     }
@@ -286,6 +304,9 @@ long i5=  Long.parseLong(comptbancairetext.getText());
 List<String> l;
 l=s.getCategcategoriesCombobox();
 cattext.getItems().addAll(l);
+
+
+        file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
         Projet p=new Projet();
         p.setIdProjet(id);////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
        p.setNomprojet(nptext.getText());
@@ -293,7 +314,7 @@ cattext.getItems().addAll(l);
      p.setEmailProjet(eptext.getText());
      p.setAdresseProjet(adtext.getText());
        p.setDescriptionProjet(Dotext.getText());
-       p.setCategorie("informatique");
+       p.setCategorie(cattext.getValue());
        p.setVotreFinance(i3);
         p.setNbreTeam(i1);
         p.setMontant(i4);
@@ -302,6 +323,11 @@ cattext.getItems().addAll(l);
        p.setDateDebutProjet(date);
         p.setDuree(i2);
         p.setId_enterprise(Session.getId());
+         if(file ==null)
+        p.setImage("/fxml/assets/logo.jpg");
+        else
+           p.setImage("D:\\XAMPP\\htdocs"+file.getName()); 
+       // p.
 s.ModifierProjet(p);
         
     }
@@ -377,10 +403,19 @@ s.ModifierProjet(p);
          }
     }
 
-    @FXML
-    private void uploadimageAction(ActionEvent event) {
+    private void uploadimageAction(ActionEvent event) throws MalformedURLException {
        
+         FileChooser fileChooser = new FileChooser();
+       file = fileChooser.showOpenDialog(uploadimage.getScene().getWindow());
         
+       if(file != null){
+           Image img = new Image(file.toURI().toURL().toExternalForm());
+          
+            image_projet.setImage(img);
+          image_projet.setFitWidth(129);
+           image_projet.setFitHeight(127);
+          image_projet.setPreserveRatio(true);
+       }
         
         
         

@@ -3,9 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -56,7 +53,7 @@
       </AnchorPane>
       <AnchorPane fx:id="anchpaneafficheprojects2" layoutX="194.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="328.3999938964844" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="643.0" AnchorPane.topAnchor="43.0">
+            <ImageView fx:id="afficheimage" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="328.3999938964844" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="643.0" AnchorPane.topAnchor="43.0">
                <image>
                   <Image url="@../../../../../../Nouveau%20dossier%20(4)/Capture4.PNG" />
                </image>
@@ -81,7 +78,7 @@
                <font>
                   <Font size="29.0" />
                </font></Label>
-            <Label fx:id="descriptionlabel" layoutX="25.0" layoutY="248.0" prefHeight="221.0" prefWidth="299.0">
+            <Label fx:id="descriptionlabel" layoutX="25.0" layoutY="248.0" prefHeight="221.0" prefWidth="718.0">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -93,14 +90,6 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></JFXButton>
-            <BarChart fx:id="barchar" layoutX="380.0" layoutY="242.0" prefHeight="232.0" prefWidth="414.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </BarChart>
             <Label layoutX="221.0" layoutY="70.0" prefHeight="58.0" prefWidth="137.0" text="Categorie :" textFill="#271fb5">
                <font>
                   <Font name="Bell MT Bold" size="15.0" />

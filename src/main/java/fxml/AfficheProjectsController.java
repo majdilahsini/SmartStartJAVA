@@ -31,19 +31,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javax.mail.Authenticator;
+import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
+import javax.swing.JOptionPane;
+import services.Send;
+import static services.Send.Sender;
 import services.ServiceEmail;
 import services.ServiceInvesstissement;
 import services.ServiceProjet;
+import services.myInvestmentMail;
+import static services.myInvestmentMail.Sender;
 
 /**
  * FXML Controller class
@@ -110,8 +118,10 @@ public class AfficheProjectsController implements Initializable {
     private ImageView montantimage;
     @FXML
     private Label erreurlabell;
+    private BarChart<String, Integer> barchar;
     @FXML
-    private BarChart<?, ?> barchar;
+    private ImageView afficheimage;
+    
     /**
      * Initializes the controller class.
      */
@@ -147,6 +157,9 @@ emaimprojet_cl.setCellValueFactory(new PropertyValueFactory<>("emailProjet"));
             Logger.getLogger(AjouteProjet2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
         comboxCategorie.setItems(obser1);
+        
+        
+        
         }
         // TODO
 
@@ -193,25 +206,41 @@ emaimprojet_cl.setCellValueFactory(new PropertyValueFactory<>("emailProjet"));
     }
 
     @FXML
-    private void AffichebtAction(ActionEvent event) {
+    private void AffichebtAction(ActionEvent event) throws SQLException {
+        ServiceProjet s=new  ServiceProjet();
         NomProjetLabel.setText( "");
         categorielabel.setText( "");
         adresseprojet.setText( "");
         emaillabel.setText( "");
         descriptionlabel.setText( "");
+        
         anchpaneafficheprojects1.setVisible(false);
         anchpaneafficheprojects2.setVisible(true);
         ObservableList<myprojects> show = tableaffichemyprojet.getSelectionModel().getSelectedItems();
+       Projet p1 = null;
+        try {
+            p1 = s.getProjet(show.get(0).getEmailProjet());
+        } catch (SQLException ex) {
+            Logger.getLogger(AffichemyProjetController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Image im=new Image(p1.getImage());
+        
+        //afficheimage.setImage(im);
+        
+        
+        
         NomProjetLabel.setText( show.get(0).getNomprojet());
         categorielabel.setText( show.get(0).getCategorie());
         adresseprojet.setText( show.get(0).getAdresseProjet());
         emaillabel.setText( show.get(0).getEmailProjet());
         descriptionlabel.setText( show.get(0).getDescriptionProjet());
         email=show.get(0).getEmailProjet();
+        
     }
 
     @FXML
-    private void validerinvestissementAction(ActionEvent event) throws SQLException {
+    private void validerinvestissementAction(ActionEvent event) throws SQLException, MessagingException {
+       // barchar.getData().clear();
         NomProjetLabel.setText( "");
         categorielabel.setText( "");
         adresseprojet.setText( "");
@@ -223,9 +252,15 @@ emaimprojet_cl.setCellValueFactory(new PropertyValueFactory<>("emailProjet"));
         
         i=new Invesstissement(Integer.parseInt(montant.getText()), Integer.parseInt(ribtext.getText()),id, entities.Session.getId());//////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
+
         s.ajouterInvesstissement(i);
-        final String fromEmail = "sgkoussay@gmail.com"; //"racemcherni1@gmail.com"  ; //requires valid gmail id
-        final String password = "27121997sgh"; // correct password for gmail id
+        
+        
+        
+       // Send.Sender("racemcherni1@gmail.com","Azerty1234567890", "koussay.sghaier@esprit.tn","", "it s me", "loveyou");
+        
+  /* final String fromEmail = "racemcherni1@gmail.com"; //"racemcherni1@gmail.com"  ; //requires valid gmail id
+        final String password = "Azerty1234567890"; // correct password for gmail id
 	final String toEmail ="koussaysghaier27@gmail.com"; // can be any email id 
 		
 		System.out.println("TLSEmail Start");
@@ -247,12 +282,15 @@ emaimprojet_cl.setCellValueFactory(new PropertyValueFactory<>("emailProjet"));
 		Session session;
         session = Session.getInstance(props,auth);
 		
-		ServiceEmail.sendEmail(session, toEmail,"TLSEmail Testing Subject", "TLSEmail Testing Body");
+		ServiceEmail.sendEmail(session, toEmail,"TLSEmail Testing Subject", "TLSEmail Testing Body");//////////////////////////////////////////////////////////////
 
 
         
-        
-        
+      JOptionPane.showMessageDialog(null, "valider Investissement");
+      
+        montant.setText("");
+        ribtext.setText("");
+        //erreurlabell.setText(" email de verification envoyer ");*/
         anchpaneafficheprojects1.setVisible(true);
         anchpaneafficheprojects2.setVisible(false);
         investissementpane.setVisible(false);

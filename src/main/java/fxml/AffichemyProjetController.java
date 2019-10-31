@@ -10,7 +10,10 @@ import entities.Projet;
 import entities.myprojects;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import services.ServiceProjet;
 
@@ -44,14 +49,14 @@ public class AffichemyProjetController implements Initializable {
     @FXML
     private JFXButton retourbutton1;
     @FXML
-    private BarChart<?, ?> barchar;
+    private ImageView imageaffiche;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        ////////////////////////////////////////////////////////////////////////////////////////////:::::::::
          myprojects p= AfficheMyprojectController.missionsell;
 
         NomProjetLabel.setText( "");
@@ -59,6 +64,19 @@ public class AffichemyProjetController implements Initializable {
         adresseprojet.setText( "");
         emaillabel.setText( "");
         descriptionlabel.setText( "");
+       ServiceProjet s=new ServiceProjet();
+       Projet p1 = null;
+        try {
+            p1 = s.getProjet(p.getEmailProjet());
+        } catch (SQLException ex) {
+            Logger.getLogger(AffichemyProjetController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //System.out.println(p1.getImage());
+        
+        //System.out.println(p1.getImage());
+       //Image im=new Image(p1.getImage());
+        
+       //imageaffiche.setImage(im);
         NomProjetLabel.setText( p.getNomprojet());
         categorielabel.setText( p.getCategorie());
         adresseprojet.setText( p.getAdresseProjet());

@@ -47,9 +47,12 @@ import services.ServiceProjet;
 import java.io.*;
 import com.itextpdf.io.image.*;
 import com.itextpdf.kernel.pdf.*;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import entities.Session;
 import java.net.MalformedURLException;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import static org.joda.time.format.ISODateTimeFormat.date;
 
 /**
  * FXML Controller class
@@ -193,15 +196,25 @@ if(cattext.getValue()!=null)
         p.setNbreTeam(i1);
         p.setMontant(i4);
         p.setCompteBancaire(i5);
-        String date=datedebutprojet.getValue().toString();
-       p.setDateDebutProjet(date);
+       
         p.setDuree(i2);
         p.setId_enterprise(Session.getId());
         if(file ==null)
         p.setImage("/fxml/assets/logo.jpg");
         else
-           p.setImage("D:\\XAMPP\\htdocs"+file.getName()); 
-s.ajouterProjet(p);
+           p.setImage("D:\\XAMPP\\htdocs"+file.getName());
+        
+        if(DateCorrect())
+        {
+             String date=datedebutprojet.getValue().toString();
+       p.setDateDebutProjet(date);
+       s.ajouterProjet(p);
+        }
+            
+       
+            
+        
+
         }
     }
 
@@ -310,7 +323,7 @@ s.ajouterProjet(p);
 
     @FXML
     private void telprojetcrole(KeyEvent event) {
-         if (Pattern.matches("[0-9]+", telptext.getText()) &&( telptext.getText().length() == 8) && (telptext.getText().startsWith("2", 0) || telptext.getText().startsWith("9", 0) || telptext.getText().startsWith("5", 0) || telptext.getText().startsWith("7", 0))) {
+         if (Pattern.matches("[0-9]+", telptext.getText()) &&( telptext.getText().length() == 7) && (telptext.getText().startsWith("2", 0) || telptext.getText().startsWith("9", 0) || telptext.getText().startsWith("5", 0) || telptext.getText().startsWith("7", 0))) {
             imageProjet8.setImage(new Image("/fxml/assets/ok.png"));
              verif[8]=1;
                         
@@ -327,7 +340,7 @@ s.ajouterProjet(p);
 
     @FXML
     private void emailcontrole(KeyEvent event) {
-         if (eptext.getText().length()>=10 && eptext.getText().endsWith("@gmail.com") ) {
+         if (eptext.getText().length()>=5 && eptext.getText().endsWith("@gmail.com") ) {
            imageProjet9.setImage(new Image("/fxml/assets/ok.png"));
             verif[5]=1;
                         Suivant1.setVisible(true);
@@ -434,7 +447,51 @@ s.ajouterProjet(p);
             }
         
     }
+private boolean DateCorrect() {
 
+         long millis=System.currentTimeMillis();  
+           java.sql.Date date2=new java.sql.Date(millis);  
+           String MDP = datedebutprojet.getValue().toString();
+           int MD2 = date2.toLocalDate().getMonthValue();
+           int YD2 = date2.toLocalDate().getYear();
+           int DD2 = date2.toLocalDate().getDayOfMonth();
+        
+           int A = Integer.parseInt(MDP.substring(0, 4));
+           int M = Integer.parseInt(MDP.substring(5, 7));
+           int D = Integer.parseInt(MDP.substring(8,10));
+          /* if ( m.find() && m.group().equals(datefield.getText())){*/
+               if (A > YD2 ){return true;}
+               else if (A==YD2){  
+                       if (M > MD2 ){return true;}
+                       else if ( M==MD2 ){
+                           if (D>DD2){return true;}
+                           else  {   
+                               Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                               
+                               
+                               return false;} 
+                                      }
+                       else  { 
+             Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                           return false;} //if (M<MD2)
+                                   }
+               else  {
+                         Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("valider Date");
+            alert.setHeaderText("Daté depassé");
+            alert.setContentText("Svp entrer date de forme YYYY-MM-DD ex: 2019-10-08");
+            alert.showAndWait();
+                   
+                   return false;} }
+        
     @FXML
     private void uploadimageAction(ActionEvent event) {
     }

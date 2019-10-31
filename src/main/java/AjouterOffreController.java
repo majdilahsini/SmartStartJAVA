@@ -203,7 +203,7 @@ public class AjouterOffreController implements Initializable {
         ServiceOffre o = new ServiceOffre();
         
         if (s == 7) {
-            file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
+            
             if ( file == null) {
             e = new Offre (titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
@@ -215,8 +215,9 @@ public class AjouterOffreController implements Initializable {
                                  gl.getSkillbynom(skillscombo1.getValue()),
                                  gl.getSkillbynom(skillscombo2.getValue()),
                                  Integer.parseInt(niveaufield1.getText()),
-                                 "/fxml/assets/No_Image_Available.jpg");
+                                 "file:/C:/wamp64/www/No_Image_Available.jpg");
             } else {
+            file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
             e = new Offre (titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
                                  Session.getId(),
