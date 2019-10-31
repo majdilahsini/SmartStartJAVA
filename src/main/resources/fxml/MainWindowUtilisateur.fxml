@@ -28,7 +28,7 @@
                   <ColorAdjust brightness="0.03" contrast="-0.14" />
                </effect>
             </JFXButton>
-            <Accordion layoutX="-1.0" layoutY="64.0" prefHeight="399.0" prefWidth="328.0">
+            <Accordion layoutX="-1.0" layoutY="64.0" prefHeight="396.0" prefWidth="328.0">
               <panes>
                   <TitledPane fx:id="monespace" blendMode="SCREEN" prefHeight="128.0" prefWidth="328.0" text="Mon Espace">
                      <content>
@@ -42,7 +42,7 @@
                                     <ColorAdjust brightness="0.03" contrast="-0.14" />
                                  </effect>
                               </JFXButton>
-                              <JFXButton fx:id="deconnect111" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#returntologin" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Formations" textFill="#fff9f9">
+                              <JFXButton fx:id="mesformation_btn" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="44.0" onAction="#mes_formation_action" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Mes Formations" textFill="#fff9f9">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -105,6 +105,21 @@
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="324.0">
+                           <children>
+                              <JFXButton fx:id="consulter_formation_btn" alignment="BASELINE_LEFT" layoutX="1.0" onAction="#consulter_formations_action" prefHeight="44.0" prefWidth="328.0" style="-fx-background-color: #00597C;" text="Consulter les formations" textFill="#fff9f9">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="-0.14" />
+                                 </effect>
+                              </JFXButton>
+                              <AnchorPane layoutX="-1.0" layoutY="44.0" prefHeight="133.0" prefWidth="328.0" style="-fx-background-color: #00597C;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
                   </TitledPane>
                   <TitledPane animated="false" blendMode="SCREEN" expanded="false" text="     Les crowdfundings">
                     <content>
