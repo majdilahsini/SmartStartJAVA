@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import static org.joda.time.format.ISODateTimeFormat.date;
 
 /**
  *
@@ -280,7 +283,7 @@ pro=new myprojects(res.getString(1),res.getString(2),res.getString(3),res.getStr
   
   
   public Projet getProjet(String email) throws SQLException{  
-  String req="SELECT `id_projet`, `nom_projet`, `categorie`, `votre_finance`, `montant`, `compte_bancaire`, `duree`, `date_debut_projet`, `adresse_projet`, `tel_projet`, `nbre_team`, `description_projet`, `email_projet`, `id_entreprise` FROM `projet` WHERE `email_projet`=? ";
+  String req="SELECT `id_projet`, `nom_projet`, `categorie`, `votre_finance`, `montant`, `compte_bancaire`, `duree`, `date_debut_projet`, `adresse_projet`, `tel_projet`, `nbre_team`, `description_projet`, `email_projet`, `id_entreprise` ,Image FROM `projet` WHERE `email_projet`=? ";
   ResultSet res;
   PreparedStatement pres=con.prepareStatement(req);
   pres.setString(1, email);
@@ -288,7 +291,7 @@ res=pres.executeQuery();
     
 Projet pro=null;
  while (res.next()) {   
-           pro=new Projet(res.getInt(1),res.getString(2),res.getString(3),res.getInt(4),res.getLong(5),res.getLong(6),res.getInt(7),res.getString(8),res.getString(9),res.getInt(10),res.getInt(11),res.getString(12),res.getString(13),res.getInt(14));//res.getInt(1), res.getInt(3),res.getString(2),);
+           pro=new Projet(res.getInt(1),res.getString(2),res.getString(3),res.getInt(4),res.getLong(5),res.getLong(6),res.getInt(7),res.getString(8),res.getString(9),res.getInt(10),res.getInt(11),res.getString(12),res.getString(13),res.getInt(14),res.getString(15));//res.getInt(1), res.getInt(3),res.getString(2),);
 
      
         }
@@ -388,6 +391,41 @@ long pro=0;
   
   }
   
+   public     XYChart.Series<String, Integer>  mesinvestisStat(int id) throws SQLException {
+       
+        String req =" SELECT p.nom_projet as nom,i.montant as mont FROM investissement i,projet p WHERE i.id_projet=P.id_projet and i.id_invesstisseur="+id+" order by i.montant desc limit 4";
+        XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
+        
+             PreparedStatement ste = (PreparedStatement) con.prepareStatement(req);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+                
+                
+                series.getData().add(new XYChart.Data<>(rs.getString("nom"), rs.getInt("mont")));
+            }
+            //barChart.getData().add(series);
+        
+        return series;
+       
+   }
+    public     XYChart.Series<String, Integer>  myprojStatic(int id) throws SQLException {
+       
+        String req =" SELECT SUM(i.montant)/1000 as mont , p.nom_projet as nom FROM projet p, investissement i WHERE i.id_projet=p.id_projet and p.id_entreprise="+id+" " +
+"GROUP BY i.id_projet ";
+        XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
+        
+             PreparedStatement ste = (PreparedStatement) con.prepareStatement(req);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+                
+                
+                series.getData().add(new XYChart.Data<>(rs.getString("nom"), rs.getInt("mont")));
+            }
+            //barChart.getData().add(series);
+        
+        return series;
+       
+   }
   
   
   

@@ -21,10 +21,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import services.ServiceInvesstissement;
+import services.ServiceProjet;
 
 /**
  * FXML Controller class
@@ -50,6 +54,16 @@ public class AffichemyInvestmentController implements Initializable {
    
      ObservableList<myInvestment> obser = FXCollections
             .observableArrayList();
+    @FXML
+    private AnchorPane aff_my_inv_anchorepane;
+    @FXML
+    private JFXButton Statistique;
+    @FXML
+    private AnchorPane anchorpane_statique;
+    @FXML
+    private BarChart<String, Integer> barchart_mesProojet;
+    @FXML
+    private BarChart<String, Integer> barchar_mes_invessti;
    
 
     /**
@@ -57,6 +71,8 @@ public class AffichemyInvestmentController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        anchorpane_statique.setVisible(false);
+        aff_my_inv_anchorepane.setVisible(true);
         ServiceInvesstissement s=new ServiceInvesstissement();
         try {
             List<myInvestment> list= s.getmyProjectInvesstissement(Session.getId());////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,5 +131,37 @@ nomprojet1.setCellValueFactory(new PropertyValueFactory<>("nomprojet"));
 
      afficheInvestment.setItems(obser);
     }
+
+    @FXML
+    private void StatiqueAction(ActionEvent event) throws SQLException {
+      
+        anchorpane_statique.setVisible(true);
+        aff_my_inv_anchorepane.setVisible(false);
+        ServiceProjet s=new ServiceProjet();
+        XYChart.Series<String, Integer> series = s.mesinvestisStat(Session.getId());
+         XYChart.Series<String, Integer> series1 = s.myprojStatic(Session.getId());
+        
+        barchart_mesProojet.getData().add(series1); //(FXCollections.observableArrayList(series1));
+        barchar_mes_invessti.getData().add(series);
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

@@ -91,38 +91,61 @@ public class DomaineService extends Generic_Connection implements IDomaineServic
 
         return mylist;
     }
-        public void creerDomaine (Domaine d) throws SQLException {  
-  String req="INSERT INTO `domaines`(`nom_domaine`) VALUES"
-                + "(?)";
+        public void creerDomaine (Domaine d) throws SQLException {
+  String req="INSERT INTO `domaines`( `entreprise_id`,`nom_domaine`) VALUES"
+                + "(?,?)";
   PreparedStatement pres = conn.prepareStatement(req);
-pres.setString(1, d.getNom_domaine());
+pres.setInt(1, d.getEntreprise_id());
+
+pres.setString(2, d.getNom_domaine());
 
 
 System.out.println(pres.executeUpdate());
       System.out.println("domaine  inseré");
   
   }
-          @Override
-    public List<Domaine> affichercategories() {
+         
+    @Override
+    public List<Domaine> affichercategories(int id) {
             List<Domaine> categories = new ArrayList<>();
-      Domaine c = null ;
-      String req2="select * from Domaine";
-      try {
-         
-         
-          ResultSet res=  ste.executeQuery(req2);
-          while (res.next()) { 
-              c = new Domaine();
-                      c.setId( res.getInt("id"));
-                      c.setNom_domaine(
-                              res.getString("nom_domaine"));
-              categories.add(c);
-          }
-          
-      } catch (SQLException ex) {
-          System.out.println(ex.getMessage());
-      } 
+     try {
+            Statement st = conn.createStatement();
+          String req2="SELECT `nom_domaine` FROM `domaines` WHERE  entreprise_id ='" + id + "'";
+               ResultSet rs = st.executeQuery(req2);
+            while (rs.next()) {
+         Domaine c = new Domaine(rs.getString(1));
+                categories.add(c);
+
+            }
+             } catch (SQLException ex) {
+            Logger.getLogger(DomaineService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return categories;
+    }
+    
+    
+    
+      
+    
+     public  String getDomaineByID(int id) {
         
-     return categories;
+       String r = "SELECT nom_domaine FROM domaines WHERE  id ='"+id+"'" ;
+            
+         try {
+            this.setPs(conn.prepareStatement(r));
+             DomaineService.setRs(this.getPs().executeQuery());
+
+            while (DomaineService.getRs().next()) {
+             String nom = DomaineService.getRs().getString(1);
+      
+             return nom; 
+                
+          }
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(DomaineService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     return "";
     }
 }

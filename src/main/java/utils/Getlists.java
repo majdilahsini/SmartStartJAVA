@@ -262,8 +262,10 @@ public class Getlists {
             //System.out.println(k);
             for (int j: a2) {
                 //System.out.println(j);
-                if (j == k)
+                if (j == k && j != -1) {
                     note++;
+                  }
+                    
             }
         }
         
@@ -298,6 +300,7 @@ public class Getlists {
         }
         
                 
+        
         
         public int getNoteLangues (int id1, int id2) {
        

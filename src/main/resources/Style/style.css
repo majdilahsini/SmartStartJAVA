@@ -1,0 +1,82 @@
+.root{
+
+}
+.root1{
+    -fx-background-radius: 7;
+    -fx-border-radius: 7;
+    -fx-background-insets: 10 10 10 10;
+}
+.menus{
+    -fx-background-color: rgb(255, 255, 255,0.9);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,
+        1.5);
+    -fx-cursor: hand;
+}
+.login-card{
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,
+        1.5);
+}
+.floating-button{
+    -fx-background-radius: 40;
+    -fx-border-radius: 40;
+    -fx-background-color: #F88E1D;
+    -fx-pref-height:40;
+    -fx-pref-width:40;
+}
+.btn-account{
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-background-color: #06E6A1;
+    -fx-pref-height:32;
+    -fx-pref-width:200;
+    -fx-text-fill: white;
+    -fx-font-family:'Roboto medium';
+    -fx-font-size:16px; 
+}
+.table-view {
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color: -fx-box-border;  
+    -fx-background-color: transparent;
+}
+
+.table-view .filler, .table-view .column-header
+{
+    -fx-size: 40;
+    -fx-border-style: null;
+    -fx-border-color: rgb(213, 213, 213);
+    -fx-border-width: 0 0 0.5 0;
+    -fx-background-color: transparent;
+}
+.table-view .show-hide-columns-button
+{
+    -fx-background-color: transparent;
+
+}
+
+.table-view .column-header .label,.table-view .column-drag-header .label
+{
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 10;
+}
+
+.table-view .column-header-background
+{
+    -fx-background-color: #0081FF;
+}
+
+.table-row-cell {
+    -fx-cell-size: 30px;
+    -fx-padding: 0 0 0 10;
+
+}
+
+.table-cell {
+    -fx-border-color: transparent; 
+    -fx-border-width: 0.5;
+}

@@ -1,0 +1,12 @@
+.myMsg {
+    -fx-background-image: url('../image/sent.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-text-alignment: center;
+}
+.hisMsg{
+    -fx-background-image: url('../image/received.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-text-alignment: center;
+}

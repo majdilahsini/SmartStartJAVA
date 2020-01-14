@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Connection.ConnexionBD;
 import entities.users;
+import org.mindrot.jbcrypt.BCrypt;
 /**
  *
  * @author firos
@@ -121,13 +122,22 @@ public class usersService {
      public String getRole(String username) {
           String t = null;
          try {
-             PreparedStatement pt = c.prepareStatement("select role from users  where users.username=?");
+             PreparedStatement pt = c.prepareStatement("select roles from users  where users.username=?");
              pt.setString(1, username );
              ResultSet rs=pt.executeQuery();
               while(rs.next()){
             
-                      t=rs.getString("role");
+                      t=(String) rs.getString(1);
+                      if (t.equals("a:0:{}"))
+                        t = "utilisateur";
+                      else if (t.contains("ROLE_ENTREPRISE")) {
+                          t ="entreprise";
+                
+                      }
+                        
               }
+              
+         
          } catch (SQLException ex) {
              Logger.getLogger(usersService.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -137,31 +147,41 @@ public class usersService {
      public String  validerLogin(String username, String password  ) throws SQLException{
       String m= null;
        
-             PreparedStatement pt = c.prepareStatement("select count(*) as total from users where username=? and password=? ");
+             PreparedStatement pt = c.prepareStatement("select password from users where username=?");
              pt.setString(1,username );
-              pt.setString(2,password );
-                  
+             //pt.setString(2,password );
              ResultSet rs=pt.executeQuery();
              rs.next();
-             int l1=rs.getInt("total");
-             System.out.println("nbr" +l1);
-             rs.close();
-         // int  l= rs.getRow();
+             //int l1=rs.getInt("total");
+             //System.out.println("nbr" +l1);
+             
+             //rs.close();
+             String hashed = rs.getString(1);
+             String newhash = "$2a" + hashed.substring(3);
+             //System.out.println(hashed);
+             
+             
+             
+          // int  l= rs.getRow();
           //int l =rs.getInt("total");
           //  System.out.println(l1);
-          if (l1!=1){
-              m= "utilisateur n'existe pas ";
+          if (BCrypt.checkpw(password, newhash)){
+              
+              m=  "utilisateur correct ";
           }
-            else  m=  "utilisateur correct ";
+            else 
+              m= "utilisateur n'existe pas ";
          
+          rs.close();
+          
          return m;
        
   }
       public int getIdUtilisateur (String username, String password) throws SQLException{
         int m=0;
-          PreparedStatement pt = c.prepareStatement("select id  from users where username=? and password=?");
+          PreparedStatement pt = c.prepareStatement("select id  from users where username=?");
              pt.setString(1,username );
-              pt.setString(2,password );
+              //pt.setString(2,password );
                ResultSet rs=pt.executeQuery();
               while(rs.next()){
                 m=rs.getInt("id");}

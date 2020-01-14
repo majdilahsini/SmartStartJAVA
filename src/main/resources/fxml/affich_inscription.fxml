@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="affich_inscription_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.Affich_inscriptionController">
+   <children>
+      <AnchorPane prefHeight="640.0" prefWidth="843.0">
+         <children>
+            <TableView fx:id="tab_inscriscrptions" layoutX="78.0" layoutY="162.0" prefHeight="255.0" prefWidth="691.0" stylesheets="@../Style/styles.css">
+               <columns>
+                  <TableColumn fx:id="nom_formation" minWidth="0.0" prefWidth="168.0" text="Nom formation" />
+                  <TableColumn fx:id="nom_domaine" minWidth="0.0" prefWidth="141.0" text="Domaine" />
+                  <TableColumn fx:id="date_debut" minWidth="0.0" prefWidth="125.0" text="Date debut" />
+                  <TableColumn fx:id="date_fin" minWidth="0.0" prefWidth="148.0" text="Date fin" />
+                  <TableColumn fx:id="duree" minWidth="0.0" prefWidth="104.0" text="Duree(h)" />
+               </columns>
+            </TableView>
+            <Pane focusTraversable="true" layoutX="-4.0" prefHeight="50.0" prefWidth="847.0" style="-fx-background-color: #2a8eb5;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="215.0" layoutY="15.0" prefHeight="20.0" prefWidth="426.0" text="Mes Inscriptions" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

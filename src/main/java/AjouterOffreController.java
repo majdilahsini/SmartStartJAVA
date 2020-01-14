@@ -35,6 +35,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import org.mindrot.jbcrypt.BCrypt;
 import services.ServiceOffre;
 import utils.Getlists;
 
@@ -104,6 +105,11 @@ public class AjouterOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        /*String newhash = "$2a" + hashed.substring(3);
+        
+            if(BCrypt.checkpw("aaaa", newhash))
+            System.out.println("yes");*/
     }    
 
     @FXML
@@ -215,7 +221,7 @@ public class AjouterOffreController implements Initializable {
                                  gl.getSkillbynom(skillscombo1.getValue()),
                                  gl.getSkillbynom(skillscombo2.getValue()),
                                  Integer.parseInt(niveaufield1.getText()),
-                                 "/fxml/assets/No_Image_Available.jpg");
+                                 "file:/C:/wamp64/www/No_Image_Available.jpg");
             } else {
             file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
             e = new Offre (titrefield.getText(), 
