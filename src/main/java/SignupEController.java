@@ -28,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.mindrot.jbcrypt.BCrypt;
 import services.usersService;
 import utils.Verification;
 
@@ -85,7 +86,11 @@ public class SignupEController implements Initializable {
     private void signupentreprise(ActionEvent event) {
         Connection c= ConnexionBD.getInstanceConnexionBD().getConnection();
         usersService u= new usersService();
-        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adresse.getText(),"entreprise");
+        
+        String hash = BCrypt.hashpw(pwdField.getText(), BCrypt.gensalt());
+        String hashphp = "$2y" + hash.substring(3);
+        
+        users p =new users(usrnField.getText(),hashphp,emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adresse.getText(),"a:1:{i:0;s:15:\"ROLE_ENTREPRISE\";}");
         String s=u.ajouterUtilisateur(p);
        if (s.equals("vous ete inscrit"))
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 

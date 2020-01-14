@@ -41,6 +41,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Duration;
+import org.mindrot.jbcrypt.BCrypt;
 import services.ServiceOffre;
 import services.usersService;
 //import services.ServiceUtilisateur;
@@ -158,7 +159,10 @@ public class SignupController implements Initializable {
         usersService u= new usersService();
         String user=fonenumberfield.getText();
         
-        users p =new users(usrnField.getText(),pwdField.getText(),emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adressefield.getText(),"utilisateur");
+        String hash = BCrypt.hashpw(pwdField.getText(), BCrypt.gensalt());
+        String hashphp = "$2y" + hash.substring(3);
+        
+        users p =new users(usrnField.getText(),hashphp,emailfield.getText(),fullname.getText(),fonenumberfield.getText(),adressefield.getText(),"a:0:{}");
         String s=u.ajouterUtilisateur(p);
        if (s.equals("vous ete inscrit")){
       showAlert(Alert.AlertType.INFORMATION, pwdField.getScene().getWindow(), 

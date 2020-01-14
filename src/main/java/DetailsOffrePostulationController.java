@@ -131,14 +131,14 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         Getlists g = new Getlists();
-        notec.setText(Integer.toString((int) Math.ceil(3.33 * g.getNoteSkills(14,OfrreSession.getId()))) +"/10");
-        if (g.getNoteSkills(14,OfrreSession.getId()) == 0)
+        notec.setText(Integer.toString((int) Math.ceil(3.33 * g.getNoteSkills(Session.getId(),OfrreSession.getId()))) +"/10");
+        if (g.getNoteSkills(Session.getId(),OfrreSession.getId()) == 0)
             notecomp.setImage(new Image("/fxml/assets/error.png"));
         else
             notecomp.setImage(new Image("/fxml/assets/ok.png"));
         
-        notel.setText(Integer.toString((int) Math.ceil(10 * g.getNoteLangues(14,OfrreSession.getId())))+"/10");
-        if (g.getNoteLangues(14,OfrreSession.getId()) == 0)
+        notel.setText(Integer.toString((int) Math.ceil(10 * g.getNoteLangues(Session.getId(),OfrreSession.getId())))+"/10");
+        if (g.getNoteLangues(Session.getId(),OfrreSession.getId()) == 0)
             notelange.setImage(new Image("/fxml/assets/error.png"));
         else
             notelange.setImage(new Image("/fxml/assets/ok.png"));
@@ -146,9 +146,9 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         
-        ringprogress.setProgress((g.getNoteSkills(14,OfrreSession.getId())*4.87 + g.getNoteLangues(14,OfrreSession.getId()))/(1 + 5*g.getSkillsOffre(OfrreSession.getId()).size()));
+        ringprogress.setProgress((g.getNoteSkills(Session.getId(),OfrreSession.getId())*4.87 + g.getNoteLangues(Session.getId(),OfrreSession.getId()))/(1 + 5*g.getSkillsOffre(OfrreSession.getId()).size()));
      
-        if (g.sicandidater(OfrreSession.getId(), 14) > 0) {
+        if (g.sicandidater(OfrreSession.getId(), Session.getId()) > 0) {
    
                 postuler.setVisible(false);
                 message.setVisible(true);
@@ -160,7 +160,7 @@ public class DetailsOffrePostulationController implements Initializable {
     private void postulerAction(ActionEvent event) {
         
         
-        Application a = new Application(14, OfrreSession.getId(), ringprogress.getProgress()*100);
+        Application a = new Application(Session.getId(), OfrreSession.getId(), ringprogress.getProgress()*100);
         ServiceApplication sa = new ServiceApplication();
         sa.ajouterApplication(a);
         nbr.setText(nb+1+ " Candidatures");

@@ -220,7 +220,7 @@ public class ModifierOffreController implements Initializable {
             if ( file == null) {
             e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
-                                 21,
+                                 Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
                                  gl.getLanguebyRef(langue.getValue()),
                                  gl.getTypeDePosteByID(poste.getValue()),
@@ -233,7 +233,7 @@ public class ModifierOffreController implements Initializable {
                 file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
                 e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
-                                 21,
+                                 Session.getId(),
                                  Integer.parseInt(niveaufield.getText()),
                                  gl.getLanguebyRef(langue.getValue()),
                                  gl.getTypeDePosteByID(poste.getValue()),

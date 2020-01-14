@@ -36,10 +36,25 @@ public class usersService {
   
   }
   else
-  {Statement st=c.createStatement();//qui va assurer la connexion entre sql et java 
+  {//qui va assurer la connexion entre sql et java 
          
-       String req="insert into users(username,password,email,fullname,tel,adresse,role)  values('"+ p.getUsername()+"','"+p.getPassword()+"','"+p.getEmail()+"','"+p.getFullname()+"','"+p.getTel()+"','"+p.getAdresse()+"','"+p.getRole()+"')";
-       st.executeUpdate(req);
+       //String req="insert into users(username,password,email,fullname,tel,adresse,role)  values('"+ p.getUsername()+"','"+p.getPassword()+"','"+p.getEmail()+"','"+p.getFullname()+"','"+p.getTel()+"','"+p.getAdresse()+"','"+p.getRole()+"')";
+       String r = "INSERT INTO `users`(`username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `confirmation_token`, `password_requested_at`, `roles`, `fullname`, `adresse`, `tel`) "
+                         + "VALUES (?,?,?,?,1,NULL,?,SYSDATE(),NULL,NULL,?,?,?,?)";
+       
+       PreparedStatement ps = c.prepareStatement(r);
+       ps.setString(1, p.getUsername());
+       ps.setString(2, p.getUsername());
+       ps.setString(3, p.getEmail());
+       ps.setString(4, p.getEmail());
+       ps.setString(5, p.getPassword());
+       ps.setString(6, p.getRole());
+       ps.setString(7, p.getFullname());
+       ps.setString(8, p.getAdresse());
+       ps.setString(9, p.getTel());
+       
+       ps. executeUpdate();
+       
        m="vous ete inscrit";
           
   }
