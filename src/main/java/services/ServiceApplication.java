@@ -45,13 +45,14 @@ public class ServiceApplication implements iApplication{
        
        try {
           
-           String r = "INSERT INTO `applications`(`offre_id`, `user_id`, `matchs`) "
-                    + "VALUES (?, ?, ?)";
+           String r = "INSERT INTO `applications`(`offre_id`, `user_id`, `matchs`, `etat`) "
+                    + "VALUES (?, ?, ?, 0)";
            
            ps = c.prepareStatement(r);
            ps.setInt(1, a.getOffre_id());
            ps.setInt(2, a.getUser_id());
            ps.setDouble(3, a.getMatch());
+  
            executeTest = ps. executeUpdate();
            
     } catch (SQLException ex) {

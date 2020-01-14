@@ -74,8 +74,8 @@ public class DetailsOffreCandidatureController implements Initializable {
 
                 date.setText("Publié le "+e.getDate_publication());
                 
-                Image i = new Image(e.getPhoto());
-                img.setImage(i);
+//                Image i = new Image(e.getPhoto());
+               // img.setImage(i);
                 
                  
             }
@@ -109,7 +109,7 @@ public class DetailsOffreCandidatureController implements Initializable {
                 t4.setText(c.getEmail()); 
                 
                 ProgressIndicator p = (ProgressIndicator) root2.lookup("#ringprogress");
-                p.setProgress(c.getMatch());
+                p.setProgress(c.getMatch()/100);
                 
                 Text langues = (Text) root2.lookup("#langues");
                 langues.setText("Les Langues :"+ o.getLangueByRef(c.getLangue1())+ ", "+c.getLangue2());

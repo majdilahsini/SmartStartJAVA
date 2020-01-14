@@ -112,7 +112,7 @@ public class ModifierOffreController implements Initializable {
             niveaufield.setText(Integer.toString(e.getNiveau_etude()));
             niveaufield1.setText(Integer.toString(e.getSalaire()));
             
-            im.setImage(new Image(e.getPhoto()));
+            //im.setImage(new Image(e.getPhoto()));
             
            
         }  
@@ -220,7 +220,7 @@ public class ModifierOffreController implements Initializable {
             if ( file == null) {
             e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
-                                 Session.getId(),
+                                 21,
                                  Integer.parseInt(niveaufield.getText()),
                                  gl.getLanguebyRef(langue.getValue()),
                                  gl.getTypeDePosteByID(poste.getValue()),
@@ -233,7 +233,7 @@ public class ModifierOffreController implements Initializable {
                 file.renameTo(new File("C:\\wamp64\\www\\"+file.getName()));
                 e = new Offre (OfrreSession.getId(),titrefield.getText(), 
                                  gl.getDomainebynom(domaine.getValue()),
-                                 Session.getId(),
+                                 21,
                                  Integer.parseInt(niveaufield.getText()),
                                  gl.getLanguebyRef(langue.getValue()),
                                  gl.getTypeDePosteByID(poste.getValue()),
