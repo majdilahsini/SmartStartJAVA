@@ -16,6 +16,6 @@ import java.util.List;
 public interface IDomaineService {
    public int getDomaineByID(String nom);
    public List<String> getFormationType();
-     public List<Domaine> affichercategories(int id) ;
+     public List<Domaine> affichercategories() ;
 
 }

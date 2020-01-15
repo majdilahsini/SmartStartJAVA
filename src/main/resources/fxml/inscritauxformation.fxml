@@ -21,8 +21,8 @@
                <columns>
                   <TableColumn fx:id="nom_inscri" prefWidth="145.0" text="Nom et Prenom" />
                   <TableColumn fx:id="tel_inscri" prefWidth="126.0" text="telephone" />
-                  <TableColumn fx:id="nom_formation" minWidth="0.0" prefWidth="221.0" text="Nom formation" />
-                  <TableColumn fx:id="lettre_inscri" minWidth="0.0" prefWidth="177.0" text="lettre de motivation" />
+                  <TableColumn fx:id="nom_formation" minWidth="0.0" prefWidth="143.0" text="Nom formation" />
+                  <TableColumn fx:id="lettre_inscri" minWidth="0.0" prefWidth="256.0" text="lettre de motivation" />
                </columns>
             </TableView>
             <Pane focusTraversable="true" layoutX="-7.0" prefHeight="50.0" prefWidth="851.0" style="-fx-background-color: #2a8eb5;">

@@ -326,7 +326,7 @@ cattext.getItems().addAll(l);
          if(file ==null)
         p.setImage("/fxml/assets/logo.jpg");
         else
-           p.setImage("D:\\XAMPP\\htdocs"+file.getName()); 
+           p.setImage("C:\\wamp64\\www\\"+file.getName()); 
        // p.
 s.ModifierProjet(p);
         

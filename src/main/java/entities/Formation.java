@@ -37,8 +37,108 @@ public class Formation {
     private String email ;
     private String image ;
   private int Nbres_inscrits ;
+  private int Nbres_totales ;
+  private int nbrs ;
+  private int etat_formation ;
+  private int etat_nombres ;
+  private Date datecreation ;
         private String nomentreprise ;
        private String nomdomaine ;
+
+    public Formation(int entreprise_id, int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, int nbrs) {
+        this.entreprise_id = entreprise_id;
+        this.domaine_id = domaine_id;
+        this.Nom = Nom;
+        this.description = description;
+        this.duree = duree;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.Contact = Contact;
+        this.email = email;
+        this.nbrs = nbrs;
+    }
+
+    
+       public int getNbrs() {
+        return nbrs;
+    }
+
+    public void setNbrs(int nbrs) {
+        this.nbrs = nbrs;
+    }
+
+       
+    public int getNbres_totales() {
+        return Nbres_totales;
+    }
+
+    public void setNbres_totales(int Nbres_totales) {
+        this.Nbres_totales = Nbres_totales;
+    }
+
+    public int getEtat_formation() {
+        return etat_formation;
+    }
+
+    public void setEtat_formation(int etat_formation) {
+        this.etat_formation = etat_formation;
+    }
+
+    public int getEtat_nombres() {
+        return etat_nombres;
+    }
+
+    public void setEtat_nombres(int etat_nombres) {
+        this.etat_nombres = etat_nombres;
+    }
+
+    public Date getDatecreation() {
+        return datecreation;
+    }
+
+    public void setDatecreation(Date datecreation) {
+        this.datecreation = datecreation;
+    }
+
+    public Formation(int entreprise_id, int domaine_id, String Nom, String description, int duree, Date date_debut, Date date_fin, String adresse, double prix, int Contact, String email, String image, int Nbres_inscrits, int Nbres_totales, int etat_formation, int etat_nombres, Date datecreation) {
+        this.entreprise_id = entreprise_id;
+        this.domaine_id = domaine_id;
+        this.Nom = Nom;
+        this.description = description;
+        this.duree = duree;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.Contact = Contact;
+        this.email = email;
+        this.image = image;
+        this.Nbres_inscrits = Nbres_inscrits;
+        this.Nbres_totales = Nbres_totales;
+        this.etat_formation = etat_formation;
+        this.etat_nombres = etat_nombres;
+        this.datecreation = datecreation;
+    }
+
+    public Formation(int entreprise_id, int domaine_id, String Nom, String description, int duree, Date date_fin, String adresse, double prix, int Contact, String email, String image, int Nbres_inscrits, int etat_formation, int etat_nombres, Date datecreation) {
+        this.entreprise_id = entreprise_id;
+        this.domaine_id = domaine_id;
+        this.Nom = Nom;
+        this.description = description;
+        this.duree = duree;
+        this.date_fin = date_fin;
+        this.adresse = adresse;
+        this.prix = prix;
+        this.Contact = Contact;
+        this.email = email;
+        this.image = image;
+        this.Nbres_inscrits = Nbres_inscrits;
+        this.etat_formation = etat_formation;
+        this.etat_nombres = etat_nombres;
+        this.datecreation = datecreation;
+    }
 
     public Formation(String Nom, String description, int duree, Date date_debut, Date date_fin,double prix, String adresse,  String email, int Contact) {
         this.Nom = Nom;

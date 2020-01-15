@@ -64,7 +64,7 @@ public class Affich_domainesController implements Initializable {
         Domaine i = new Domaine();
       
                  ObservableList<Domaine> data2 = FXCollections.observableArrayList();
-        List<Domaine> domaines = ds.affichercategories(Session.getId());
+        List<Domaine> domaines = ds.affichercategories();
         data2= FXCollections.observableArrayList(domaines);
          
            
@@ -75,7 +75,7 @@ public class Affich_domainesController implements Initializable {
 
     @FXML
     private void ajouter_domaine_action(ActionEvent event) throws SQLException, IOException {
-         Domaine d = new Domaine(Session.getId(),domaine_txt.getText());
+         Domaine d = new Domaine(domaine_txt.getText());
            ds.creerDomaine(d);
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");

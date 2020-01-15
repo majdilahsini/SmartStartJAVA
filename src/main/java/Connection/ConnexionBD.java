@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author firos
  */
 public class ConnexionBD {
-    String url="jdbc:mysql://localhost:3306/smart_start";
+    String url="jdbc:mysql://localhost:3306/start";
     String login="root";
     String password="";
     private Connection c;

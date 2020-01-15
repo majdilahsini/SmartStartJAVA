@@ -41,8 +41,8 @@ public class FormationService extends Generic_Connection implements IFormationSe
               @Override
    public void creerFormation (Formation f) throws SQLException { 
      
-  String req="INSERT INTO `formations`(`entreprise_id`,`domaine_id`,`Nom`,`description`,`duree`, `date_debut`, `date_fin`,`adresse`,`prix`,`contact`,`email`) VALUES"
-                + "(?,?,?,?,?,?,?,?,?,?,?)";
+  String req="INSERT INTO `formations`(`entreprise_id`,`domaine_id`,`Nom`,`description`,`duree`, `date_debut`, `date_fin`,`adresse`,`prix`,`contact`,`email`,`image`,`Nombres`,`etat_formation`,`etat_nombres`,`datecreationformation`,`NombresTotale`) VALUES"
+                + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   PreparedStatement pres = conn.prepareStatement(req);
  pres.setInt(1,f.getEntreprise_id()); 
 pres.setInt(2, f.getDomaine_id());
@@ -56,8 +56,15 @@ pres.setString(8, f.getAdresse());
 pres.setDouble(9, f.getPrix());
 pres.setInt(10, f.getContact());
 pres.setString(11, f.getEmail());
+pres.setString(12, f.getImage());
+pres.setInt(13, f.getNbres_inscrits());
+pres.setInt(14, f.getEtat_formation());
+pres.setInt(15, f.getEtat_nombres());
+pres.setDate(16, f.getDatecreation());
+pres.setInt(17, f.getNbres_totales());
 
-//pres.setString(12, f.getImage());
+
+
 
 
 System.out.println(pres.executeUpdate());
@@ -113,7 +120,7 @@ System.out.println(pres.executeUpdate());
         ArrayList<Formation> mylist = new ArrayList();
         try {
             Statement st = conn.createStatement();
-            String req = "SELECT `ref`, `entreprise_id`, `domaine_id`, `Nom`, `description`, `duree`, `date_debut`, `date_fin`,`adresse`, `prix`,`contact`, `email`,`Nbres inscrits` FROM `formations` where entreprise_id='" + id + "'";
+            String req = "SELECT `ref`, `entreprise_id`, `domaine_id`, `Nom`, `description`, `duree`, `date_debut`, `date_fin`,`adresse`, `prix`,`contact`, `email`,`Nombres` FROM `formations` where entreprise_id='" + id + "'";
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
          Formation c = new Formation(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getString(5),rs.getInt(6),rs.getDate(7),rs.getDate(8),rs.getString(9),rs.getDouble(10),rs.getInt(11),rs.getString(12),rs.getInt(13));
@@ -223,6 +230,7 @@ System.out.println(pres.executeUpdate());
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
          Formation c = new Formation(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getDate(7),rs.getDouble(8),rs.getString(9),rs.getString(10),rs.getInt(11));
+         
                 mylist.add(c);
 
             }
@@ -237,7 +245,7 @@ System.out.println(pres.executeUpdate());
                  String Nom_entreprise = null ;
 
      try {
-            String r ="SELECT fullname FROM users WHERE id=?";
+            String r ="SELECT fullname FROM userj WHERE id=?";
               PreparedStatement   ps = conn.prepareStatement(r);
               ps.setInt(1,  i);
               ResultSet rs = ps.executeQuery();
@@ -251,7 +259,7 @@ return Nom_entreprise ;
         }
          public     XYChart.Series<String, Integer>  statformations(int id) throws SQLException {
        
-        String req =" SELECT `Nom`,`Nbres inscrits` from `formations` where `entreprise_id`="+id+" ";
+        String req =" SELECT `Nom`,`Nombres`,`NombresTotale` from `formations` where `entreprise_id`="+id+" ";
         XYChart.Series<String, Integer> series = new XYChart.Series<String, Integer>();
         
              PreparedStatement ste = (PreparedStatement) conn.prepareStatement(req);
@@ -259,7 +267,7 @@ return Nom_entreprise ;
             while (rs.next()){
                 
                 
-                series.getData().add(new XYChart.Data<>(rs.getString("Nom"), rs.getInt("Nbres inscrits")));
+                series.getData().add(new XYChart.Data<>(rs.getString("Nom"), rs.getInt("NombresTotale")-rs.getInt("Nombres")));
             }
             //barChart.getData().add(series);
         

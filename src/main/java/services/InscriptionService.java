@@ -46,15 +46,25 @@ public class InscriptionService extends Generic_Connection implements IInscripti
 }
 
     @Override
-    public void creerInscription(int user_id,int entreprise_id,int formation_ref,String lettre_motivation) throws SQLException {
-         String req="INSERT INTO `inscriptions`(`user_id`, `entreprise_id`, `formation_ref`, `lettre_motivation`)  VALUES"
-                + "(?,?,?,?)";
+    public void creerInscription(int user_id,int formation_ref,String lettre_motivation,String specialite,String ecole,Date datecreation,int etat_id) throws SQLException {
+         String req="INSERT INTO `inscriptions`(`user_id`, `formation_ref`, `lettre_motivation`, `specialite`, `ecole`, `Datecreation`, `etat_id`)  VALUES"
+                + "(?,?,?,?,?,?,?)";
   PreparedStatement pres = c.prepareStatement(req);
   
 pres.setInt(1,user_id);
-pres.setInt(2,entreprise_id);
-pres.setInt(3, formation_ref);
-pres.setString(4, lettre_motivation);
+
+pres.setInt(2, formation_ref);
+pres.setString(3, lettre_motivation);
+pres.setString(4, specialite);
+pres.setString(5, ecole);
+pres.setDate(6, datecreation);
+pres.setInt(7,etat_id);
+
+
+
+
+
+
 
 
 System.out.println(pres.executeUpdate());
@@ -194,7 +204,7 @@ return Nom_utilisateur ;
          List<Formation_user> list = new ArrayList<>();
 
  
-        String req2="select f.Nom,f.duree,f.date_debut,f.date_fin,d.nom_domaine FROM formations f,domaines d,inscriptions i where i.user_id="+id+" AND f.domaine_id=d.id AND i.formation_ref=f.ref";
+        String req2="select f.Nom,f.duree,f.date_debut,f.date_fin,d.nom_domaine FROM formations f,domainesformation d,inscriptions i where i.user_id="+id+" AND f.domaine_id=d.id AND i.formation_ref=f.ref";
          Formation_user fr=null;
                 try {
                     ResultSet res=  ste.executeQuery(req2);
@@ -212,11 +222,11 @@ return Nom_utilisateur ;
  
  
  
-public List<inscrits_formation> afficher_inscrit_Formation(int id) {
+public List<inscrits_formation> afficher_inscrit_Formation(int idd) {
          List<inscrits_formation> list = new ArrayList<>();
 
  
-        String req2="select u.fullname,u.tel,i.lettre_motivation,f.Nom FROM formations f,users u,inscriptions i where i.entreprise_id='"+id+"' AND i.formation_ref=f.ref AND u.id=i.user_id And u.role='entreprise' ";
+        String req2="select u.fullname,u.tel,i.lettre_motivation,f.Nom FROM formations f,userj u,inscriptions i where f.entreprise_id='"+idd+"' AND i.formation_ref=f.ref AND i.user_id=u.id ";
          inscrits_formation fr=null;
                 try {
                     ResultSet res=  ste.executeQuery(req2);
@@ -237,7 +247,7 @@ public List<inscrits_formation> afficher_inscrit_Formation(int id) {
  
 public void update_nombreins(int id ,int i) throws SQLException
 {
-    String req2="UPDATE `formations` SET `Nbres inscrits`=`Nbres inscrits`+"+i+" WHERE `ref`="+id+";";
+    String req2="UPDATE `formations` SET `Nombres`=`Nombres`-"+i+" WHERE `ref`="+id+";";
                
                      ste.executeQuery(req2);
                       
@@ -275,11 +285,32 @@ public void update_nombreins(int id ,int i) throws SQLException
                 }
      return id_entreprise;
     }
+ 
+  @Override
+   public int  afficheetat(int idd,int id) {
+      //  ArrayList<Inscription> mylist = new ArrayList();
+      int k = 0 ;
+                  String r = "SELECT `formation_ref` FROM `inscriptions` WHERE  user_id='" + id + "' AND formation_ref ='"+idd+" ";
+
+        try {
+          ResultSet res= ste.executeQuery(r);
+           
+                k = res.getInt(1);
+               
+
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InscriptionService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+                System.out.println(k);
+
+        return k;
+    }
  }
  
  
- 
-   
+    
      
       
 

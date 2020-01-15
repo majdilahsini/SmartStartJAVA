@@ -6,6 +6,7 @@
 package interfaces;
 
 import entities.Inscription;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -15,10 +16,11 @@ import java.util.List;
  */
 public interface IInscriptionService {
     
-   public void creerInscription(int user_id,int entreprise_id,int formation_ref,String lettre_motivation) throws SQLException ;
+    public void creerInscription(int user_id,int formation_ref,String lettre_motivation,String specialite,String ecole,Date datecreation,int etat_id) throws SQLException ;
     
     public List<Inscription> afficherInscriptions ();
      public int NbrApplicationformation(int id) ;
+     public int afficheetat(int idd,int id);
      
    
 }

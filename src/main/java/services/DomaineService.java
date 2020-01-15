@@ -32,7 +32,7 @@ public class DomaineService extends Generic_Connection implements IDomaineServic
     @Override
      public  int getDomaineByID(String nom) {
         
-       String r = "SELECT id FROM domaines WHERE nom_domaine ='"+nom+"'" ;
+       String r = "SELECT id FROM domainesformation WHERE nom_domaine ='"+nom+"'" ;
             
          try {
             this.setPs(conn.prepareStatement(r));
@@ -54,7 +54,7 @@ public class DomaineService extends Generic_Connection implements IDomaineServic
       public List<String> getFormationType()
     {
         
-            String req = "Select nom_domaine from domaines";
+            String req = "Select nom_domaine from domainesformation";
              List<String> LTE = new ArrayList<>();
         
      try {
@@ -78,7 +78,7 @@ public class DomaineService extends Generic_Connection implements IDomaineServic
         ArrayList<Domaine> mylist = new ArrayList();
         try {
             Statement st = conn.createStatement();
-            String req = "select * from domaines";
+            String req = "select * from domainesformation";
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
          Domaine d = new Domaine(rs.getInt(1),rs.getString(2));
@@ -92,12 +92,12 @@ public class DomaineService extends Generic_Connection implements IDomaineServic
         return mylist;
     }
         public void creerDomaine (Domaine d) throws SQLException {
-  String req="INSERT INTO `domaines`( `entreprise_id`,`nom_domaine`) VALUES"
-                + "(?,?)";
+  String req="INSERT INTO `domainesformation`( `nom_domaine`) VALUES"
+                + "(?)";
   PreparedStatement pres = conn.prepareStatement(req);
-pres.setInt(1, d.getEntreprise_id());
 
-pres.setString(2, d.getNom_domaine());
+
+pres.setString(1, d.getNom_domaine());
 
 
 System.out.println(pres.executeUpdate());
@@ -106,11 +106,11 @@ System.out.println(pres.executeUpdate());
   }
          
     @Override
-    public List<Domaine> affichercategories(int id) {
+    public List<Domaine> affichercategories() {
             List<Domaine> categories = new ArrayList<>();
      try {
             Statement st = conn.createStatement();
-          String req2="SELECT `nom_domaine` FROM `domaines` WHERE  entreprise_id ='" + id + "'";
+          String req2="SELECT `nom_domaine` FROM `domainesformation`";
                ResultSet rs = st.executeQuery(req2);
             while (rs.next()) {
          Domaine c = new Domaine(rs.getString(1));
@@ -130,7 +130,7 @@ System.out.println(pres.executeUpdate());
     
      public  String getDomaineByID(int id) {
         
-       String r = "SELECT nom_domaine FROM domaines WHERE  id ='"+id+"'" ;
+       String r = "SELECT nom_domaine FROM domainesformation WHERE  id ='"+id+"'" ;
             
          try {
             this.setPs(conn.prepareStatement(r));

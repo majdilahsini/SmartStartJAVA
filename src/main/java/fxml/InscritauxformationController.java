@@ -79,9 +79,9 @@ public class InscritauxformationController implements Initializable {
        
        
          tel_inscri.setCellValueFactory(new PropertyValueFactory<inscrits_formation,Integer>("telephone"));
-         nom_formation.setCellValueFactory(new PropertyValueFactory<inscrits_formation,String>("Nom_formation"));
-            lettre_inscri.setCellValueFactory(new PropertyValueFactory<inscrits_formation,String>("lettre_motivation"));
-
+         
+            lettre_inscri.setCellValueFactory(new PropertyValueFactory<inscrits_formation,String>("Nom_formation"));
+nom_formation.setCellValueFactory(new PropertyValueFactory<inscrits_formation,String>("lettre_motivation"));
           
             tab_inscri_formation.setItems(list);
         // TODO

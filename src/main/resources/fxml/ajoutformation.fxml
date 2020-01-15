@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.AjoutformationController">
    <children>
-      <AnchorPane id="AnchorPane" fx:id="pane_ajout_formation" layoutX="-5.0" prefHeight="640.0" prefWidth="853.0">
+      <AnchorPane id="AnchorPane" fx:id="pane_ajout_formation" layoutX="-5.0" layoutY="-1.0" prefHeight="640.0" prefWidth="853.0">
          <children>
             <Button fx:id="btn_ajouter_formation" layoutX="692.0" layoutY="587.0" mnemonicParsing="false" onAction="#ajouter_formation_action" prefHeight="39.0" prefWidth="117.0" style="-fx-background-color: #2a8eb5;" text="Ajouter" textFill="WHITE">
                <font>
@@ -28,34 +28,34 @@
                   </Label>
                </children>
             </Pane>
-            <DatePicker fx:id="datedeb_txt" layoutX="474.0" layoutY="90.0" onKeyTyped="#date_control1" prefHeight="37.0" prefWidth="231.0" promptText="Date debut" style="-fx-background-color: #2a8eb5;" />
-            <DatePicker fx:id="datefin_txt" layoutX="474.0" layoutY="161.0" onKeyTyped="#date_control2" prefHeight="37.0" prefWidth="231.0" promptText="Date fin" style="-fx-background-color: #2a8eb5;" />
-            <JFXComboBox fx:id="domainecombo" layoutX="48.0" layoutY="161.0" onAction="#domainecomboAction" prefHeight="37.0" prefWidth="223.0" promptText="Domaine" />
-            <JFXTextField fx:id="txt_nom" labelFloat="true" layoutX="44.0" layoutY="86.0" maxWidth="231.0" minWidth="231.0" onKeyReleased="#nom_formation_controle" onKeyTyped="#nom_formation_controle" prefHeight="31.0" prefWidth="231.0" promptText="Nom Formation" unFocusColor="#2a8eb5">
+            <DatePicker fx:id="datedeb_txt" layoutX="474.0" layoutY="56.0" onKeyTyped="#date_control1" prefHeight="37.0" prefWidth="231.0" promptText="Date debut" style="-fx-background-color: #2a8eb5;" />
+            <DatePicker fx:id="datefin_txt" layoutX="474.0" layoutY="124.0" onKeyTyped="#date_control2" prefHeight="37.0" prefWidth="231.0" promptText="Date fin" style="-fx-background-color: #2a8eb5;" />
+            <JFXComboBox fx:id="domainecombo" layoutX="44.0" layoutY="337.0" onAction="#domainecomboAction" prefHeight="37.0" prefWidth="223.0" promptText="Domaine" />
+            <JFXTextField fx:id="txt_nom" labelFloat="true" layoutX="40.0" layoutY="56.0" maxWidth="231.0" minWidth="231.0" onKeyReleased="#nom_formation_controle" onKeyTyped="#nom_formation_controle" prefHeight="31.0" prefWidth="231.0" promptText="Nom Formation" unFocusColor="#2a8eb5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextArea fx:id="txt_description" labelFloat="true" layoutX="44.0" layoutY="280.0" maxWidth="307.0" minWidth="272.0" onKeyReleased="#descrip_col" onKeyTyped="#description_controle" prefHeight="175.0" prefWidth="279.0" promptText="description de la formation " unFocusColor="#2a8eb5">
+            <JFXTextArea fx:id="txt_description" labelFloat="true" layoutX="44.0" layoutY="408.0" maxWidth="307.0" minWidth="272.0" onKeyReleased="#descrip_col" onKeyTyped="#description_controle" prefHeight="175.0" prefWidth="279.0" promptText="description de la formation " unFocusColor="#2a8eb5">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font></JFXTextArea>
-            <JFXTextField fx:id="txt_duree" layoutX="472.0" layoutY="253.0" onKeyTyped="#duree_controle" onMouseReleased="#duree_col" promptText="Duree (heures)" unFocusColor="#2a8eb5">
+            <JFXTextField fx:id="txt_duree" layoutX="474.0" layoutY="205.0" onKeyTyped="#duree_controle" onMouseReleased="#duree_col" promptText="Duree (heures)" unFocusColor="#2a8eb5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_adresse" layoutX="471.0" layoutY="317.0" maxWidth="314.0" minWidth="297.0" onKeyTyped="#adresse_controle" onMouseReleased="#adresse_col" prefHeight="50.0" prefWidth="297.0" promptText="Adresse" unFocusColor="#2a8eb5">
+            <JFXTextField fx:id="txt_adresse" layoutX="474.0" layoutY="278.0" maxWidth="314.0" minWidth="297.0" onKeyTyped="#adresse_controle" onMouseReleased="#adresse_col" prefHeight="50.0" prefWidth="297.0" promptText="Adresse" unFocusColor="#2a8eb5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_prix" layoutX="471.0" layoutY="387.0" maxWidth="174.0" minWidth="174.0" onKeyTyped="#prix_controle" onMouseReleased="#prix_col" prefHeight="50.0" prefWidth="174.0" promptText="Prix (DT)" unFocusColor="#2a8eb5">
+            <JFXTextField fx:id="txt_prix" layoutX="474.0" layoutY="349.0" maxWidth="174.0" minWidth="174.0" onKeyTyped="#prix_controle" onMouseReleased="#prix_col" prefHeight="50.0" prefWidth="174.0" promptText="Prix (DT)" unFocusColor="#2a8eb5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_contact" layoutX="471.0" layoutY="458.0" maxWidth="307.0" minWidth="213.0" onKeyTyped="#contact_controle" onMouseReleased="#contact_col" prefHeight="50.0" prefWidth="279.0" promptText="Contact" unFocusColor="#2a8eb5">
+            <JFXTextField fx:id="txt_contact" layoutX="471.0" layoutY="405.0" maxWidth="307.0" minWidth="213.0" onKeyTyped="#contact_controle" onMouseReleased="#contact_col" prefHeight="50.0" prefWidth="279.0" promptText="Contact" unFocusColor="#2a8eb5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
@@ -78,7 +78,22 @@
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
             </Button>
+            <AnchorPane fx:id="pane_image" layoutX="59.0" layoutY="108.0" prefHeight="143.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fx:id="image_formation" fitHeight="127.0" fitWidth="129.0" layoutX="12.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_ajouter_image" layoutX="47.0" layoutY="261.0" mnemonicParsing="false" onAction="#ajouter_formation_image_action" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: #2a8eb5;" text="Upload image" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic Italic" size="20.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
+      <JFXTextField fx:id="txt_Nombres" layoutX="465.0" layoutY="469.0" maxWidth="314.0" minWidth="287.0" onKeyPressed="#email_controle1" onKeyReleased="#email_controle12" onKeyTyped="#email_controle" prefHeight="50.0" prefWidth="287.0" promptText="Nombres" unFocusColor="#2a8eb5">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

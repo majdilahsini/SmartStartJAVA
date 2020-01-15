@@ -26,12 +26,12 @@
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_RIGHT" layoutX="445.0" layoutY="355.0" text="Prix :" textFill="#2397ae">
+            <Label alignment="BOTTOM_RIGHT" layoutX="408.0" layoutY="358.0" text="Prix :" textFill="#2397ae">
                <font>
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_RIGHT" layoutX="410.0" layoutY="414.0" text="Contact :" textFill="#2397ae">
+            <Label alignment="BOTTOM_RIGHT" layoutX="369.0" layoutY="417.0" text="Contact :" textFill="#2397ae">
                <font>
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
@@ -56,7 +56,7 @@
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
             </Label>
-            <Label alignment="BOTTOM_RIGHT" layoutX="420.0" layoutY="475.0" text="Email :" textFill="#2397ae">
+            <Label alignment="BOTTOM_RIGHT" layoutX="376.0" layoutY="475.0" text="Email :" textFill="#2397ae">
                <font>
                   <Font name="Century Gothic Italic" size="20.0" />
                </font>
@@ -91,17 +91,17 @@
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="prix" layoutX="516.0" layoutY="355.0" prefHeight="30.0" prefWidth="90.0" text="Label">
+            <Label fx:id="prix" layoutX="482.0" layoutY="356.0" prefHeight="30.0" prefWidth="110.0" text="Label">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="contact" layoutX="516.0" layoutY="415.0" prefHeight="28.0" prefWidth="193.0" text="Label">
+            <Label fx:id="contact" layoutX="494.0" layoutY="416.0" prefHeight="28.0" prefWidth="266.0" text="Label">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="email" layoutX="516.0" layoutY="475.0" prefHeight="30.0" prefWidth="248.0" text="Label">
+            <Label fx:id="email" layoutX="457.0" layoutY="473.0" prefHeight="30.0" prefWidth="334.0" text="Label">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font>

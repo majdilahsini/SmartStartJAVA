@@ -23,7 +23,7 @@
                   <TableColumn fx:id="titre_formation" prefWidth="183.0" text="Formation" />
                   <TableColumn fx:id="date_deb" minWidth="0.0" prefWidth="127.0" text="Date debut " />
                   <TableColumn fx:id="date_fin" minWidth="0.0" prefWidth="159.0" text="Date Fin" />
-                  <TableColumn fx:id="nbres_inscrits" minWidth="0.0" prefWidth="198.0" text="Nbres inscrits" />
+                  <TableColumn fx:id="nbres_restants" minWidth="0.0" prefWidth="198.0" text="Nbres restants" />
                </columns>
             </TableView>
             <Button fx:id="suuprimer_btn" layoutX="669.0" layoutY="498.0" mnemonicParsing="false" onAction="#supprimer_action" prefHeight="37.0" prefWidth="122.0" style="-fx-background-color: #2a8eb5;" text="Supprimer" textFill="WHITE">

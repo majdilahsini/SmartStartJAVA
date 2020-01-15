@@ -6,6 +6,7 @@
 package fxml;
 
 import entities.Formation;
+import entities.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -21,7 +22,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javax.swing.JOptionPane;
 import services.FormationService;
+import services.InscriptionService;
 
 /**
  * FXML Controller class
@@ -67,6 +70,8 @@ public class Detail_inscrire_formationController implements Initializable {
      */
       public static int missionID = 0 ;
        FormationService MS;
+              InscriptionService IS;
+
     static public Formation mission = new Formation();
      public Detail_inscrire_formationController() throws SQLException {
         this.MS = new FormationService();
@@ -97,12 +102,20 @@ public class Detail_inscrire_formationController implements Initializable {
         email.setText("" + mission.getEmail());
  }
     @FXML
-    private void inscription_action(ActionEvent event) throws IOException {
+    private void inscription_action(ActionEvent event) throws IOException, SQLException{
         
-        
+                 int idd = Affiche_formations_usersController.i;
+                                // mission = MS.Get_Mission_by_Id(idd);
+  //int k = IS.afficheetat(idd,Session.getId());
+  //System.out.println(k);
+    /*   if (IS.afficheetat(idd, Session.getId()) == idd){
+      JOptionPane.showMessageDialog(null, "deja inscrit");
+}
+else {*/
           Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/form_inscription_formation.fxml"));
      detail_pane.getChildren().clear();
      detail_pane.getChildren().add(root);
+
     }
 
     @FXML

@@ -8,6 +8,7 @@ package fxml;
 import entities.Formation;
 import entities.Formation_user;
 import entities.Session;
+import static fxml.Affich_formationController.missionsel1;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -51,6 +52,10 @@ public class Affich_inscriptionController implements Initializable {
     private TableColumn<Formation_user, Date> date_fin;
     @FXML
     private TableColumn<Formation_user, Integer> duree;
+    
+     static public Formation missionsel1;
+    @FXML
+    private Button id_print;
 
     /**
      * Initializes the controller class.
@@ -77,6 +82,12 @@ public class Affich_inscriptionController implements Initializable {
     tab_inscriscrptions.setItems(list);
                    
 
+
+    }
+
+    @FXML
+    private void print_action(ActionEvent event) {
+        //       missionsel1 = tab_inscriscrptions.getSelectionModel().getSelectedItem();
 
     }
 

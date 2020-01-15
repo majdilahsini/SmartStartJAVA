@@ -37,7 +37,6 @@ import services.FormationService;
  */
 public class Affiche_formations_usersController implements Initializable {
 
-    @FXML
     private JFXComboBox<String> domaine_combox;
     @FXML
     private TableView<Formation> Tab_formations;
@@ -66,7 +65,7 @@ public class Affiche_formations_usersController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             ObservableList obs = FXCollections.observableArrayList(ds.getFormationType());
-        domaine_combox.setItems(obs);
+//        domaine_combox.setItems(obs);
         // TODO
         ////////////////////////////////////////////////////
            FormationService f = new FormationService();
@@ -101,12 +100,12 @@ public class Affiche_formations_usersController implements Initializable {
     private void recherche_formation_action(KeyEvent event) {
         
          FormationService f = new FormationService();
-     ArrayList<Formation> r = f.afficherFormation_Combo(domaine_combox.getValue());
+     ArrayList<Formation> r = f.afficherFormation();
       ArrayList<Formation> listf= new ArrayList<Formation>();
       Formation fo=null;
 for (int i=0 ;i<r.size();i++){
     fo=r.get(i);
-    if(fo.getNom().startsWith(recherche_formation_txt.getText()))
+    if(fo.getNom().toUpperCase().startsWith(recherche_formation_txt.getText().toUpperCase()))
              listf.add(fo);
     
          
@@ -114,7 +113,7 @@ for (int i=0 ;i<r.size();i++){
           ObservableList<Formation> list =FXCollections.observableArrayList();
            for (int i=0 ;i<listf.size();i++){
                  Formation c = new Formation(listf.get(i).getRef(),listf.get(i).getEntreprise_id(),listf.get(i).getDomaine_id(),listf.get(i).getNom(),listf.get(i).getDescription(),listf.get(i).getDuree(),listf.get(i).getDate_debut(),listf.get(i).getDate_fin(),listf.get(i).getAdresse(),listf.get(i).getPrix(),listf.get(i).getContact(),listf.get(i).getEmail());
-        c.setNomentreprise(f.getentrepriseByID(r.get(i).getEntreprise_id()));
+       c.setNomentreprise(f.getentrepriseByID(r.get(i).getEntreprise_id()));
                        list.add(c);
                     }
             titre.setCellValueFactory(new PropertyValueFactory<Formation,String>("nom"));
@@ -127,7 +126,6 @@ for (int i=0 ;i<r.size();i++){
         
     }
 
-    @FXML
     private void domaine_combo_Action(ActionEvent event) {
      FormationService f = new FormationService();
      ArrayList<Formation> r = f.afficherFormation_Combo(domaine_combox.getValue());
@@ -135,7 +133,7 @@ for (int i=0 ;i<r.size();i++){
           ObservableList<Formation> list =FXCollections.observableArrayList();
            for (int i=0 ;i<r.size();i++){
                  Formation c = new Formation(r.get(i).getRef(),r.get(i).getEntreprise_id(),r.get(i).getDomaine_id(),r.get(i).getNom(),r.get(i).getDescription(), r.get(i).getDuree(),r.get(i).getDate_debut(),r.get(i).getDate_fin(),r.get(i).getAdresse(),r.get(i).getPrix(),r.get(i).getContact(),r.get(i).getEmail());
-        c.setNomentreprise(f.getentrepriseByID(r.get(i).getEntreprise_id()));
+       // c.setNomentreprise(f.getentrepriseByID(r.get(i).getEntreprise_id()));
                        list.add(c);
                     }
             titre.setCellValueFactory(new PropertyValueFactory<Formation,String>("nom"));

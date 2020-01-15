@@ -99,8 +99,9 @@ public class Affich_mes_formationController implements Initializable {
    
     @FXML
     private AnchorPane koussay2;
-    @FXML
     private TableColumn<Formation, Integer> nbres_inscrits;
+    @FXML
+    private TableColumn<Formation,Integer > nbres_restants;
   
    
     @Override
@@ -118,7 +119,7 @@ public class Affich_mes_formationController implements Initializable {
             titre_formation.setCellValueFactory(new PropertyValueFactory<Formation,String>("Nom"));
     date_deb.setCellValueFactory(new PropertyValueFactory<Formation,Button>("date_debut"));
    date_fin.setCellValueFactory(new PropertyValueFactory<Formation,Button>("date_fin")); 
-      nbres_inscrits.setCellValueFactory(new PropertyValueFactory<Formation,Integer>("Nbres_inscrits")); 
+      nbres_restants.setCellValueFactory(new PropertyValueFactory<Formation,Integer>("Nbres_inscrits")); 
 
     table_formation.setItems(list);
                    
@@ -147,6 +148,11 @@ public class Affich_mes_formationController implements Initializable {
         FormationService es = new FormationService(); 
      Formation ent = table_formation.getSelectionModel().getSelectedItem();
      int ref = ent.getRef();
+     int d = ent.getNbres_inscrits() ;
+     if (d != 0){
+         JOptionPane.showMessageDialog(null, "ilya des inscrits a cette formation");
+     }
+     else {
      es.deleteEnt(ref);
         JOptionPane.showMessageDialog(null, "supprimer");
          Parent root=(AnchorPane) FXMLLoader.load(getClass().getResource("/fxml/affich_mes_formation.fxml"));
@@ -158,7 +164,7 @@ public class Affich_mes_formationController implements Initializable {
     //    alert.setContentText("Formation supprimé!");
     //    alert.show();
     }
-    
+    }
 
     @FXML
     private void detail_action(ActionEvent event)throws IOException {
@@ -180,7 +186,7 @@ public class Affich_mes_formationController implements Initializable {
               ObservableList<Formation> data2 = FXCollections.observableArrayList();
                 Formation e = new Formation();
         FormationService sc = new FormationService();
-        List<Formation> Formation = sc.afficherFormation();
+        List<Formation> Formation = sc.affichermesFormation(Session.getId());
         data2= FXCollections.observableArrayList(Formation);
 FilteredList<Formation> filterData = new FilteredList<>(data2, p -> true);
 rechercher_txt.textProperty().addListener((obsevable, oldvalue, newvalue) -> {

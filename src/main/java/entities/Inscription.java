@@ -5,6 +5,8 @@
  */
 package entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author lenovo
@@ -15,9 +17,67 @@ public class Inscription {
     private int entreprise_id;
     private int formation_ref ;
     private String lettre_motivation ;
+    private String specialite ;
+    private String ecole ;
+    private Date datecreation ;
+    private int etat_id ;
+
+    public Inscription(int id, int formation_ref, String lettre_motivation, String specialite, String ecole, Date datecreation, int etat_id) {
+        this.id = id;
+        this.formation_ref = formation_ref;
+        this.lettre_motivation = lettre_motivation;
+        this.specialite = specialite;
+        this.ecole = ecole;
+        this.datecreation = datecreation;
+        this.etat_id = etat_id;
+    }
+
+    public Inscription(int formation_ref) {
+        this.formation_ref = formation_ref;
+    }
   
     
     public Inscription() {
+    }
+
+    public int getEntreprise_id() {
+        return entreprise_id;
+    }
+
+    public void setEntreprise_id(int entreprise_id) {
+        this.entreprise_id = entreprise_id;
+    }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
+    }
+
+    public String getEcole() {
+        return ecole;
+    }
+
+    public void setEcole(String ecole) {
+        this.ecole = ecole;
+    }
+
+    public Date getDatecreation() {
+        return datecreation;
+    }
+
+    public void setDatecreation(Date datecreation) {
+        this.datecreation = datecreation;
+    }
+
+    public int getEtat_id() {
+        return etat_id;
+    }
+
+    public void setEtat_id(int etat_id) {
+        this.etat_id = etat_id;
     }
 
     public Inscription(int id, int user_id, int entreprise_id, int formation_ref, String lettre_motivation) {
@@ -26,6 +86,29 @@ public class Inscription {
         this.entreprise_id = entreprise_id;
         this.formation_ref = formation_ref;
         this.lettre_motivation = lettre_motivation;
+    }
+
+    public Inscription(int id, int user_id, int entreprise_id, int formation_ref, String lettre_motivation, String specialite, String ecole, Date datecreation, int etat_id) {
+        this.id = id;
+        this.user_id = user_id;
+        this.entreprise_id = entreprise_id;
+        this.formation_ref = formation_ref;
+        this.lettre_motivation = lettre_motivation;
+        this.specialite = specialite;
+        this.ecole = ecole;
+        this.datecreation = datecreation;
+        this.etat_id = etat_id;
+    }
+
+    public Inscription(int user_id, int entreprise_id, int formation_ref, String lettre_motivation, String specialite, String ecole, Date datecreation, int etat_id) {
+        this.user_id = user_id;
+        this.entreprise_id = entreprise_id;
+        this.formation_ref = formation_ref;
+        this.lettre_motivation = lettre_motivation;
+        this.specialite = specialite;
+        this.ecole = ecole;
+        this.datecreation = datecreation;
+        this.etat_id = etat_id;
     }
   
 

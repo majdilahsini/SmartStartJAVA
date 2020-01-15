@@ -172,7 +172,7 @@ public class Getlists {
        
         List<String> l = new ArrayList<String>();
         
-        String r = "SELECT `nom` FROM `domaines`";
+        String r = "SELECT `nom` FROM `domaines1`";
         
         try {
             ps = c.prepareStatement(r);
@@ -195,7 +195,7 @@ public class Getlists {
         
         try {
             
-            String r = "SELECT `id` FROM `domaines` WHERE nom = ?";
+            String r = "SELECT `id` FROM `domaines1` WHERE nom = ?";
             
             ps = c.prepareStatement(r);
             ps.setString(1, nom);
