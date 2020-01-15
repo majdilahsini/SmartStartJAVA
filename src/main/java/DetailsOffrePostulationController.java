@@ -78,6 +78,8 @@ public class DetailsOffrePostulationController implements Initializable {
     private Text message;
     @FXML
     private ImageView img;
+    
+    private int nb;
 
     /**
      * Initializes the controller class.
@@ -100,6 +102,7 @@ public class DetailsOffrePostulationController implements Initializable {
                 System.out.println(id.getText());
 
                 nbr.setText(Integer.toString(a.NbrApplicationOffre(e.getId()))+ " Candidatures");
+                nb = a.NbrApplicationOffre(e.getId());
 
                 date.setText("Publié le "+e.getDate_publication());
                 
@@ -111,8 +114,8 @@ public class DetailsOffrePostulationController implements Initializable {
                 
                 salaire.setText(Integer.toString(e.getSalaire()));
 
-                Image i = new Image(e.getPhoto());
-                img.setImage(i);
+//                Image i = new Image(e.getPhoto());
+            //    img.setImage(i);
                 
                 skills.setText(o.getSkillByID(e.getSkill1_id())+ o.getSkillByID(e.getSkill2_id())+ o.getSkillByID(e.getSkill3_id()));
                 
@@ -128,13 +131,13 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         Getlists g = new Getlists();
-        notec.setText(Integer.toString(g.getNoteSkills(Session.getId(),OfrreSession.getId()))+"/10");
+        notec.setText(Integer.toString((int) Math.ceil(3.33 * g.getNoteSkills(Session.getId(),OfrreSession.getId()))) +"/10");
         if (g.getNoteSkills(Session.getId(),OfrreSession.getId()) == 0)
             notecomp.setImage(new Image("/fxml/assets/error.png"));
         else
             notecomp.setImage(new Image("/fxml/assets/ok.png"));
         
-        notel.setText(Integer.toString(g.getNoteLangues(Session.getId(),OfrreSession.getId()))+"/10");
+        notel.setText(Integer.toString((int) Math.ceil(10 * g.getNoteLangues(Session.getId(),OfrreSession.getId())))+"/10");
         if (g.getNoteLangues(Session.getId(),OfrreSession.getId()) == 0)
             notelange.setImage(new Image("/fxml/assets/error.png"));
         else
@@ -143,18 +146,25 @@ public class DetailsOffrePostulationController implements Initializable {
         
         
         
-        ringprogress.setProgress((g.getNoteSkills(Session.getId(),OfrreSession.getId())*5 + g.getNoteLangues(Session.getId(),OfrreSession.getId()))/61.0);
-
+        ringprogress.setProgress((g.getNoteSkills(Session.getId(),OfrreSession.getId())*4.87 + g.getNoteLangues(Session.getId(),OfrreSession.getId()))/(1 + 5*g.getSkillsOffre(OfrreSession.getId()).size()));
+     
+        if (g.sicandidater(OfrreSession.getId(), Session.getId()) > 0) {
+   
+                postuler.setVisible(false);
+                message.setVisible(true);
+        }
+        
     }    
 
     @FXML
     private void postulerAction(ActionEvent event) {
         
-        Application a = new Application(Session.getId(), OfrreSession.getId(), ringprogress.getProgress());
+        
+        Application a = new Application(Session.getId(), OfrreSession.getId(), ringprogress.getProgress()*100);
         ServiceApplication sa = new ServiceApplication();
         sa.ajouterApplication(a);
-        
-        
+        nbr.setText(nb+1+ " Candidatures");
+                
         postuler.setVisible(false);
         message.setVisible(true);
     }

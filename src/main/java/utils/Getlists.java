@@ -13,7 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -228,8 +230,13 @@ public class Getlists {
             res = ps.executeQuery();
             
             while (res.next()) {
-                for (int i=0; i<3; i++)
+                
+                for (int i=0; i<3; i++) {
                     a[i] = res.getInt(i+1);
+                    System.out.println(res.getInt(i+1));
+                }
+                    
+                    
 
             }
         } catch (SQLException ex) {
@@ -261,18 +268,38 @@ public class Getlists {
                     
             }
         }
-        double note2 = 0;
-        for (int j: a2) {
-                //System.out.println(j);
-                if (j != -1) {
-                    note2++;
-                  }
+        
+        return (int) note;
+        
+        
         }
+        
+        public Set<String> getSkillsOffre (int id) {
+       
+        Set<String> l = new HashSet<String>();
+        
+        String r = "SELECT `skill1_id`, `skill2_id`, `skill3_id` FROM offres WHERE id = ?";
+        
+        try {
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            res = ps.executeQuery();
+            
+            while (res.next()) {
+                l.add(res.getString(1));
+                l.add(res.getString(2));
+                l.add(res.getString(3));
+            }
+                 
 
-        return (int) Math.floor((note / note2)*10);
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return l;
         
         }
         
+                
         
         
         public int getNoteLangues (int id1, int id2) {
@@ -322,12 +349,36 @@ public class Getlists {
             }
         
         
-        return (int) Math.ceil(note * 10);
+        return (int) Math.ceil(note);
         
         
         }
         
-        
+        public int sicandidater(int offre, int id){
+            
+            int si = 0;
+            String r = "SELECT COUNT(*) FROM `applications` WHERE `user_id` = ? AND `offre_id` = ?";
+            
+            
+        try {
+            ps = c.prepareStatement(r);
+            ps.setInt(1, id);
+            ps.setInt(2, offre);
+            res = ps.executeQuery();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            if (res.next())
+            si = res.getInt(1);
+        } catch (SQLException ex) {
+           Logger.getLogger(Getlists.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return si;  
+        }
         
     
     

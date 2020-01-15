@@ -73,8 +73,8 @@ public class LesOffreController implements Initializable {
                 skills.setText("Les compétences :"+ o.getSkillByID(e.getSkill1_id())+ o.getSkillByID(e.getSkill2_id())+ o.getSkillByID(e.getSkill3_id()));
                 
                 ImageView img = (ImageView) root2.lookup("#img");
-                Image im = new Image(e.getPhoto());
-                img.setImage(im);
+//                Image im = new Image(e.getPhoto());
+               // img.setImage(im);
                 
                 vbx.getChildren().add(root2);
             }

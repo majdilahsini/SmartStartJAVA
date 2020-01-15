@@ -43,20 +43,20 @@ public class sendmail {
             mailSession.setDebug(sessionDebug);
             Message msg = new MimeMessage(mailSession);
             msg.setContent("<html><head></head><body><img src=\"https://i.imgur.com/qhhfrRM.png\" alt=\"\" border=\"0\" style=\"width:143px;height:143px;\" data-pagespeed-url-hash=\"2423233612\" onload=\"pagespeed.CriticalImages.checkImageForCriticality(this);\">\n" +
-"\n" +
-"<br>Hello Dear client , your password is  "+password+""+
-"\n" +
-"\n" +
-"<br><br>\n" +
-"\n" +
-"this is automated mail from our server .\n" +
-"\n" +
-"Thanks ,\n" +
-"<br><br>\n" +
-"<div style=\"font-size:9px;font-family:Arial;color:#959595;margin-left:10px;margin-right:30px;\">\n" +
-"<br><p>\n" +
-"This email w<span><font>a</font></span>s sent to Your Em<span><font>a</font></span>il, bec<span><font>a</font></span>use your em<span><font>a</font></span>il preferences <span><font>a</font></span>re set to receive \"News <span><font>a</font></span>nd Promotions\". Click here to Unsubscribe.<br></p>\n" +
-"<p>Copyright © 2019 Inc. <span><font></font></span></p></div></body></html>","text/html");
+                            "\n" +
+                            "<br>Hello Dear client , your password is  "+password+""+
+                            "\n" +
+                            "\n" +
+                            "<br><br>\n" +
+                            "\n" +
+                            "this is automated mail from our server .\n" +
+                            "\n" +
+                            "Thanks ,\n" +
+                            "<br><br>\n" +
+                            "<div style=\"font-size:9px;font-family:Arial;color:#959595;margin-left:10px;margin-right:30px;\">\n" +
+                            "<br><p>\n" +
+                            "This email w<span><font>a</font></span>s sent to Your Em<span><font>a</font></span>il, bec<span><font>a</font></span>use your em<span><font>a</font></span>il preferences <span><font>a</font></span>re set to receive \"News <span><font>a</font></span>nd Promotions\". Click here to Unsubscribe.<br></p>\n" +
+                            "<p>Copyright © 2019 Inc. <span><font></font></span></p></div></body></html>","text/html");
             msg.setFrom(new InternetAddress(from));
             InternetAddress[] address = {new InternetAddress(to)};
             msg.setRecipients(Message.RecipientType.TO, address);

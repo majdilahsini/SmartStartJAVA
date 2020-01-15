@@ -35,6 +35,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import org.mindrot.jbcrypt.BCrypt;
 import services.ServiceOffre;
 import utils.Getlists;
 
@@ -104,6 +105,11 @@ public class AjouterOffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        /*String newhash = "$2a" + hashed.substring(3);
+        
+            if(BCrypt.checkpw("aaaa", newhash))
+            System.out.println("yes");*/
     }    
 
     @FXML

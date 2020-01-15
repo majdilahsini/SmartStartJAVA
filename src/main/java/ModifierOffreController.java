@@ -112,7 +112,7 @@ public class ModifierOffreController implements Initializable {
             niveaufield.setText(Integer.toString(e.getNiveau_etude()));
             niveaufield1.setText(Integer.toString(e.getSalaire()));
             
-            im.setImage(new Image(e.getPhoto()));
+            //im.setImage(new Image(e.getPhoto()));
             
            
         }  
